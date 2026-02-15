@@ -1,9 +1,20 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
+# 🧱 Step 1: Run TileServer-GL (Docker)
 
-First, run the development server:
+## Option A: Run with Docker CLI
 
+```bash
+cd data/mbtiles
+
+docker run -it --rm \
+  -p 8080:8080 \
+  -v "$(pwd):/data" \
+  maptiler/tileserver-gl --config /data/config.json
+```
+
+Then, run the development server:
 ```bash
 npm run dev
 # or
