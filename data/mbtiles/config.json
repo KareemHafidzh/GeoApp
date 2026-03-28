@@ -1,0 +1,13 @@
+{
+  "data": {
+    "pendidikan": {
+      "mbtiles": "pendidikan.mbtiles"
+    },
+    "administrasi_desa": {
+      "mbtiles": "administrasiDesa.mbtiles"
+    },
+    "spatial_risk": {
+      "mbtiles": "spatial_risk.mbtiles"
+    }
+  }
+}
