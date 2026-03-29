@@ -101,3 +101,23 @@ body {
   from { width: 0; }
   to   { width: 100%; }
 }
+
+/* Custom MapLibre Popup Styling for Dashboard */
+.modern-popup .maplibregl-popup-content {
+  border-radius: 16px;
+  box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  border: 1px solid #f1f5f9;
+  padding: 10px;
+}
+
+.modern-popup .maplibregl-popup-close-button {
+  font-size: 20px;
+  color: #94a3b8;
+  padding: 4px 8px;
+  border-radius: 0 16px 0 0;
+}
+
+.modern-popup .maplibregl-popup-close-button:hover {
+  background-color: transparent;
+  color: #0f172a;
+}

@@ -5,7 +5,7 @@ import MapViz from '../map/MapViz';
 
 export default function Hero({ scrollY }: { scrollY: number }) {
     return (
-      <section className="relative min-h-screen flex items-center px-12 pb-10 pt-15">
+      <section className="relative min-h-screen flex items-center px-12 pb-10 pt-10">
         
         {/* Two-column content grid */}
         <div className="relative z-10 max-w-[1240px] mx-auto w-full grid grid-cols-2 gap-20 items-center">
