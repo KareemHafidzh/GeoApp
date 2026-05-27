@@ -1,10 +1,65 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import Map, { Source, Layer, NavigationControl, MapRef, Popup } from 'react-map-gl/maplibre';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import GeomanControl from './geomanControl'; 
 import Link from 'next/link';
+
+const rumahSakitData: any = {
+  type: "FeatureCollection",
+  features: [
+    { type: "Feature", properties: { nama_rs: "RSUD dr. Chasbullah Abdulmadjid", kecamatan: "Bekasi Selatan" }, geometry: { type: "Point", coordinates: [107.000658, -6.242328] } },
+    { type: "Feature", properties: { nama_rs: "RS Hermina Bekasi", kecamatan: "Bekasi Selatan" }, geometry: { type: "Point", coordinates: [106.996111, -6.236111] } },
+    { type: "Feature", properties: { nama_rs: "RS Primaya Bekasi Barat", kecamatan: "Bekasi Selatan" }, geometry: { type: "Point", coordinates: [106.985556, -6.245833] } },
+    { type: "Feature", properties: { nama_rs: "RS Mitra Keluarga Bekasi", kecamatan: "Bekasi Selatan" }, geometry: { type: "Point", coordinates: [106.992222, -6.237222] } },
+    { type: "Feature", properties: { nama_rs: "RS Hermina Galaxy", kecamatan: "Bekasi Selatan" }, geometry: { type: "Point", coordinates: [106.974444, -6.265556] } },
+    { type: "Feature", properties: { nama_rs: "RSU Anna", kecamatan: "Bekasi Selatan" }, geometry: { type: "Point", coordinates: [106.985833, -6.264167] } },
+    { type: "Feature", properties: { nama_rs: "RS Siloam Bekasi Timur", kecamatan: "Bekasi Timur" }, geometry: { type: "Point", coordinates: [107.016000, -6.262000] } },
+    { type: "Feature", properties: { nama_rs: "RS Primaya Bekasi Timur", kecamatan: "Bekasi Timur" }, geometry: { type: "Point", coordinates: [107.020100, -6.265000] } },
+    { type: "Feature", properties: { nama_rs: "RS Mitra Keluarga Bekasi Timur", kecamatan: "Bekasi Timur" }, geometry: { type: "Point", coordinates: [107.015278, -6.261111] } },
+    { type: "Feature", properties: { nama_rs: "RSU Ananda Bekasi", kecamatan: "Medan Satria" }, geometry: { type: "Point", coordinates: [106.985300, -6.195700] } },
+    { type: "Feature", properties: { nama_rs: "RS Seto Hasbadi", kecamatan: "Bekasi Utara" }, geometry: { type: "Point", coordinates: [106.996500, -6.211500] } },
+    { type: "Feature", properties: { nama_rs: "RSIA Karunia Kasih", kecamatan: "Pondok Gede" }, geometry: { type: "Point", coordinates: [106.920200, -6.275400] } },
+    { type: "Feature", properties: { nama_rs: "RSU Kartika Husada", kecamatan: "Jatiasih" }, geometry: { type: "Point", coordinates: [106.958500, -6.301500] } },
+    { type: "Feature", properties: { nama_rs: "RS Mitra Keluarga Jatiasih", kecamatan: "Jatiasih" }, geometry: { type: "Point", coordinates: [106.953800, -6.307200] } },
+    { type: "Feature", properties: { nama_rs: "RS Permata Bekasi", kecamatan: "Mustika Jaya" }, geometry: { type: "Point", coordinates: [107.027100, -6.282500] } },
+    { type: "Feature", properties: { nama_rs: "RS Mitra Keluarga Cibubur", kecamatan: "Jatisampurna" }, geometry: { type: "Point", coordinates: [106.918600, -6.376400] } },
+    { type: "Feature", properties: { nama_rs: "RS Permata Cibubur", kecamatan: "Jatisampurna" }, geometry: { type: "Point", coordinates: [106.922100, -6.376100] } },
+    { type: "Feature", properties: { nama_rs: "RS Karya Medika", kecamatan: "Bantar Gebang" }, geometry: { type: "Point", coordinates: [106.985000, -6.308200] } },
+    { type: "Feature", properties: { nama_rs: "RSUD Bantargebang", kecamatan: "Bantar Gebang" }, geometry: { type: "Point", coordinates: [106.995100, -6.315400] } },
+    { type: "Feature", properties: { nama_rs: "RSUD Bekasi Utara / Teluk Pucung", kecamatan: "Bekasi Utara" }, geometry: { type: "Point", coordinates: [107.018300, -6.211200] } },
+    { type: "Feature", properties: { nama_rs: "RSUD Jatisampurna", kecamatan: "Jatisampurna" }, geometry: { type: "Point", coordinates: [106.924200, -6.368500] } },
+    { type: "Feature", properties: { nama_rs: "RSUD Pondok Gede", kecamatan: "Pondok Gede" }, geometry: { type: "Point", coordinates: [106.925400, -6.282100] } },
+    { type: "Feature", properties: { nama_rs: "RS EMC Pekayon", kecamatan: "Bekasi Selatan" }, geometry: { type: "Point", coordinates: [106.993200, -6.257300] } },
+    { type: "Feature", properties: { nama_rs: "RS Primaya Bekasi Utara", kecamatan: "Bekasi Utara" }, geometry: { type: "Point", coordinates: [107.005400, -6.208100] } },
+    { type: "Feature", properties: { nama_rs: "RS Siloam Sentosa", kecamatan: "Bekasi Timur" }, geometry: { type: "Point", coordinates: [107.012300, -6.270400] } },
+    { type: "Feature", properties: { nama_rs: "RS Siloam Sepanjang Jaya", kecamatan: "Rawalumbu" }, geometry: { type: "Point", coordinates: [106.998400, -6.262500] } },
+    { type: "Feature", properties: { nama_rs: "RSU Budi Lestari", kecamatan: "Bekasi Selatan" }, geometry: { type: "Point", coordinates: [106.979500, -6.246100] } },
+    { type: "Feature", properties: { nama_rs: "RSU Cikunir", kecamatan: "Bekasi Selatan" }, geometry: { type: "Point", coordinates: [106.968100, -6.258400] } },
+    { type: "Feature", properties: { nama_rs: "RSU Citra Harapan", kecamatan: "Medan Satria" }, geometry: { type: "Point", coordinates: [106.985500, -6.183200] } },
+    { type: "Feature", properties: { nama_rs: "RSU Dokter Adam Talib Cikunir", kecamatan: "Bekasi Selatan" }, geometry: { type: "Point", coordinates: [106.968800, -6.258900] } },
+    { type: "Feature", properties: { nama_rs: "RSU Graha Juanda", kecamatan: "Bekasi Timur" }, geometry: { type: "Point", coordinates: [107.018200, -6.241500] } },
+    { type: "Feature", properties: { nama_rs: "RSU Islam dr. Subki", kecamatan: "Bekasi Timur" }, geometry: { type: "Point", coordinates: [107.004100, -6.244300] } },
+    { type: "Feature", properties: { nama_rs: "RSU Jati Sampurna", kecamatan: "Jatisampurna" }, geometry: { type: "Point", coordinates: [106.918900, -6.375200] } },
+    { type: "Feature", properties: { nama_rs: "RSU Juwita", kecamatan: "Bekasi Timur" }, geometry: { type: "Point", coordinates: [107.013500, -6.239200] } },
+    { type: "Feature", properties: { nama_rs: "RSU Masmitra", kecamatan: "Pondok Gede" }, geometry: { type: "Point", coordinates: [106.931200, -6.288400] } },
+    { type: "Feature", properties: { nama_rs: "RSU Mekar Sari", kecamatan: "Bekasi Timur" }, geometry: { type: "Point", coordinates: [107.007400, -6.238100] } },
+    { type: "Feature", properties: { nama_rs: "RSU Rawa Lumbu", kecamatan: "Rawalumbu" }, geometry: { type: "Point", coordinates: [107.001200, -6.269100] } },
+    { type: "Feature", properties: { nama_rs: "RSU Satria Medika", kecamatan: "Mustika Jaya" }, geometry: { type: "Point", coordinates: [107.018400, -6.312500] } },
+    { type: "Feature", properties: { nama_rs: "RSU St. Elisabeth", kecamatan: "Rawalumbu" }, geometry: { type: "Point", coordinates: [106.998100, -6.294200] } },
+    { type: "Feature", properties: { nama_rs: "RS RSU Bella Bekasi", kecamatan: "Bekasi Timur" }, geometry: { type: "Point", coordinates: [107.014500, -6.241100] } },
+    { type: "Feature", properties: { nama_rs: "RS RSU Bhakti Kartini", kecamatan: "Bekasi Timur" }, geometry: { type: "Point", coordinates: [107.011200, -6.247200] } },
+    { type: "Feature", properties: { nama_rs: "RS Medik Zainuttaqwa", kecamatan: "Medan Satria" }, geometry: { type: "Point", coordinates: [107.002100, -6.191500] } },
+    { type: "Feature", properties: { nama_rs: "RS Mustika Medika Bekasi", kecamatan: "Mustika Jaya" }, geometry: { type: "Point", coordinates: [107.039400, -6.271200] } },
+    { type: "Feature", properties: { nama_rs: "RS Persada Medika", kecamatan: "Pondok Melati" }, geometry: { type: "Point", coordinates: [106.928300, -6.295100] } },
+    { type: "Feature", properties: { nama_rs: "RS Taman Harapan Baru", kecamatan: "Medan Satria" }, geometry: { type: "Point", coordinates: [106.993100, -6.182400] } },
+    { type: "Feature", properties: { nama_rs: "RSIA Rinova Intan", kecamatan: "Bekasi Utara" }, geometry: { type: "Point", coordinates: [107.008200, -6.223500] } },
+    { type: "Feature", properties: { nama_rs: "RSIA Selasih Medika", kecamatan: "Bekasi Barat" }, geometry: { type: "Point", coordinates: [106.965100, -6.234200] } },
+    { type: "Feature", properties: { nama_rs: "RSIA Taman Harapan Baru", kecamatan: "Medan Satria" }, geometry: { type: "Point", coordinates: [106.993200, -6.182500] } },
+    { type: "Feature", properties: { nama_rs: "RSU Anna Medika", kecamatan: "Bekasi Utara" }, geometry: { type: "Point", coordinates: [107.012100, -6.208500] } }
+  ]
+};
 
 export default function MapComponent() {
   const mapRef = useRef<MapRef>(null);
@@ -15,7 +70,17 @@ export default function MapComponent() {
   const [showRiskLayer, setShowRiskLayer] = useState(true);
   const [showDesaBorders, setShowDesaBorders] = useState(true);
   const [showDistrictBorders, setShowDistrictBorders] = useState(true);
+  const [showRumahSakit, setShowRumahSakit] = useState(true);
+  const [showSchool, setShowSchool] = useState(true);
+  const [schoolData, setSchoolData] = useState<any>(null);
   const [popupInfo, setPopupInfo] = useState<any>(null);
+
+  useEffect(() => {
+    fetch('/school.geojson')
+      .then(res => res.json())
+      .then(data => setSchoolData(data))
+      .catch(err => console.error('Failed to load school data:', err));
+  }, []);
 
   const onMapLoad = (e: any) => {
     setMapInstance(e.target);
@@ -24,8 +89,6 @@ export default function MapComponent() {
   const onClick = (event: any) => {
     const features = event.features;
     
-    // --- THIS IS THE FIX ---
-    // If no features are clicked (empty space), close the popup and stop.
     if (!features || features.length === 0) {
       setPopupInfo(null);
       return;
@@ -105,6 +168,18 @@ export default function MapComponent() {
             <label className="flex items-center justify-between group cursor-pointer p-2 -mx-2 rounded-lg hover:bg-slate-50 transition-colors">
               <span className="text-[13px] font-bold text-slate-700 group-hover:text-slate-900 transition-colors" style={{ fontFamily: 'Syne, sans-serif' }}>Kelurahan Borders</span>
               <input type="checkbox" className="w-4 h-4 accent-slate-400 cursor-pointer" checked={showDesaBorders} onChange={(e) => setShowDesaBorders(e.target.checked)}/>
+            </label>
+
+            {/* Rumah Sakit Toggle */}
+            <label className="flex items-center justify-between group cursor-pointer p-2 -mx-2 rounded-lg hover:bg-slate-50 transition-colors">
+              <span className="text-[13px] font-bold text-slate-700 group-hover:text-slate-900 transition-colors" style={{ fontFamily: 'Syne, sans-serif' }}>Rumah Sakit</span>
+              <input type="checkbox" className="w-4 h-4 accent-red-500 cursor-pointer" checked={showRumahSakit} onChange={(e) => setShowRumahSakit(e.target.checked)}/>
+            </label>
+
+            {/* Sekolah Toggle */}
+            <label className="flex items-center justify-between group cursor-pointer p-2 -mx-2 rounded-lg hover:bg-slate-50 transition-colors">
+              <span className="text-[13px] font-bold text-slate-700 group-hover:text-slate-900 transition-colors" style={{ fontFamily: 'Syne, sans-serif' }}>Sekolah</span>
+              <input type="checkbox" className="w-4 h-4 accent-blue-500 cursor-pointer" checked={showSchool} onChange={(e) => setShowSchool(e.target.checked)}/>
             </label>
           </div>
         </div>
@@ -203,6 +278,38 @@ export default function MapComponent() {
             }}/>
 
         </Source>
+
+        {/* --- RUMAH SAKIT SOURCE --- */}
+        <Source id="rumah_sakit" type="geojson" data={rumahSakitData}>
+          <Layer 
+            id="rumah-sakit-points" 
+            type="circle" 
+            layout={{ visibility: showRumahSakit ? 'visible' : 'none' }}
+            paint={{
+              'circle-radius': 6,
+              'circle-color': '#ef4444',
+              'circle-stroke-width': 2,
+              'circle-stroke-color': '#ffffff'
+            }}
+          />
+        </Source>
+
+        {/* --- SCHOOL SOURCE --- */}
+        {schoolData && (
+          <Source id="school" type="geojson" data={schoolData}>
+            <Layer 
+              id="school-points" 
+              type="circle" 
+              layout={{ visibility: showSchool ? 'visible' : 'none' }}
+              paint={{
+                'circle-radius': 5,
+                'circle-color': '#3b82f6',
+                'circle-stroke-width': 1.5,
+                'circle-stroke-color': '#ffffff'
+              }}
+            />
+          </Source>
+        )}
       </Map>
     </div>
   );

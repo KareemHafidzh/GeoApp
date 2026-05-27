@@ -8,6 +8,12 @@
     },
     "spatial_risk": {
       "mbtiles": "spatial_risk.mbtiles"
+    },
+    "rumah_sakit": {
+      "mbtiles": "rumah_sakit.mbtiles"
+    },
+    "school": {
+      "mbtiles": "school.mbtiles"
     }
   }
 }

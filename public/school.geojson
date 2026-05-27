@@ -1,0 +1,2868 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2026-05-27T06:56:25Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "relation/4100959",
+        "amenity": "school",
+        "name": "SMP 9 Bekasi",
+        "type": "multipolygon",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9648061,
+          -6.2917822
+        ]
+      },
+      "id": "relation/4100959"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "relation/8911706",
+        "amenity": "school",
+        "building": "yes",
+        "name": "SMA PGRI 1 Bekasi",
+        "type": "multipolygon",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0203139,
+          -6.2340047
+        ]
+      },
+      "id": "relation/8911706"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/173244339",
+        "addr:city": "Bekasi City",
+        "addr:full": "Bekasi",
+        "addr:postcode": "17144",
+        "addr:street": "jalan gunung gede",
+        "amenity": "school",
+        "name": "SMA Negeri 2 Kota Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9909033,
+          -6.2405167
+        ]
+      },
+      "id": "way/173244339"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/215886678",
+        "amenity": "school",
+        "building": "school",
+        "building:levels": "1",
+        "building:roof": "tile",
+        "building:structure": "reinforced_masonry",
+        "building:use": "education",
+        "building:walls": "brick",
+        "min_age": "12",
+        "name": "SMP Islam Al-Fajar",
+        "opening_hours": "07.00-16.00",
+        "wheelchair": "no",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9686088,
+          -6.3042795
+        ]
+      },
+      "id": "way/215886678"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/217505499",
+        "amenity": "school",
+        "name": "SMA Panglima Soedirman",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9720922,
+          -6.2590175
+        ]
+      },
+      "id": "way/217505499"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/217614354",
+        "addr:city": "Kota Bekasi",
+        "addr:district": "Bekasi Selatan",
+        "addr:postcode": "17147",
+        "addr:province": "Jawa Barat",
+        "addr:street": "Jalan Gardenia 1",
+        "addr:subdistrict": "Jakasetia",
+        "amenity": "school",
+        "name": "SMA Pax Patriae & SMP Pax Ecclesia",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9733786,
+          -6.2693936
+        ]
+      },
+      "id": "way/217614354"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/258712487",
+        "amenity": "school",
+        "building": "school",
+        "name": "SMAN 11 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9401462,
+          -6.3436784
+        ]
+      },
+      "id": "way/258712487"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/258735700",
+        "amenity": "school",
+        "name": "SMAN 6 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9736697,
+          -6.281002
+        ]
+      },
+      "id": "way/258735700"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/258852598",
+        "addr:city": "Kota Bekasi",
+        "addr:street": "Jalan Pulo Sirih Timur",
+        "amenity": "school",
+        "grades": "7-9",
+        "name": "SMPN 12 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9737814,
+          -6.2658377
+        ]
+      },
+      "id": "way/258852598"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/258852643",
+        "amenity": "school",
+        "grades": "10-12",
+        "name": "SMAN 3 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9752646,
+          -6.2660391
+        ]
+      },
+      "id": "way/258852643"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/307259779",
+        "addr:city": "Kota Bekasi",
+        "addr:district": "Jatiasih",
+        "addr:housename": "SMP Tulus Bhakti",
+        "addr:postcode": "17424",
+        "addr:province": "Jawa Barat",
+        "addr:street": "Jalan Swatantra II",
+        "amenity": "school",
+        "grades": "0-6",
+        "name": "SMP Tulus Bhakti",
+        "religion": "no",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9640336,
+          -6.2912124
+        ]
+      },
+      "id": "way/307259779"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/307280578",
+        "amenity": "school",
+        "building:roof": "tile",
+        "building:structure": "unreinforced_masonry",
+        "building:walls": "brick",
+        "name": "SMPN 22 Bekasi",
+        "type:id": "SMP",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9600592,
+          -6.2358552
+        ]
+      },
+      "id": "way/307280578"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/333930989",
+        "addr:city": "Bekasi",
+        "addr:housenumber": "37",
+        "addr:street": "Jalan Chairil Anwar",
+        "amenity": "school",
+        "name": "SMP Negeri 2 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0046354,
+          -6.2554427
+        ]
+      },
+      "id": "way/333930989"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/338905412",
+        "amenity": "school",
+        "name": "SMKN 7 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9567808,
+          -6.3264892
+        ]
+      },
+      "id": "way/338905412"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/359444589",
+        "addr:city": "Bekasi",
+        "amenity": "school",
+        "name": "SMA Negeri 8 Bekasi",
+        "wikidata": "Q12510706",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9824413,
+          -6.2660861
+        ]
+      },
+      "id": "way/359444589"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/447821815",
+        "amenity": "school",
+        "building:levels": "3",
+        "location": "Jalan Rawa Indah, Jaticempaka",
+        "name": "SMA Yadika 4",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9166713,
+          -6.2637965
+        ]
+      },
+      "id": "way/447821815"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/447821816",
+        "amenity": "school",
+        "building:levels": "3",
+        "name": "SMP Yadika 4",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.91704,
+          -6.2634051
+        ]
+      },
+      "id": "way/447821816"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/480783455",
+        "amenity": "school",
+        "building": "school",
+        "name": "SMP-SMA Quantum Indonesia",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.909486,
+          -6.3956811
+        ]
+      },
+      "id": "way/480783455"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/494310396",
+        "amenity": "school",
+        "building": "school",
+        "building:levels": "3",
+        "name": "SMP Negeri 30 Bekasi",
+        "operator:type": "government",
+        "school:type_idn": "smp",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9603372,
+          -6.3096197
+        ]
+      },
+      "id": "way/494310396"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/499264640",
+        "amenity": "school",
+        "building": "yes",
+        "name": "SDIT - SMPIT Al Husnayain",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9687325,
+          -6.2144712
+        ]
+      },
+      "id": "way/499264640"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/500475974",
+        "amenity": "school",
+        "building": "yes",
+        "name": "SMPN 5 Bekasi",
+        "school:type_idn": "smp",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9883288,
+          -6.2045111
+        ]
+      },
+      "id": "way/500475974"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/509790378",
+        "amenity": "school",
+        "name": "SMP Negeri 13 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9648669,
+          -6.2150757
+        ]
+      },
+      "id": "way/509790378"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/538165910",
+        "amenity": "school",
+        "building": "yes",
+        "name": "Gedung D SMK Negeri 1 Kota Bekasi",
+        "school:type_idn": "sma",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9571543,
+          -6.2290662
+        ]
+      },
+      "id": "way/538165910"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/545212738",
+        "amenity": "school",
+        "name": "SMPN 16 Bekasi",
+        "wikidata": "Q107562185",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0101791,
+          -6.2773009
+        ]
+      },
+      "id": "way/545212738"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/680350631",
+        "amenity": "school",
+        "name": "SMPN 1 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0090367,
+          -6.233297
+        ]
+      },
+      "id": "way/680350631"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/721502549",
+        "amenity": "school",
+        "name": "SD-SMP Pamardi Yuwana Bakti",
+        "religion": "christian",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9207919,
+          -6.2804144
+        ]
+      },
+      "id": "way/721502549"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/721502552",
+        "amenity": "school",
+        "name": "SD-SMP Islam Al Marjan",
+        "religion": "muslim",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9393549,
+          -6.2838293
+        ]
+      },
+      "id": "way/721502552"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/728085835",
+        "amenity": "school",
+        "building": "yes",
+        "levels": "3",
+        "name": "Smart Home Quran Payangan",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9367732,
+          -6.3478682
+        ]
+      },
+      "id": "way/728085835"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/753802719",
+        "addr:city": "Bekasi",
+        "amenity": "school",
+        "name": "SMA Negeri 5 Bekasi",
+        "operator:type": "government",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9220345,
+          -6.273673
+        ]
+      },
+      "id": "way/753802719"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/767409919",
+        "amenity": "school",
+        "name": "SMPN 4 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9799427,
+          -6.2337516
+        ]
+      },
+      "id": "way/767409919"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/767415094",
+        "amenity": "school",
+        "name": "SMPN 5 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9883406,
+          -6.2048781
+        ]
+      },
+      "id": "way/767415094"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/767429737",
+        "amenity": "school",
+        "name": "SMPN 7 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9830309,
+          -6.2445913
+        ]
+      },
+      "id": "way/767429737"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/767429738",
+        "amenity": "school",
+        "check_date": "2026-03-09",
+        "name": "SMPN 8 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9889211,
+          -6.2986867
+        ]
+      },
+      "id": "way/767429738"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/767429739",
+        "amenity": "school",
+        "name": "SMPN 10 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0083779,
+          -6.3170646
+        ]
+      },
+      "id": "way/767429739"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/767429740",
+        "amenity": "school",
+        "name": "SMPN 11 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0290973,
+          -6.2430325
+        ]
+      },
+      "id": "way/767429740"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/767429744",
+        "amenity": "school",
+        "name": "SMPN 15 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9144431,
+          -6.3718205
+        ]
+      },
+      "id": "way/767429744"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/767429747",
+        "amenity": "school",
+        "name": "SMPN 19 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9811331,
+          -6.1754838
+        ]
+      },
+      "id": "way/767429747"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/767429748",
+        "amenity": "school",
+        "name": "SMAN 10 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9811194,
+          -6.1760923
+        ]
+      },
+      "id": "way/767429748"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/767429749",
+        "amenity": "school",
+        "name": "SMPN 20 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9363739,
+          -6.2594463
+        ]
+      },
+      "id": "way/767429749"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/767429750",
+        "amenity": "school",
+        "name": "SMPN 21 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0217749,
+          -6.1996884
+        ]
+      },
+      "id": "way/767429750"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/767429751",
+        "amenity": "school",
+        "name": "SMPN 23 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9445626,
+          -6.2767094
+        ]
+      },
+      "id": "way/767429751"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/767429753",
+        "amenity": "school",
+        "check_date": "2026-02-11",
+        "name": "SMPN 25 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9891438,
+          -6.2140727
+        ]
+      },
+      "id": "way/767429753"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/767429754",
+        "amenity": "school",
+        "name": "SMPN 26 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0252367,
+          -6.3066615
+        ]
+      },
+      "id": "way/767429754"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/767429755",
+        "amenity": "school",
+        "name": "SMPN 27 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0118652,
+          -6.3474519
+        ]
+      },
+      "id": "way/767429755"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/767429756",
+        "amenity": "school",
+        "name": "SMPN 28 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9285512,
+          -6.3679769
+        ]
+      },
+      "id": "way/767429756"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/767429757",
+        "amenity": "school",
+        "name": "SMPN 39 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9495816,
+          -6.3260503
+        ]
+      },
+      "id": "way/767429757"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/767429758",
+        "amenity": "school",
+        "name": "SMPN 31 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9876127,
+          -6.3625182
+        ]
+      },
+      "id": "way/767429758"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/767429759",
+        "amenity": "school",
+        "name": "SMPN 32 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0334632,
+          -6.2341744
+        ]
+      },
+      "id": "way/767429759"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/767429760",
+        "amenity": "school",
+        "name": "SMPN 34 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9434807,
+          -6.2891921
+        ]
+      },
+      "id": "way/767429760"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/767429761",
+        "amenity": "school",
+        "name": "SMPN 35 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9276332,
+          -6.3060223
+        ]
+      },
+      "id": "way/767429761"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/767429762",
+        "amenity": "school",
+        "name": "SMPN 37 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0031218,
+          -6.1746087
+        ]
+      },
+      "id": "way/767429762"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/767429763",
+        "amenity": "school",
+        "name": "SMPN 38 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.010915,
+          -6.2061188
+        ]
+      },
+      "id": "way/767429763"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/767429764",
+        "amenity": "school",
+        "name": "SMPN 29 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9633704,
+          -6.2697735
+        ]
+      },
+      "id": "way/767429764"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/767429765",
+        "amenity": "school",
+        "name": "SMPN 40 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0221349,
+          -6.2946604
+        ]
+      },
+      "id": "way/767429765"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/767429766",
+        "amenity": "school",
+        "name": "SMPN 41 Bekasi",
+        "wikidata": "Q107561981",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9973883,
+          -6.2932667
+        ]
+      },
+      "id": "way/767429766"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/767431706",
+        "amenity": "school",
+        "name": "SMPN 42 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9960914,
+          -6.1749033
+        ]
+      },
+      "id": "way/767431706"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/767431707",
+        "amenity": "school",
+        "name": "SMPN 43 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9154989,
+          -6.3906963
+        ]
+      },
+      "id": "way/767431707"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/767431708",
+        "amenity": "school",
+        "name": "SMPN 44 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0302676,
+          -6.2200342
+        ]
+      },
+      "id": "way/767431708"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/767431709",
+        "amenity": "school",
+        "name": "SMPN 45 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9339043,
+          -6.2689422
+        ]
+      },
+      "id": "way/767431709"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/767731062",
+        "amenity": "school",
+        "name": "SMAN 4 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.983178,
+          -6.2133792
+        ]
+      },
+      "id": "way/767731062"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/767731063",
+        "amenity": "school",
+        "name": "SMAN 7 Kota Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9215985,
+          -6.3663176
+        ]
+      },
+      "id": "way/767731063"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/767731071",
+        "amenity": "school",
+        "name": "SMAN 14 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0085376,
+          -6.1970808
+        ]
+      },
+      "id": "way/767731071"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/767731072",
+        "amenity": "school",
+        "name": "SMAN 15 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9797698,
+          -6.348845
+        ]
+      },
+      "id": "way/767731072"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/767731073",
+        "amenity": "school",
+        "name": "SMAN 16 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9316647,
+          -6.3108163
+        ]
+      },
+      "id": "way/767731073"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/767731074",
+        "amenity": "school",
+        "name": "SMAN 17 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9638519,
+          -6.2705859
+        ]
+      },
+      "id": "way/767731074"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/767732111",
+        "amenity": "school",
+        "name": "SMAN 18 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0361239,
+          -6.2376524
+        ]
+      },
+      "id": "way/767732111"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/767732565",
+        "amenity": "school",
+        "name": "SMAN 20 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9903505,
+          -6.2011355
+        ]
+      },
+      "id": "way/767732565"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/767733583",
+        "amenity": "school",
+        "name": "SMAN 21 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9576369,
+          -6.3165425
+        ]
+      },
+      "id": "way/767733583"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/767734537",
+        "amenity": "school",
+        "building": "yes",
+        "layer": "1",
+        "name": "SMP Citra Nusantara",
+        "religion": "muslim",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9828733,
+          -6.3102732
+        ]
+      },
+      "id": "way/767734537"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/767736268",
+        "amenity": "school",
+        "name": "SMAN 12 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9725877,
+          -6.2227119
+        ]
+      },
+      "id": "way/767736268"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/768003423",
+        "amenity": "school",
+        "name": "SMKN 2 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9920538,
+          -6.3558241
+        ]
+      },
+      "id": "way/768003423"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/768003580",
+        "amenity": "school",
+        "name": "SMKN 3 Bekasi",
+        "name:en": "Vocational High School 3 Bekasi City",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0259348,
+          -6.2823356
+        ]
+      },
+      "id": "way/768003580"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/768003888",
+        "amenity": "school",
+        "name": "SMKN 4 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9319512,
+          -6.3599599
+        ]
+      },
+      "id": "way/768003888"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/768004185",
+        "amenity": "school",
+        "name": "SMKN 5 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0189757,
+          -6.2029399
+        ]
+      },
+      "id": "way/768004185"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/768004872",
+        "amenity": "school",
+        "name": "SMKN 6 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0348255,
+          -6.2304466
+        ]
+      },
+      "id": "way/768004872"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/768006068",
+        "amenity": "school",
+        "name": "SMKN 8 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0006169,
+          -6.2932916
+        ]
+      },
+      "id": "way/768006068"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/768006069",
+        "addr:city": "Kota Bekasi",
+        "addr:street": "Jalan Haji Abas",
+        "amenity": "school",
+        "grades": "10-12",
+        "name": "SMKN 9 Kota Bekasi",
+        "website": "https://www.smkn9kotabekasi.sch.id/",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9595362,
+          -6.2707138
+        ]
+      },
+      "id": "way/768006069"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/768006752",
+        "amenity": "school",
+        "name": "SMKN 10 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9369752,
+          -6.3230032
+        ]
+      },
+      "id": "way/768006752"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/768006753",
+        "amenity": "school",
+        "name": "SMKN 11 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9877172,
+          -6.2106753
+        ]
+      },
+      "id": "way/768006753"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/768006754",
+        "amenity": "school",
+        "name": "SMKN 12 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9347595,
+          -6.2732189
+        ]
+      },
+      "id": "way/768006754"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/793463032",
+        "amenity": "school",
+        "name": "SMK BAKTI MANDIRI",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9569959,
+          -6.2316731
+        ]
+      },
+      "id": "way/793463032"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/793463033",
+        "amenity": "school",
+        "name": "SMKS BINA MANDIRI",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9580545,
+          -6.2321962
+        ]
+      },
+      "id": "way/793463033"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/902573147",
+        "amenity": "school",
+        "name": "SMA Islam Darul Abror",
+        "school:type_idn": "sma",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9246622,
+          -6.3508777
+        ]
+      },
+      "id": "way/902573147"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/927228587",
+        "amenity": "school",
+        "name": "SMP Bani Taqwa",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0123909,
+          -6.2672165
+        ]
+      },
+      "id": "way/927228587"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/929532806",
+        "amenity": "school",
+        "name": "SMAN 13 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0050006,
+          -6.2680512
+        ]
+      },
+      "id": "way/929532806"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/930607480",
+        "amenity": "school",
+        "name": "SMPN 33 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0092753,
+          -6.28226
+        ]
+      },
+      "id": "way/930607480"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/931938482",
+        "amenity": "school",
+        "check_date": "2026-05-08",
+        "name": "SMK Binakarya Mandiri 2",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0157595,
+          -6.2713453
+        ]
+      },
+      "id": "way/931938482"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/938015792",
+        "addr:housenumber": "99",
+        "address": "Jl Pengasinan Tengah No 99",
+        "amenity": "school",
+        "name": "SMK Mandalahayu III",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0096015,
+          -6.2715047
+        ]
+      },
+      "id": "way/938015792"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1025739277",
+        "amenity": "school",
+        "name": "SDIT-SMPIT Avicenna",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0263137,
+          -6.2002318
+        ]
+      },
+      "id": "way/1025739277"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1025741218",
+        "amenity": "school",
+        "name": "SMAN 1 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0111712,
+          -6.2266835
+        ]
+      },
+      "id": "way/1025741218"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1032000390",
+        "amenity": "school",
+        "building": "school",
+        "name": "SMK Karya Bahana Mandiri",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0098694,
+          -6.3133025
+        ]
+      },
+      "id": "way/1032000390"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1032000393",
+        "amenity": "school",
+        "name": "SD - SMP IT Bahana Mandiri",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0092815,
+          -6.3132381
+        ]
+      },
+      "id": "way/1032000393"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1050450731",
+        "amenity": "school",
+        "check_date": "2024-11-22",
+        "grades": "7-9",
+        "name": "SMP Islam Nurul I'tishom",
+        "religion": "muslim",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9673499,
+          -6.2296141
+        ]
+      },
+      "id": "way/1050450731"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1071826303",
+        "amenity": "school",
+        "name": "SMAN 9 Kota Bekasi",
+        "operator": "Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi",
+        "operator:type": "government",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0305245,
+          -6.2950436
+        ]
+      },
+      "id": "way/1071826303"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1203490688",
+        "addr:city": "Bekasi",
+        "addr:housenumber": "17",
+        "addr:postcode": "17147",
+        "addr:street": "Jalan Pekayon Raya",
+        "amenity": "school",
+        "building": "school",
+        "grades": "7-9",
+        "layer": "1",
+        "name": "SMP NEGERI 53 KOTA BEKASI",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9757172,
+          -6.2780295
+        ]
+      },
+      "id": "way/1203490688"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1206871931",
+        "amenity": "school",
+        "contact:mobile": "+6285882713317",
+        "contact:website": "https://smkmandiribekasi.sch.id/",
+        "contact:whatsapp": "https://wa.me/+6285882713317",
+        "grades": "10-12",
+        "name": "SMK Mandiri Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9731989,
+          -6.1964769
+        ]
+      },
+      "id": "way/1206871931"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1207897810",
+        "addr:city": "Kota Bekasi",
+        "addr:street": "Jalan Cikunir Raya",
+        "amenity": "school",
+        "grades": "10-12",
+        "name": "SMK BISTEK Bekasi",
+        "phone": "+622182347928",
+        "website": "https://smkbistekbekasi.sch.id/",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9618031,
+          -6.2729606
+        ]
+      },
+      "id": "way/1207897810"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1217765479",
+        "addr:city": "Kota Bekasi",
+        "addr:postcode": "17423",
+        "addr:street": "Jalan Rawa Semut 2",
+        "amenity": "school",
+        "email": "smpitalikhlas86bks@gmail.com",
+        "grades": "7-12",
+        "name": "SMPIT AL IKHLAS",
+        "phone": "+622182744577",
+        "religion": "muslim",
+        "website": "https://smpitalikhlas86.sch.id/",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9617523,
+          -6.2808405
+        ]
+      },
+      "id": "way/1217765479"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1227502197",
+        "amenity": "school",
+        "name": "SMP Islam AL Azhar 55",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9316654,
+          -6.2832347
+        ]
+      },
+      "id": "way/1227502197"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1229594610",
+        "addr:city": "Kota Bekasi",
+        "addr:postcode": "17145",
+        "addr:street": "Jalan Anggrek Raya",
+        "amenity": "school",
+        "grades": "7-9",
+        "name": "SMPN 54 Kota Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9781406,
+          -6.2371682
+        ]
+      },
+      "id": "way/1229594610"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1236738024",
+        "amenity": "school",
+        "name": "SMP Negeri 6 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9125312,
+          -6.2823848
+        ]
+      },
+      "id": "way/1236738024"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1246226910",
+        "addr:city": "Kota Bekasi",
+        "addr:street": "Jalan Gang Perahu",
+        "amenity": "school",
+        "grades": "10-12",
+        "name": "SMK Negeri 13 Kota Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9933845,
+          -6.2163112
+        ]
+      },
+      "id": "way/1246226910"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1287488250",
+        "addr:city": "Kota Bekasi",
+        "addr:district": "Jatiasih",
+        "addr:province": "Jawa Barat",
+        "addr:street": "Jalan Jamblang",
+        "addr:subdistrict": "Jatiluhur",
+        "amenity": "school",
+        "grades": "7-9",
+        "name": "SMPN 47 Kota Bekasi",
+        "website": "https://smpnegeri47kotabekasi.sch.id/",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9417175,
+          -6.3167178
+        ]
+      },
+      "id": "way/1287488250"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1291116098",
+        "amenity": "school",
+        "grades": "7-9",
+        "name": "SMPN 24 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9501379,
+          -6.3433562
+        ]
+      },
+      "id": "way/1291116098"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1291622047",
+        "amenity": "school",
+        "name": "SMK - SMP Tinta Emas Yatindo",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0231922,
+          -6.2980826
+        ]
+      },
+      "id": "way/1291622047"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1355325754",
+        "amenity": "school",
+        "name": "SMP PGRI",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9842861,
+          -6.2474864
+        ]
+      },
+      "id": "way/1355325754"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1420987971",
+        "amenity": "school",
+        "name": "SMK Sumber Daya Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0014758,
+          -6.2960408
+        ]
+      },
+      "id": "way/1420987971"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1494119190",
+        "amenity": "school",
+        "name": "SMPN 50 Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0039491,
+          -6.259019
+        ]
+      },
+      "id": "way/1494119190"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1496972545",
+        "amenity": "school",
+        "education": "school",
+        "name": "SMPN 58 Kota Bekasi",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9322674,
+          -6.3649227
+        ]
+      },
+      "id": "way/1496972545"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1838706097",
+        "amenity": "school",
+        "name": "SMP 9 Bekasi"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9650273,
+          -6.2918301
+        ]
+      },
+      "id": "node/1838706097"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3423426463",
+        "addr:street": "Jalan Caringin",
+        "amenity": "school",
+        "name": "SMP-SMA Proklamasi 1945"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0099645,
+          -6.290065
+        ]
+      },
+      "id": "node/3423426463"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3737595765",
+        "addr:city": "Kota Bekasi",
+        "addr:postcode": "17433",
+        "addr:street": "Jalan Lingkar Kota",
+        "amenity": "school",
+        "grades": "10-12",
+        "name": "SMA Negeri 7 Bekasi",
+        "school:type_idn": "sma",
+        "website": "https://sman7bks.sch.id/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9214112,
+          -6.366388
+        ]
+      },
+      "id": "node/3737595765"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4245939145",
+        "addr:city": "Kota Bekasi",
+        "addr:housenumber": "181",
+        "addr:postcode": "17125",
+        "addr:street": "Jalan KH Agus Salim",
+        "amenity": "school",
+        "grades": "10-12",
+        "name": "SMA Negeri 1 Bekasi",
+        "school:type_idn": "sma",
+        "website": "https://sman1bekasi.sch.id/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0112395,
+          -6.2268058
+        ]
+      },
+      "id": "node/4245939145"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6534921461",
+        "addr:city": "Kota Bekasi",
+        "addr:postcode": "17134",
+        "addr:street": "Jalan Bintara VIII",
+        "amenity": "school",
+        "name": "SMK Negeri 1 Kota Bekasi",
+        "website": "https://smkn1kotabekasi.sch.id/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9570262,
+          -6.2290272
+        ]
+      },
+      "id": "node/6534921461"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6534958454",
+        "amenity": "school",
+        "name": "SMKS Bina Mandiri"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9580452,
+          -6.2322013
+        ]
+      },
+      "id": "node/6534958454"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9736240163",
+        "amenity": "school",
+        "name": "TK - SD - SMP Santa Lusia Bekasi"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9891254,
+          -6.3035282
+        ]
+      },
+      "id": "node/9736240163"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9737272457",
+        "amenity": "school",
+        "name": "SMA Swasta Bani Saleh Bekasi"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0117591,
+          -6.2457362
+        ]
+      },
+      "id": "node/9737272457"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9752863308",
+        "addr:city": "Kota Bekasi",
+        "addr:district": "Bekasi Selatan",
+        "addr:housename": "SMA Martia Bhakti",
+        "addr:housenumber": "Km 32",
+        "addr:postcode": "17143",
+        "addr:province": "Jawa Barat",
+        "addr:street": "Jalan Jenderal Sudirman",
+        "addr:subdistrict": "Kayuringin Jaya",
+        "amenity": "school",
+        "denomination": "sunni",
+        "grades": "10-12",
+        "name": "SMA Martia Bhakti",
+        "name:id": "SMA Martia Bhakti Bekasi",
+        "operator": "Ipay",
+        "operator:type": "public",
+        "religion": "muslim",
+        "website": "https://mabhak.sch.id"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9876189,
+          -6.2329645
+        ]
+      },
+      "id": "node/9752863308"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9752885174",
+        "amenity": "school",
+        "name": "SMA Swasta Global Persada Mandiri"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0182823,
+          -6.2290333
+        ]
+      },
+      "id": "node/9752885174"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9756292019",
+        "amenity": "school",
+        "name": "SMP Islam Assuryaniyah"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0349774,
+          -6.3179396
+        ]
+      },
+      "id": "node/9756292019"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9835105459",
+        "amenity": "school",
+        "name": "SMP Daya Utama"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0299802,
+          -6.2964701
+        ]
+      },
+      "id": "node/9835105459"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9835105460",
+        "amenity": "school",
+        "name": "SMA Daya Utama"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0296021,
+          -6.2964787
+        ]
+      },
+      "id": "node/9835105460"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9835105461",
+        "amenity": "school",
+        "name": "SMK Daya Utama"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0296631,
+          -6.2960908
+        ]
+      },
+      "id": "node/9835105461"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10848291438",
+        "addr:city": "Bekasi",
+        "addr:postcode": "17142",
+        "addr:street": "Jalan Sultan Agung",
+        "amenity": "school",
+        "grades": "10-12",
+        "name": "SMA PGRI 2 Bekasi",
+        "school:type_idn": "sma"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0043704,
+          -6.2209689
+        ]
+      },
+      "id": "node/10848291438"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10848291439",
+        "addr:city": "Bekasi",
+        "addr:postcode": "17142",
+        "addr:street": "Jalan Sultan Agung",
+        "amenity": "school",
+        "grades": "7-9",
+        "name": "SMP PGRI Astra Insani",
+        "school:type_idn": "smp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0041498,
+          -6.2213067
+        ]
+      },
+      "id": "node/10848291439"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10873445166",
+        "addr:city": "Bekasi",
+        "addr:postcode": "17142",
+        "addr:street": "Jalan Bulevar Utara",
+        "amenity": "school",
+        "grades": "7-9",
+        "name": "SMPK Penabur Summarecon Bekasi",
+        "religion": "christian",
+        "school:type_idn": "smp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.001988,
+          -6.2225321
+        ]
+      },
+      "id": "node/10873445166"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10873445167",
+        "addr:city": "Bekasi",
+        "addr:postcode": "17142",
+        "addr:street": "Jalan Bulevar Utara",
+        "amenity": "school",
+        "grades": "10-12",
+        "name": "SMAK Penabur Summarecon Bekasi",
+        "religion": "christian",
+        "school:type_idn": "sma"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0019859,
+          -6.2222411
+        ]
+      },
+      "id": "node/10873445167"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10873445168",
+        "addr:city": "Bekasi",
+        "addr:postcode": "17142",
+        "addr:street": "Jalan Bulevar Utara",
+        "amenity": "school",
+        "grades": "10-12",
+        "name": "SMAI Al-Azhar 8",
+        "religion": "muslim",
+        "school:type_idn": "sma"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0019611,
+          -6.22096
+        ]
+      },
+      "id": "node/10873445168"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10873445169",
+        "addr:city": "Bekasi",
+        "addr:postcode": "17142",
+        "addr:street": "Jalan Bulevar Utara",
+        "amenity": "school",
+        "grades": "7-9",
+        "name": "SMPI Al-Azhar 31",
+        "religion": "muslim",
+        "school:type_idn": "smp"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0019311,
+          -6.2207449
+        ]
+      },
+      "id": "node/10873445169"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10951121931",
+        "addr:city": "Kota Bekasi",
+        "addr:postcode": "17124",
+        "addr:street": "Jalan Swadaya I",
+        "amenity": "school",
+        "grades": "10-12",
+        "name": "SMA Negeri 20 Bekasi",
+        "school:type_idn": "sma",
+        "website": "https://www.sman20kotabekasi.sch.id/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9903338,
+          -6.2010845
+        ]
+      },
+      "id": "node/10951121931"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10951121932",
+        "addr:city": "Kota Bekasi",
+        "addr:postcode": "17423",
+        "addr:street": "Jalan Pondok Gede Permai",
+        "amenity": "school",
+        "grades": "10-12",
+        "name": "SMA Negeri 21 Bekasi",
+        "school:type_idn": "sma",
+        "website": "https://smanegeri21bekasi.sch.id/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9720125,
+          -6.3015109
+        ]
+      },
+      "id": "node/10951121932"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10951121934",
+        "addr:city": "Kota Bekasi",
+        "addr:postcode": "17148",
+        "addr:street": "Jalan Pulau Ribung",
+        "amenity": "school",
+        "grades": "10-12",
+        "name": "SMA Negeri 3 Bekasi",
+        "school:type_idn": "sma",
+        "website": "https://sman3kotabekasi.sch.id/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9752407,
+          -6.2662659
+        ]
+      },
+      "id": "node/10951121934"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10951121935",
+        "addr:city": "Kota Bekasi",
+        "addr:postcode": "17124",
+        "addr:street": "Jalan Perumahan Harapan Jaya",
+        "amenity": "school",
+        "grades": "10-12",
+        "name": "SMA Negeri 4 Bekasi",
+        "school:type_idn": "sma",
+        "website": "https://sman4bekasi.sch.id/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9831365,
+          -6.213462
+        ]
+      },
+      "id": "node/10951121935"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10951121936",
+        "addr:city": "Kota Bekasi",
+        "addr:postcode": "17411",
+        "addr:street": "Jalan Gamprit",
+        "amenity": "school",
+        "grades": "10-12",
+        "name": "SMA Negeri 5 Bekasi",
+        "school:type_idn": "sma",
+        "website": "https://sman5kotabekasi.sch.id/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.922217,
+          -6.2737094
+        ]
+      },
+      "id": "node/10951121936"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10951121937",
+        "addr:city": "Kota Bekasi",
+        "addr:postcode": "17423",
+        "addr:street": "Jalan Asri Lestari Raya",
+        "amenity": "school",
+        "grades": "10-12",
+        "name": "SMA Negeri 6 Bekasi",
+        "school:type_idn": "sma",
+        "website": "https://sman6kotabekasi.sch.id/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9738816,
+          -6.2810883
+        ]
+      },
+      "id": "node/10951121937"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10951121938",
+        "addr:city": "Kota Bekasi",
+        "addr:postcode": "17148",
+        "addr:street": "Jalan Irigasi",
+        "amenity": "school",
+        "grades": "10-12",
+        "name": "SMA Negeri 8 Bekasi",
+        "school:type_idn": "sma",
+        "website": "https://sman8kotabekasi.sch.id/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9824282,
+          -6.2658892
+        ]
+      },
+      "id": "node/10951121938"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10951121939",
+        "addr:city": "Kota Bekasi",
+        "addr:postcode": "17158",
+        "addr:street": "Jalan Mustikajaya",
+        "amenity": "school",
+        "grades": "10-12",
+        "name": "SMA Negeri 9 Bekasi",
+        "school:type_idn": "sma",
+        "website": "https://sman9kotabekasi.sch.id/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0306719,
+          -6.2948864
+        ]
+      },
+      "id": "node/10951121939"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10951121940",
+        "addr:city": "Kota Bekasi",
+        "addr:postcode": "17610",
+        "addr:street": "Jalan Flamboyan Raya",
+        "amenity": "school",
+        "grades": "10-12",
+        "name": "SMA Negeri 10 Bekasi",
+        "school:type_idn": "sma",
+        "website": "https://www.sman10bekasi.sch.id/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9813016,
+          -6.1760998
+        ]
+      },
+      "id": "node/10951121940"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10951121941",
+        "addr:city": "Kota Bekasi",
+        "addr:postcode": "17426",
+        "amenity": "school",
+        "grades": "10-12",
+        "name": "SMA Negeri 11 Bekasi",
+        "school:type_idn": "sma",
+        "website": "https://sman11bekasi.sch.id/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9399657,
+          -6.343616
+        ]
+      },
+      "id": "node/10951121941"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10951121942",
+        "addr:city": "Kota Bekasi",
+        "addr:postcode": "17135",
+        "addr:street": "Jalan I Gusti Ngurah Rai",
+        "amenity": "school",
+        "grades": "10-12",
+        "name": "SMA Negeri 12 Bekasi",
+        "school:type_idn": "sma",
+        "website": "https://www.sman12-bekasi.sch.id/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9725827,
+          -6.2225917
+        ]
+      },
+      "id": "node/10951121942"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10951121943",
+        "addr:city": "Kota Bekasi",
+        "addr:postcode": "17115",
+        "addr:street": "Jalan Pariwisata",
+        "amenity": "school",
+        "grades": "10-12",
+        "name": "SMA Negeri 13 Bekasi",
+        "school:type_idn": "sma",
+        "website": "https://www.sman13bekasi.sch.id/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0049732,
+          -6.2681288
+        ]
+      },
+      "id": "node/10951121943"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10951121944",
+        "addr:city": "Kota Bekasi",
+        "addr:postcode": "17125",
+        "amenity": "school",
+        "grades": "10-12",
+        "name": "SMA Negeri 14 Bekasi",
+        "school:type_idn": "sma",
+        "website": "https://www.sman14bekasi.sch.id/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0085493,
+          -6.1968841
+        ]
+      },
+      "id": "node/10951121944"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10951121945",
+        "addr:city": "Kota Bekasi",
+        "addr:postcode": "17153",
+        "amenity": "school",
+        "grades": "10-12",
+        "name": "SMA Negeri 15 Bekasi",
+        "school:type_idn": "sma",
+        "website": "https://sman15bekasi.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9796783,
+          -6.3487915
+        ]
+      },
+      "id": "node/10951121945"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10951121946",
+        "addr:city": "Kota Bekasi",
+        "addr:postcode": "17145",
+        "amenity": "school",
+        "grades": "10-12",
+        "name": "SMA Negeri 16 Bekasi",
+        "school:type_idn": "sma"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9315798,
+          -6.3106591
+        ]
+      },
+      "id": "node/10951121946"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10951121947",
+        "addr:city": "Kota Bekasi",
+        "addr:postcode": "17146",
+        "addr:street": "Jalan Haji Ilyas",
+        "amenity": "school",
+        "grades": "10-12",
+        "name": "SMA Negeri 17 Bekasi",
+        "school:type_idn": "sma",
+        "website": "https://sman17kotabekasi.sch.id/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9637764,
+          -6.270596
+        ]
+      },
+      "id": "node/10951121947"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10951121948",
+        "addr:city": "Kota Bekasi",
+        "addr:postcode": "17111",
+        "addr:street": "Jalan Rudal",
+        "amenity": "school",
+        "grades": "10-12",
+        "name": "SMA Negeri 18 Bekasi",
+        "school:type_idn": "sma",
+        "website": "https://sman18bekasi.sch.id/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.036024,
+          -6.2375803
+        ]
+      },
+      "id": "node/10951121948"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10951121949",
+        "addr:city": "Kota Bekasi",
+        "addr:full": "Jalan Mawar RT 02/02, Kelurahan Padurenan,Kecamatan Mustikajaya",
+        "addr:street": "Jalan Mawar",
+        "amenity": "school",
+        "grades": "10-12",
+        "name": "SMA Negeri 19 Bekasi",
+        "operator": "Pemerintah Provinsi Jawa Barat",
+        "operator:type": "government",
+        "school:type_idn": "sma",
+        "website": "https://www.sman19kotabekasi.sch.id/",
+        "wikidata": "Q113009929"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9995908,
+          -6.3103777
+        ]
+      },
+      "id": "node/10951121949"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10951121950",
+        "addr:city": "Kota Bekasi",
+        "addr:postcode": "17152",
+        "amenity": "school",
+        "grades": "10-12",
+        "name": "SMA Negeri 22 Bekasi",
+        "school:type_idn": "sma"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9915019,
+          -6.3364074
+        ]
+      },
+      "id": "node/10951121950"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11257105022",
+        "amenity": "school",
+        "name": "SMP/MTs Nurul Ikhlas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0054684,
+          -6.2715453
+        ]
+      },
+      "id": "node/11257105022"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11269394424",
+        "amenity": "school",
+        "name": "SMK PGRI Rawalumbu"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.999751,
+          -6.2878807
+        ]
+      },
+      "id": "node/11269394424"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12420388542",
+        "amenity": "school",
+        "name": "SMA KORPRI BEKASI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0116533,
+          -6.231684
+        ]
+      },
+      "id": "node/12420388542"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12420391640",
+        "amenity": "school",
+        "name": "SMA Muhammadiyah 9 Bekasi"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0078169,
+          -6.2366461
+        ]
+      },
+      "id": "node/12420391640"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13722869765",
+        "amenity": "school",
+        "education": "school",
+        "name": "SMAN 18 Kota Bekasi"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0360473,
+          -6.2376477
+        ]
+      },
+      "id": "node/13722869765"
+    }
+  ]
+}
