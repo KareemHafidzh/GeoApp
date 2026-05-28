@@ -1,8 +1,5 @@
 {
   "data": {
-    "pendidikan": {
-      "mbtiles": "pendidikan.mbtiles"
-    },
     "administrasi_desa": {
       "mbtiles": "administrasiDesa.mbtiles"
     },
@@ -14,6 +11,9 @@
     },
     "school": {
       "mbtiles": "school.mbtiles"
+    },
+    "kecamatan_borders": {
+      "mbtiles": "kecamatan_borders.mbtiles"
     }
   }
 }

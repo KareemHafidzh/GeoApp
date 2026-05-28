@@ -121,3 +121,7 @@ body {
   background-color: transparent;
   color: #0f172a;
 }
+/* Hide default Geoman controls */
+.maplibregl-ctrl-top-left {
+  display: none !important;
+}

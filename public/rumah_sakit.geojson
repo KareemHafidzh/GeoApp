@@ -1,0 +1,691 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RSUD dr. Chasbullah Abdulmadjid",
+        "kecamatan": "Bekasi Selatan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.000658,
+          -6.242328
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RS Hermina Bekasi",
+        "kecamatan": "Bekasi Selatan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.996111,
+          -6.236111
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RS Primaya Bekasi Barat",
+        "kecamatan": "Bekasi Selatan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.985556,
+          -6.245833
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RS Mitra Keluarga Bekasi",
+        "kecamatan": "Bekasi Selatan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.992222,
+          -6.237222
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RS Hermina Galaxy",
+        "kecamatan": "Bekasi Selatan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.974444,
+          -6.265556
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RSU Anna",
+        "kecamatan": "Bekasi Selatan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.985833,
+          -6.264167
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RS Siloam Bekasi Timur",
+        "kecamatan": "Bekasi Timur"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.016,
+          -6.262
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RS Primaya Bekasi Timur",
+        "kecamatan": "Bekasi Timur"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0201,
+          -6.265
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RS Mitra Keluarga Bekasi Timur",
+        "kecamatan": "Bekasi Timur"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.015278,
+          -6.261111
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RSU Ananda Bekasi",
+        "kecamatan": "Medan Satria"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9853,
+          -6.1957
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RS Seto Hasbadi",
+        "kecamatan": "Bekasi Utara"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9965,
+          -6.2115
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RSIA Karunia Kasih",
+        "kecamatan": "Pondok Gede"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9202,
+          -6.2754
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RSU Kartika Husada",
+        "kecamatan": "Jatiasih"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9585,
+          -6.3015
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RS Mitra Keluarga Jatiasih",
+        "kecamatan": "Jatiasih"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9538,
+          -6.3072
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RS Permata Bekasi",
+        "kecamatan": "Mustika Jaya"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0271,
+          -6.2825
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RS Mitra Keluarga Cibubur",
+        "kecamatan": "Jatisampurna"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9186,
+          -6.3764
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RS Permata Cibubur",
+        "kecamatan": "Jatisampurna"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9221,
+          -6.3761
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RS Karya Medika",
+        "kecamatan": "Bantar Gebang"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.985,
+          -6.3082
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RSUD Bantargebang",
+        "kecamatan": "Bantar Gebang"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9951,
+          -6.3154
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RSUD Bekasi Utara / Teluk Pucung",
+        "kecamatan": "Bekasi Utara"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0183,
+          -6.2112
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RSUD Jatisampurna",
+        "kecamatan": "Jatisampurna"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9242,
+          -6.3685
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RSUD Pondok Gede",
+        "kecamatan": "Pondok Gede"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9254,
+          -6.2821
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RS EMC Pekayon",
+        "kecamatan": "Bekasi Selatan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9932,
+          -6.2573
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RS Primaya Bekasi Utara",
+        "kecamatan": "Bekasi Utara"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0054,
+          -6.2081
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RS Siloam Sentosa",
+        "kecamatan": "Bekasi Timur"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0123,
+          -6.2704
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RS Siloam Sepanjang Jaya",
+        "kecamatan": "Rawalumbu"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9984,
+          -6.2625
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RSU Budi Lestari",
+        "kecamatan": "Bekasi Selatan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9795,
+          -6.2461
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RSU Cikunir",
+        "kecamatan": "Bekasi Selatan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9681,
+          -6.2584
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RSU Citra Harapan",
+        "kecamatan": "Medan Satria"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9855,
+          -6.1832
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RSU Dokter Adam Talib Cikunir",
+        "kecamatan": "Bekasi Selatan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9688,
+          -6.2589
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RSU Graha Juanda",
+        "kecamatan": "Bekasi Timur"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0182,
+          -6.2415
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RSU Islam dr. Subki",
+        "kecamatan": "Bekasi Timur"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0041,
+          -6.2443
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RSU Jati Sampurna",
+        "kecamatan": "Jatisampurna"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9189,
+          -6.3752
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RSU Juwita",
+        "kecamatan": "Bekasi Timur"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0135,
+          -6.2392
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RSU Masmitra",
+        "kecamatan": "Pondok Gede"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9312,
+          -6.2884
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RSU Mekar Sari",
+        "kecamatan": "Bekasi Timur"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0074,
+          -6.2381
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RSU Rawa Lumbu",
+        "kecamatan": "Rawalumbu"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0012,
+          -6.2691
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RSU Satria Medika",
+        "kecamatan": "Mustika Jaya"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0184,
+          -6.3125
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RSU St. Elisabeth",
+        "kecamatan": "Rawalumbu"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9981,
+          -6.2942
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RS RSU Bella Bekasi",
+        "kecamatan": "Bekasi Timur"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0145,
+          -6.2411
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RS RSU Bhakti Kartini",
+        "kecamatan": "Bekasi Timur"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0112,
+          -6.2472
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RS Medik Zainuttaqwa",
+        "kecamatan": "Medan Satria"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0021,
+          -6.1915
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RS Mustika Medika Bekasi",
+        "kecamatan": "Mustika Jaya"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0394,
+          -6.2712
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RS Persada Medika",
+        "kecamatan": "Pondok Melati"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9283,
+          -6.2951
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RS Taman Harapan Baru",
+        "kecamatan": "Medan Satria"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9931,
+          -6.1824
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RSIA Rinova Intan",
+        "kecamatan": "Bekasi Utara"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0082,
+          -6.2235
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RSIA Selasih Medika",
+        "kecamatan": "Bekasi Barat"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9651,
+          -6.2342
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RSIA Taman Harapan Baru",
+        "kecamatan": "Medan Satria"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9932,
+          -6.1825
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_rs": "RSU Anna Medika",
+        "kecamatan": "Bekasi Utara"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0121,
+          -6.2085
+        ]
+      }
+    }
+  ]
+}
