@@ -1,9 +1,7 @@
 'use client';
 
-// No more scrollY prop needed here!
 export default function About() {
   return (
-    // Removed the border-t, bg-white, and overflow-hidden
     <section id="about" className="relative py-10 px-12">
       
       {/* Content Container */}

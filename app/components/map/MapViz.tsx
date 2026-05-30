@@ -41,27 +41,7 @@ export default function MapViz() {
   const [hovered, setHovered] = useState<string | null>(null);
 
   return (
-    <>
-      {/* Local styles for the high-tech animations */}
-      <style>{`
-        @keyframes scanline {
-          from { top: -1px; }
-          to   { top: 100%; }
-        }
-        @keyframes pulse-ring {
-          0%   { transform: scale(1);   opacity: 0.5; }
-          100% { transform: scale(2.4); opacity: 0;   }
-        }
-        @keyframes blink {
-          0%, 100% { opacity: 1;    }
-          50%       { opacity: 0.15; }
-        }
-        .animate-scanline     { animation: scanline 5s linear infinite; }
-        .animate-pulse-ring   { animation: pulse-ring 2.4s ease-out infinite; }
-        .animate-blink        { animation: blink 1.8s ease-in-out infinite; }
-      `}</style>
-
-      <div className="relative w-full rounded-[24px] border border-slate-200 overflow-hidden shadow-[0_32px_80px_rgba(0,0,0,0.10),0_8px_24px_rgba(0,0,0,0.06)] bg-gradient-to-br from-slate-50 to-slate-100"
+    <div className="relative w-full rounded-[24px] border border-slate-200 overflow-hidden shadow-[0_32px_80px_rgba(0,0,0,0.10),0_8px_24px_rgba(0,0,0,0.06)] bg-gradient-to-br from-slate-50 to-slate-100"
         style={{ paddingBottom: '72%' }}>
 
         {/* Dot grid */}
@@ -169,6 +149,5 @@ export default function MapViz() {
           KOTA BEKASI · SHP LAYER
         </div>
       </div>
-    </>
   );
 }

@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
 
-// Tell the component it will receive a boolean prop called isScrolled
 export default function Navbar({ isScrolled }: { isScrolled: boolean }) {
     return (
       <header className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-12 h-[68px] transition-all duration-300 ${
@@ -9,11 +8,18 @@ export default function Navbar({ isScrolled }: { isScrolled: boolean }) {
             ? 'bg-white/93 backdrop-blur-xl border-b border-slate-100 shadow-sm'
             : 'bg-transparent border-b border-transparent'
         }`}>
-        {/* ... Keep the rest of your SVG Logo and Nav Code exactly the same ... */}
+        
+        <Link href="/" className="flex items-center gap-2">
+          <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
+            <polygon points="16,2 29,9.5 29,22.5 16,30 3,22.5 3,9.5" fill="none" stroke="#0f172a" strokeWidth="1.8" />
+            <circle cx="16" cy="16" r="3" fill="#0f172a" />
+          </svg>
+          <span className="font-bold text-[13px] tracking-[0.06em] text-slate-800" style={{ fontFamily: 'Syne, sans-serif' }}>BEKASIGIS</span>
+        </Link>
         
         {/* Nav */}
         <nav className="flex items-center gap-9">
-          {['About', 'Features', 'Clusters'].map((item) => (
+          {['About', 'Features', 'Contact'].map((item) => (
             <a
               key={item}
               href={`#${item.toLowerCase()}`}

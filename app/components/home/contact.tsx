@@ -9,12 +9,12 @@ export default function Contact() {
 
         <h2 className="font-extrabold text-slate-900 leading-[1.1] text-4xl md:text-5xl mb-6"
             style={{ fontFamily: 'Syne, sans-serif' }}>
-          Let's Build Something <br className="hidden md:block" />
+          Let&apos;s Build Something <br className="hidden md:block" />
           <span className="text-[#0aab8a]">Amazing Together.</span>
         </h2>
         
         <p className="text-slate-500 text-lg mb-10 max-w-[600px] mx-auto">
-          Hi, I'm Kareem Abdul Hafidzh. I specialize in Software Engineering, building dynamic platforms from iOS apps to modern Next.js web dashboards.
+          Hi, I&apos;m Kareem Abdul Hafidzh. I specialize in Software Engineering, building dynamic platforms from iOS apps to modern Next.js web dashboards.
         </p>
 
         {/* Social Links */}

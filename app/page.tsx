@@ -5,8 +5,8 @@ import Hero from './components/home/hero';
 import About from './components/home/about';
 import Features from './components/home/features';
 import Contact from './components/home/contact';
-import Footer from './components/layout/footer';
-import { useScrollY } from './hook/useScrollY';
+import Footer from './components/layout/Footer';
+import { useScrollY } from './hooks/useScrollY';
 
 export default function Home() {
   const scrollY = useScrollY();
