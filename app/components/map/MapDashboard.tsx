@@ -4,6 +4,8 @@ import { useRef, useState, useEffect } from 'react';
 import Map, { Source, Layer, NavigationControl } from 'react-map-gl/maplibre';
 import type { MapRef, MapLayerMouseEvent } from 'react-map-gl/maplibre';
 import 'maplibre-gl/dist/maplibre-gl.css';
+import maplibregl from 'maplibre-gl';
+import { Protocol } from 'pmtiles';
 import { area } from '@turf/area';
 import type { GeoJSON } from 'geojson';
 
@@ -23,6 +25,10 @@ import MapPopup from './MapPopup';
 // Types
 import type { PopupInfo, HoverInfo, DrawnAreaInfo, CursorLngLat } from '@/app/types/map';
 import type { Map as MapLibreMap } from 'maplibre-gl';
+
+// Register PMTiles protocol
+let protocol = new Protocol();
+maplibregl.addProtocol("pmtiles", protocol.tile);
 
 export default function MapDashboard() {
   const mapRef = useRef<MapRef>(null);
@@ -198,7 +204,7 @@ export default function MapDashboard() {
         <MapHoverTooltip hoverInfo={hoverInfo} />
         <MapPopup popupInfo={popupInfo} onClose={() => setPopupInfo(null)} />
 
-        <Source id="spatial_risk" type="vector" tiles={[`${TILE_SERVER_URL}/data/spatial_risk/{z}/{x}/{y}.pbf?v=2`]}>
+        <Source id="spatial_risk" type="vector" url={`pmtiles:///spatial_risk.pmtiles`}>
           <Layer id="risk-fills" type="fill" source-layer="spatial_risk"
             layout={{ visibility: showRiskLayer ? 'visible' : 'none' }}
             paint={{
@@ -214,7 +220,7 @@ export default function MapDashboard() {
             }}/>
         </Source>
 
-        <Source id="kecamatan_borders" type="vector" tiles={[`${TILE_SERVER_URL}/data/kecamatan_borders/{z}/{x}/{y}.pbf`]}>
+        <Source id="kecamatan_borders" type="vector" url={`pmtiles:///kecamatan_borders.pmtiles`}>
           <Layer id="district-borders" type="line" source-layer="kecamatan_borders"
             layout={{ visibility: showDistrictBorders ? 'visible' : 'none' }} 
             paint={{ 
