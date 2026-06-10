@@ -4,6 +4,7 @@ import Navbar from './components/layout/Navbar';
 import Hero from './components/home/hero';
 import About from './components/home/about';
 import Features from './components/home/features';
+import DataSources from './components/home/data-sources';
 import Contact from './components/home/contact';
 import Footer from './components/layout/Footer';
 import { useScrollY } from './hooks/useScrollY';
@@ -38,6 +39,7 @@ export default function Home() {
         <Hero scrollY={scrollY} />
         <About />
         <Features />
+        <DataSources />
         <Contact />
         <Footer />
       </div>
