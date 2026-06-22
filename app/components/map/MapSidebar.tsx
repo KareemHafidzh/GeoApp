@@ -18,6 +18,8 @@ interface MapSidebarProps {
   activeDrawMode: DrawMode | null;
   toggleDrawMode: (mode: DrawMode) => void;
   clearAll: () => void;
+  isOpen: boolean;
+  onClose: () => void;
 }
 
 export default function MapSidebar({
@@ -37,11 +39,13 @@ export default function MapSidebar({
   activeDrawMode,
   toggleDrawMode,
   clearAll,
+  isOpen,
+  onClose,
 }: MapSidebarProps) {
   return (
-    <div className="absolute top-4 left-4 bottom-4 z-10 flex flex-col w-[320px]">
+    <div data-tour="sidebar" className={`absolute top-0 left-0 bottom-0 z-30 flex flex-col w-[300px] max-w-[88vw] p-3 sm:top-4 sm:left-4 sm:bottom-4 sm:p-0 sm:w-[320px] sm:max-w-none transition-transform duration-300 ease-in-out lg:translate-x-0 ${isOpen ? 'translate-x-0' : '-translate-x-[110%]'}`}>
       <div className="bg-white/95 backdrop-blur-md border border-slate-200 rounded-2xl shadow-xl flex flex-col h-full overflow-hidden">
-        
+
         {/* Top Section: Logo & Back Button */}
         <div className="p-4 flex items-center justify-between border-b border-slate-100">
           <Link href="/" className="p-2 border border-slate-200 rounded-lg hover:bg-slate-50 transition-colors text-slate-700">
@@ -53,11 +57,20 @@ export default function MapSidebar({
             <div className="leading-tight font-extrabold text-slate-900 tracking-wider text-[12px] uppercase text-right" style={{ fontFamily: 'Syne, sans-serif' }}>
               GIS<br/>KOTA<br/>BEKASI
             </div>
+            {/* Close button — mobile/tablet only */}
+            <button
+              onClick={onClose}
+              aria-label="Close panel"
+              className="lg:hidden p-2 -mr-1 border border-slate-200 rounded-lg hover:bg-slate-50 transition-colors text-slate-500">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
           </div>
         </div>
 
         {/* Search Section */}
-        <div className="p-4 border-b border-slate-100 bg-slate-50/50">
+        <div data-tour="search" className="p-4 border-b border-slate-100 bg-slate-50/50">
           <form onSubmit={handleSearch} className="relative flex items-center">
             <input 
               type="text" 
@@ -109,7 +122,7 @@ export default function MapSidebar({
           </div>
 
           {/* Mapset (Layers) Section */}
-          <div>
+          <div data-tour="mapset">
             <h3 className="text-[15px] font-bold text-slate-800 mb-3" style={{ fontFamily: 'Syne, sans-serif' }}>Mapset</h3>
             <div className="bg-slate-50/50 border border-slate-100 rounded-xl p-3 flex flex-col gap-1">
               {/* Risk Toggle */}
@@ -145,7 +158,7 @@ export default function MapSidebar({
           </div>
 
           {/* Geoman Control Section */}
-          <div>
+          <div data-tour="measure">
             <h3 className="text-[15px] font-bold text-slate-800 mb-3" style={{ fontFamily: 'Syne, sans-serif' }}>Pengukuran Peta</h3>
             
             <div className="grid grid-cols-3 gap-2 mb-3">

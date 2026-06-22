@@ -12,7 +12,7 @@ import type { GeoJSON } from 'geojson';
 // Hooks & Constants
 import { useGeoman } from '@/app/hooks/useGeoman';
 import { useMapSearch } from '@/app/hooks/useMapSearch';
-import { TILE_SERVER_URL, MAP_STYLE, DEFAULT_VIEW_STATE } from '@/app/constants/map';
+import { MAP_STYLE, DEFAULT_VIEW_STATE } from '@/app/constants/map';
 
 // Subcomponents
 import MapSidebar from './MapSidebar';
@@ -21,19 +21,24 @@ import MapCoordinateBar from './MapCoordinateBar';
 import MapAreaInfo from './MapAreaInfo';
 import MapHoverTooltip from './MapHoverTooltip';
 import MapPopup from './MapPopup';
+import MapTour from './MapTour';
+import MapFeedback from './MapFeedback';
 
 // Types
 import type { PopupInfo, HoverInfo, DrawnAreaInfo, CursorLngLat } from '@/app/types/map';
 import type { Map as MapLibreMap } from 'maplibre-gl';
 
 // Register PMTiles protocol
-let protocol = new Protocol();
+const protocol = new Protocol();
 maplibregl.addProtocol("pmtiles", protocol.tile);
 
 export default function MapDashboard() {
   const mapRef = useRef<MapRef>(null);
   const [mapInstance, setMapInstance] = useState<MapLibreMap | null>(null);
   
+  // UI States
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
   // Layer States
   const [showRiskLayer, setShowRiskLayer] = useState(true);
   const [showDesaBorders, setShowDesaBorders] = useState(true);
@@ -163,8 +168,26 @@ export default function MapDashboard() {
 
   return (
     <div className="relative w-full h-screen bg-slate-50 overflow-hidden">
-      
-      <MapSidebar 
+
+      {/* Floating menu button — opens sidebar drawer on mobile/tablet */}
+      <button
+        onClick={() => setSidebarOpen(true)}
+        aria-label="Open menu"
+        className={`lg:hidden absolute top-4 left-4 z-20 flex items-center justify-center w-11 h-11 bg-white/95 backdrop-blur-md border border-slate-200 rounded-xl shadow-lg text-slate-800 transition-opacity ${sidebarOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+
+      {/* Backdrop — closes drawer when tapped (mobile/tablet only) */}
+      {sidebarOpen && (
+        <div
+          onClick={() => setSidebarOpen(false)}
+          className="lg:hidden absolute inset-0 z-20 bg-slate-900/30 backdrop-blur-[2px]"
+        />
+      )}
+
+      <MapSidebar
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
         handleSearch={handleSearch}
@@ -181,11 +204,17 @@ export default function MapDashboard() {
         activeDrawMode={activeDrawMode}
         toggleDrawMode={toggleDrawMode}
         clearAll={clearAll}
+        isOpen={sidebarOpen}
+        onClose={() => setSidebarOpen(false)}
       />
 
       <MapLegend />
 
-      <Map 
+      <MapTour setSidebarOpen={setSidebarOpen} mapInstance={mapInstance} />
+
+      <MapFeedback />
+
+      <Map
         ref={mapRef} 
         initialViewState={DEFAULT_VIEW_STATE} 
         style={{ width: '100%', height: '100%' }} 

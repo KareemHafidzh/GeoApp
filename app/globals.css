@@ -52,6 +52,43 @@ body {
   0%, 100% { transform: translateY(0);    opacity: 1;   }
   50%       { transform: translateY(10px); opacity: 0.3; }
 }
+/* Map tour: content slide-in when switching steps. */
+@keyframes tourContentIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}
+/* Map tour: interactive gesture demonstration (rotate/tilt step). */
+@keyframes tourSwing {
+  0%   { transform: rotate(-32deg); }
+  50%  { transform: rotate(32deg);  }
+  100% { transform: rotate(-32deg); }
+}
+@keyframes tourDragX {
+  0%, 100% { transform: translateX(-11px); }
+  50%      { transform: translateX(11px);  }
+}
+@keyframes tourPulse {
+  0%, 100% { opacity: 0.3; }
+  50%      { opacity: 1;   }
+}
+@keyframes tourRipple {
+  0%   { transform: scale(0.35); opacity: 0.65; }
+  100% { transform: scale(1.7);  opacity: 0;    }
+}
+@keyframes tourTapPress {
+  0%, 100% { transform: translateY(0);   }
+  45%      { transform: translateY(5px); }
+}
+/* Feedback panel: slide-in from the right (tablet/desktop drawer). */
+@keyframes feedbackSlideIn {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(0);    }
+}
+/* Feedback panel: pop-in (phone centered popup card). */
+@keyframes feedbackPopIn {
+  from { opacity: 0; transform: translateY(-50%) scale(0.94); }
+  to   { opacity: 1; transform: translateY(-50%) scale(1);    }
+}
 
 .animate-scanline     { animation: scanline 5s linear infinite; }
 .animate-pulse-ring   { animation: pulse-ring 2.4s ease-out infinite; }
@@ -62,6 +99,12 @@ body {
 
 .anim-fade-up   { animation: fadeUp 0.65s ease both; }
 .anim-fade-in   { animation: fadeIn 0.9s ease both; }
+
+/* Feedback panel entrance. Base = phone popup; sm+ = right drawer. */
+.anim-feedback-pop   { animation: feedbackPopIn 0.32s cubic-bezier(0.22, 1, 0.36, 1) both; }
+@media (min-width: 640px) {
+  .anim-feedback-pop { animation: feedbackSlideIn 0.34s cubic-bezier(0.22, 1, 0.36, 1) both; }
+}
 
 .nav-underline {
   position: relative;
