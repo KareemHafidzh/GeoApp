@@ -47,7 +47,7 @@ export default function DataSources() {
   const [activeDataset, setActiveDataset] = useState(datasets[0]);
 
   return (
-    <section id="data-sources" className="relative py-10 px-12">
+    <section id="data-sources" className="relative py-10 px-5 sm:px-8 lg:px-12">
       <div className="relative z-10 max-w-[1240px] mx-auto w-full">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 text-[#0aab8a] uppercase font-bold mb-4" 

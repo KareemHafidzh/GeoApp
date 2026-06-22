@@ -2,7 +2,7 @@
 
 export default function About() {
   return (
-    <section id="about" className="relative py-10 px-12">
+    <section id="about" className="relative py-10 px-5 sm:px-8 lg:px-12">
       
       {/* Content Container */}
       <div className="relative z-10 max-w-[1240px] mx-auto w-full">

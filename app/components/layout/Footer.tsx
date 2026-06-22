@@ -3,7 +3,7 @@ export default function Footer() {
   
   return (
     <footer className="relative border-t border-slate-200/60 bg-white/50 backdrop-blur-md">
-      <div className="max-w-[1240px] mx-auto w-full px-12 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div className="max-w-[1240px] mx-auto w-full px-5 sm:px-8 lg:px-12 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
         
         {/* Brand */}
         <div className="flex items-center gap-2 grayscale opacity-80">
