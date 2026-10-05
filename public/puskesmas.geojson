@@ -1,0 +1,630 @@
+{
+  "type": "FeatureCollection",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Jati Warna"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9321642,
+          -6.3054297
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Kaliabang Tengah"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0001525,
+          -6.1756822
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Marga Mulya"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0047802,
+          -6.2298832
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Teluk Pucung"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0304235,
+          -6.21866
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Harapan Baru"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0163597,
+          -6.2088027
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Seroja"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9891324,
+          -6.2054096
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Jati Karya"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9224088,
+          -6.3816521
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Medan Satria"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9769889,
+          -6.1942613
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Harapan Mulya"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9906664,
+          -6.2304989
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Kalibaru"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9784703,
+          -6.2191848
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Pejuang"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9933414,
+          -6.1986062
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Kranji"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9706797,
+          -6.2261312
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Bintara Jaya"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9473736,
+          -6.2395388
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Bintara"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9569154,
+          -6.2275633
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Rawa Tembaga"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9805724,
+          -6.2336491
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Kota Baru"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9682275,
+          -6.2143446
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Jaka Setia"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9784134,
+          -6.2762346
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Marga Jaya"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9943152,
+          -6.2374061
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Pekayon Jaya"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9748121,
+          -6.2668904
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Jaka Mulya"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.968674,
+          -6.2805706
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Perumnas II"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9891458,
+          -6.2458034
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Bantar Gebang"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9829518,
+          -6.3258298
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Ciketing Udik"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.987011,
+          -6.3495007
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Cimuning"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0261006,
+          -6.3198607
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Sumur Batu"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0048226,
+          -6.3438671
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Mustika Sari"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0021056,
+          -6.298085
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Bojong Menteng"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9958122,
+          -6.3001104
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Pengasinan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.010026,
+          -6.2778175
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Bojong Rawalumbu"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9988822,
+          -6.2776279
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Aren Jaya"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0301686,
+          -6.2491664
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Bekasi Jaya"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0122047,
+          -6.2320127
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Duren Jaya"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0226218,
+          -6.2358876
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Mustika Jaya"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0271049,
+          -6.2892514
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Jatirahayu"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9260583,
+          -6.2958106
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Jatiranggon"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.926991,
+          -6.3387415
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Jati Sampurna"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9280943,
+          -6.3628477
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Jatimekar"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9389741,
+          -6.2958408
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Jati Kramat"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9437228,
+          -6.2827806
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Jatiluhur"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9496395,
+          -6.3199748
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Jati Makmur"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9253066,
+          -6.2752272
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Jatibening"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9561113,
+          -6.2617363
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Jati Cempaka"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9206109,
+          -6.2606395
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Padurenan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0085962,
+          -6.3155983
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Jati Asih"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9647174,
+          -6.2931329
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "UPTD Puskesmas Perwira"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0033524,
+          -6.2069104
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Puskesmas Karang Kitri"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          107.0111903,
+          -6.2578068
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Puskesmas Kelurahan Sepanjang Jaya"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9976657,
+          -6.2672723
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Puskesmas Jatibening Baru"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.9435516,
+          -6.2625452
+        ]
+      }
+    }
+  ]
+}

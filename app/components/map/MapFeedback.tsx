@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 /**
  * Feedback form for the map dashboard.
@@ -73,7 +73,7 @@ const QUESTIONS: Question[] = [
   },
 ];
 
-export default function MapFeedback() {
+export default React.memo(function MapFeedback({ sidebarOpen }: { sidebarOpen: boolean }) {
   const [open, setOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [answers, setAnswers] = useState<Record<string, string>>({});
@@ -101,12 +101,14 @@ export default function MapFeedback() {
 
   return (
     <>
-      {/* Floating trigger — bottom-left, above the tour help button. */}
+      {/* Floating trigger — bottom-left, above the tour help button. Hidden while
+          the sidebar drawer is open (mobile); shifted clear of the persistent
+          sidebar on desktop so it never overlaps the panel. */}
       <button
         onClick={() => setOpen(true)}
         aria-label="Beri masukan"
         title="Beri Masukan"
-        className={`absolute bottom-[6.5rem] left-4 z-50 flex items-center gap-2 pl-3 pr-4 py-2.5 bg-[#0aab8a] text-white rounded-full shadow-lg hover:bg-[#088c71] transition-all ${open ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+        className={`absolute bottom-[6.5rem] left-4 lg:left-[352px] z-50 flex items-center gap-2 pl-3 pr-4 py-2.5 bg-[#0aab8a] text-white rounded-full shadow-lg hover:bg-[#088c71] transition-all ${open || sidebarOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
       >
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
@@ -247,4 +249,4 @@ export default function MapFeedback() {
       )}
     </>
   );
-}
+});

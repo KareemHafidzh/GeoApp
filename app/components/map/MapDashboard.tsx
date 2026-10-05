@@ -1,18 +1,18 @@
 'use client';
 
-import { useRef, useState, useEffect } from 'react';
-import Map, { Source, Layer, NavigationControl } from 'react-map-gl/maplibre';
+import { useRef, useState, useEffect, useMemo, useCallback } from 'react';
+import Map, { Source, Layer, NavigationControl, Marker } from 'react-map-gl/maplibre';
 import type { MapRef, MapLayerMouseEvent } from 'react-map-gl/maplibre';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import maplibregl from 'maplibre-gl';
 import { Protocol } from 'pmtiles';
 import { area } from '@turf/area';
-import type { GeoJSON } from 'geojson';
+import type { FeatureCollection, Point } from 'geojson';
 
 // Hooks & Constants
 import { useGeoman } from '@/app/hooks/useGeoman';
 import { useMapSearch } from '@/app/hooks/useMapSearch';
-import { MAP_STYLE, DEFAULT_VIEW_STATE } from '@/app/constants/map';
+import { MAP_STYLE, DEFAULT_VIEW_STATE, RISK_LEVELS, DATA_CREDITS } from '@/app/constants/map';
 
 // Subcomponents
 import MapSidebar from './MapSidebar';
@@ -23,10 +23,20 @@ import MapHoverTooltip from './MapHoverTooltip';
 import MapPopup from './MapPopup';
 import MapTour from './MapTour';
 import MapFeedback from './MapFeedback';
+import MapEmergency, { type NearestResult } from './MapEmergency';
 
 // Types
 import type { PopupInfo, HoverInfo, DrawnAreaInfo, CursorLngLat } from '@/app/types/map';
-import type { Map as MapLibreMap } from 'maplibre-gl';
+import type { Map as MapLibreMap, ExpressionSpecification } from 'maplibre-gl';
+
+const POI_TYPES: Record<string, string> = {
+  'rumah-sakit-points': 'Rumah Sakit',
+  'puskesmas-points': 'Puskesmas',
+  'school-points': 'Sekolah',
+};
+
+// Built from RISK_LEVELS so the legend/filter and fill colors can't drift apart.
+const RISK_FILL_COLOR = ['match', ['get', 'Risk_Label'], ...RISK_LEVELS.flatMap(l => [l.label, l.color]), '#cccccc'] as unknown as ExpressionSpecification;
 
 // Register PMTiles protocol
 const protocol = new Protocol();
@@ -35,6 +45,10 @@ maplibregl.addProtocol("pmtiles", protocol.tile);
 export default function MapDashboard() {
   const mapRef = useRef<MapRef>(null);
   const [mapInstance, setMapInstance] = useState<MapLibreMap | null>(null);
+  
+  // Performance optimization refs
+  const lastMouseMoveTime = useRef<number>(0);
+  const lastHoveredGeomanId = useRef<string | null>(null);
   
   // UI States
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -45,10 +59,14 @@ export default function MapDashboard() {
   const [showDistrictBorders, setShowDistrictBorders] = useState(true);
   const [showRumahSakit, setShowRumahSakit] = useState(true);
   const [showSchool, setShowSchool] = useState(true);
+  const [showPuskesmas, setShowPuskesmas] = useState(true);
+  const [hiddenRisks, setHiddenRisks] = useState<string[]>([]);
   
   // Data States
-  const [schoolData, setSchoolData] = useState<GeoJSON.FeatureCollection | null>(null);
-  const [rumahSakitData, setRumahSakitData] = useState<GeoJSON.FeatureCollection | null>(null);
+  const [schoolData, setSchoolData] = useState<FeatureCollection<Point> | null>(null);
+  const [rumahSakitData, setRumahSakitData] = useState<FeatureCollection<Point> | null>(null);
+  const [puskesmasData, setPuskesmasData] = useState<FeatureCollection<Point> | null>(null);
+  const [nearest, setNearest] = useState<NearestResult | null>(null);
   
   // Interaction States
   const [popupInfo, setPopupInfo] = useState<PopupInfo | null>(null);
@@ -70,7 +88,32 @@ export default function MapDashboard() {
       .then(res => res.json())
       .then(data => setRumahSakitData(data))
       .catch(err => console.error('Failed to load rumah sakit data:', err));
+
+    fetch('/puskesmas.geojson')
+      .then(res => res.json())
+      .then(data => setPuskesmasData(data))
+      .catch(err => console.error('Failed to load puskesmas data:', err));
   }, []);
+
+  // Facilities used by the nearest-facility finder (hospitals + puskesmas).
+  const facilities = useMemo<FeatureCollection<Point> | null>(() =>
+    rumahSakitData && puskesmasData
+      ? { type: 'FeatureCollection', features: [...rumahSakitData.features, ...puskesmasData.features] }
+      : null,
+  [rumahSakitData, puskesmasData]);
+
+  const toggleRisk = useCallback((label: string) =>
+    setHiddenRisks(prev => prev.includes(label) ? prev.filter(l => l !== label) : [...prev, label]), []);
+
+  const handleNearest = (result: NearestResult | null) => {
+    setNearest(result);
+    // Build via extend(): a raw [from, to] pair with from.lng > to.lng is read as crossing the antimeridian.
+    if (result) mapRef.current?.fitBounds(new maplibregl.LngLatBounds(result.from, result.from).extend(result.to), {
+      // Left half stays clear of the sidebar + emergency panel.
+      padding: { top: 100, bottom: 100, right: 80, left: window.innerWidth / 2 },
+      maxZoom: 15,
+    });
+  };
 
   const onMapLoad = (e: { target: MapLibreMap }) => {
     setMapInstance(e.target);
@@ -114,6 +157,10 @@ export default function MapDashboard() {
   };
 
   const onMouseMove = (event: MapLayerMouseEvent) => {
+    const now = performance.now();
+    if (now - lastMouseMoveTime.current < 40) return; // Throttle to ~25 FPS
+    lastMouseMoveTime.current = now;
+
     setCursorLngLat({ lng: event.lngLat.lng, lat: event.lngLat.lat });
     
     if (mapRef.current) {
@@ -129,32 +176,41 @@ export default function MapDashboard() {
       });
 
       if (geomanFeature) {
-        try {
-          const areaSqMeters = area(geomanFeature);
-          if (areaSqMeters > 0) {
-            const areaSqKm = (areaSqMeters / 1000000).toFixed(3);
-            setDrawnAreaInfo({ areaKm: areaSqKm, areaM: areaSqMeters.toLocaleString(undefined, { maximumFractionDigits: 2 }) });
-          } else {
+        // Create a unique ID to prevent recalculating area while simply moving mouse inside the same polygon
+        const featureId = geomanFeature.id ? String(geomanFeature.id) : JSON.stringify(geomanFeature.geometry);
+        if (lastHoveredGeomanId.current !== featureId) {
+          lastHoveredGeomanId.current = featureId;
+          try {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            const areaSqMeters = area(geomanFeature as any);
+            if (areaSqMeters > 0) {
+              const areaSqKm = (areaSqMeters / 1000000).toFixed(3);
+              setDrawnAreaInfo({ areaKm: areaSqKm, areaM: areaSqMeters.toLocaleString(undefined, { maximumFractionDigits: 2 }) });
+            } else {
+              setDrawnAreaInfo(null);
+            }
+          } catch {
             setDrawnAreaInfo(null);
           }
-        } catch {
-          setDrawnAreaInfo(null);
         }
       } else {
-        setDrawnAreaInfo(null);
+        if (lastHoveredGeomanId.current !== null) {
+          lastHoveredGeomanId.current = null;
+          setDrawnAreaInfo(null);
+        }
       }
     }
 
     const features = event.features;
     if (features && features.length > 0) {
       const feature = features[0];
-      if (feature.layer.id === 'rumah-sakit-points' || feature.layer.id === 'school-points') {
+      if (feature.layer.id in POI_TYPES) {
         setHoverInfo({
           longitude: event.lngLat.lng,
           latitude: event.lngLat.lat,
           name: feature.properties.nama_rs || feature.properties.name || 'Unknown',
           address: feature.properties['addr:full'] || feature.properties.address || feature.properties.kecamatan || '',
-          type: feature.layer.id === 'rumah-sakit-points' ? 'Rumah Sakit' : 'Sekolah'
+          type: POI_TYPES[feature.layer.id]
         });
         return;
       }
@@ -201,6 +257,8 @@ export default function MapDashboard() {
         setShowRumahSakit={setShowRumahSakit}
         showSchool={showSchool}
         setShowSchool={setShowSchool}
+        showPuskesmas={showPuskesmas}
+        setShowPuskesmas={setShowPuskesmas}
         activeDrawMode={activeDrawMode}
         toggleDrawMode={toggleDrawMode}
         clearAll={clearAll}
@@ -208,11 +266,13 @@ export default function MapDashboard() {
         onClose={() => setSidebarOpen(false)}
       />
 
-      <MapLegend />
+      <MapLegend hiddenRisks={hiddenRisks} toggleRisk={toggleRisk} />
 
-      <MapTour setSidebarOpen={setSidebarOpen} mapInstance={mapInstance} />
+      <MapTour setSidebarOpen={setSidebarOpen} mapInstance={mapInstance} sidebarOpen={sidebarOpen} />
 
-      <MapFeedback />
+      <MapFeedback sidebarOpen={sidebarOpen} />
+
+      <MapEmergency facilities={facilities} nearest={nearest} onNearest={handleNearest} sidebarOpen={sidebarOpen} />
 
       <Map
         ref={mapRef} 
@@ -223,7 +283,9 @@ export default function MapDashboard() {
         onMouseMove={onMouseMove}
         onMouseLeave={onMouseLeave}
         onLoad={onMapLoad}
-        interactiveLayerIds={['risk-fills', 'rumah-sakit-points', 'school-points']} 
+        hash // syncs #zoom/lat/lng into the URL so shared links open the same view
+        attributionControl={{ compact: true, customAttribution: DATA_CREDITS }}
+        interactiveLayerIds={['risk-fills', ...Object.keys(POI_TYPES)]} 
         cursor={hoverInfo ? 'pointer' : (popupInfo ? 'auto' : 'crosshair')}
       >
         <NavigationControl position="bottom-right" />
@@ -236,8 +298,9 @@ export default function MapDashboard() {
         <Source id="spatial_risk" type="vector" url={`pmtiles:///spatial_risk.pmtiles`}>
           <Layer id="risk-fills" type="fill" source-layer="spatial_risk"
             layout={{ visibility: showRiskLayer ? 'visible' : 'none' }}
+            filter={['!', ['in', ['get', 'Risk_Label'], ['literal', hiddenRisks]]]}
             paint={{
-              'fill-color': ['match', ['get', 'Risk_Label'], 'Very High Risk', '#a50026', 'High Risk', '#f46d43', 'Medium Risk', '#fee08b', 'Low Risk', '#1a9850', '#cccccc'],
+              'fill-color': RISK_FILL_COLOR,
               'fill-opacity': 0.65 
             }}/>
           <Layer id="desa-borders" type="line" source-layer="spatial_risk"
@@ -285,6 +348,34 @@ export default function MapDashboard() {
               }}
             />
           </Source>
+        )}
+
+        {puskesmasData && (
+          <Source id="puskesmas" type="geojson" data={puskesmasData}>
+            <Layer
+              id="puskesmas-points"
+              type="circle"
+              layout={{ visibility: showPuskesmas ? 'visible' : 'none' }}
+              paint={{
+                'circle-radius': 4.5,
+                'circle-color': '#10b981',
+                'circle-stroke-width': 1.5,
+                'circle-stroke-color': '#ffffff',
+                'circle-pitch-alignment': 'map'
+              }}
+            />
+          </Source>
+        )}
+
+        {nearest && (
+          <>
+            <Source id="nearest-line" type="geojson" data={{ type: 'Feature', properties: {}, geometry: { type: 'LineString', coordinates: [nearest.from, nearest.to] } }}>
+              <Layer id="nearest-line" type="line" paint={{ 'line-color': '#0f172a', 'line-width': 3, 'line-dasharray': [2, 1.5] }} />
+            </Source>
+            <Marker longitude={nearest.from[0]} latitude={nearest.from[1]}>
+              <span className="block w-4 h-4 rounded-full bg-blue-600 border-[3px] border-white shadow-lg" />
+            </Marker>
+          </>
         )}
 
         {schoolData && (

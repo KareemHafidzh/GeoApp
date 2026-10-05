@@ -1,15 +1,14 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { RISK_LEVELS } from '@/app/constants/map';
 
-const RISK_LEVELS = [
-  { color: '#a50026', label: 'Very High Risk' },
-  { color: '#f46d43', label: 'High Risk' },
-  { color: '#fee08b', label: 'Medium Risk' },
-  { color: '#1a9850', label: 'Low Risk' },
-];
+interface MapLegendProps {
+  hiddenRisks: string[];
+  toggleRisk: (label: string) => void;
+}
 
-export default function MapLegend() {
+export default React.memo(function MapLegend({ hiddenRisks, toggleRisk }: MapLegendProps) {
   // Collapsed by default on small screens, expanded on desktop.
   const [open, setOpen] = useState(() =>
     typeof window === 'undefined' ? true : window.innerWidth >= 1024
@@ -36,16 +35,24 @@ export default function MapLegend() {
           <p className="text-[13px] text-slate-600 leading-relaxed font-medium">
             Peta ini menampilkan zona klasifikasi risiko bencana di wilayah Kota Bekasi. Klasifikasi didasarkan pada tingkat risiko yang dipetakan per wilayah.
           </p>
+          <p className="text-[11px] text-slate-400 font-medium -mb-1">Klik kelas risiko untuk menyaring peta.</p>
           <div className="flex flex-col gap-2.5 mt-1">
-            {RISK_LEVELS.map((level) => (
-              <div key={level.label} className="flex items-center gap-3 p-2 rounded-lg bg-slate-50 border border-slate-100">
-                <span className="w-3.5 h-3.5 rounded-full shadow-sm shrink-0" style={{ background: level.color }}></span>
-                <span className="text-xs font-bold text-slate-800" style={{ fontFamily: 'Syne, sans-serif' }}>{level.label}</span>
-              </div>
-            ))}
+            {RISK_LEVELS.map((level) => {
+              const visible = !hiddenRisks.includes(level.label);
+              return (
+                <button
+                  key={level.label}
+                  onClick={() => toggleRisk(level.label)}
+                  aria-pressed={visible}
+                  className={`flex items-center gap-3 p-2 rounded-lg border text-left transition-all ${visible ? 'bg-slate-50 border-slate-100 hover:border-slate-300' : 'bg-white border-dashed border-slate-200 opacity-45'}`}>
+                  <span className="w-3.5 h-3.5 rounded-full shadow-sm shrink-0" style={{ background: level.color }}></span>
+                  <span className={`text-xs font-bold text-slate-800 ${visible ? '' : 'line-through'}`} style={{ fontFamily: 'Syne, sans-serif' }}>{level.label}</span>
+                </button>
+              );
+            })}
           </div>
         </>
       )}
     </div>
   );
-}
+});

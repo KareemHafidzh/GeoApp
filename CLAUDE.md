@@ -33,7 +33,7 @@ Next.js 16 App Router, React 19, Tailwind CSS v4, TypeScript. Everything lives u
 - **Tile data** is served as **PMTiles** from `public/*.pmtiles` (`spatial_risk.pmtiles`, `kecamatan_borders.pmtiles`). The PMTiles protocol is registered once at module load in `MapDashboard.tsx` (`maplibregl.addProtocol("pmtiles", ...)`), and sources reference it as `url="pmtiles:///spatial_risk.pmtiles"`. Note the project migrated from MBTiles/TileServer-GL to PMTiles — `TILE_SERVER_URL` in `constants/map.ts` and the README's "Run TileServer-GL" step are **stale leftovers** of the old approach.
 - **Point layers** (`rumah_sakit.geojson`, `school.geojson`) are fetched from `public/` at runtime into React state and passed to `<Source type="geojson">`.
 - **Basemap** is the external CartoCDN Positron style (`MAP_STYLE` in `constants/map.ts`).
-- Feature properties carry Indonesian, space-containing keys (e.g. `'Total Penduduk'`, `'Banjir_2020'`, `'Luas Area (km²)'`) read by string index in `MapDashboard.onClick`. Risk colors are defined **twice** and must be kept in sync: as MapLibre `match` paint expressions inline in `MapDashboard`, and as Tailwind class strings in `getRiskColor()` (`constants/map.ts`).
+- Feature properties carry Indonesian, space-containing keys (e.g. `'Total Penduduk'`, `'Banjir_2020'`, `'Luas Area (km²)'`) read by string index in `MapDashboard.onClick`. Risk colors live in `RISK_LEVELS` (`constants/map.ts`), which drives the legend/filter and the MapLibre fill `match` expression; the Tailwind class strings in `getRiskColor()` are a second copy that must be kept in sync.
 
 ### Custom hooks (`app/hooks/`)
 
@@ -47,4 +47,5 @@ Breakpoints: phone `<640px`, tablet/iPad `640–1024px`, desktop `≥1024px`. Se
 ## Gotchas
 
 - `reactStrictMode` is **off** (`next.config.ts`) — relevant because the MapLibre/Geoman init effects are not double-invocation safe.
-- Adding/renaming a risk class requires editing both the paint `match` expression in `MapDashboard` and `getRiskColor`.
+- Adding/renaming a risk class requires editing both `RISK_LEVELS` and `getRiskColor`.
+- The `<Map hash>` prop keeps `#zoom/lat/lng` in the URL; the sidebar Share button just shares `location.href`.

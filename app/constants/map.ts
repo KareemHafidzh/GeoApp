@@ -17,3 +17,24 @@ export function getRiskColor(label: string): string {
     default: return 'bg-slate-50 text-slate-700 border-slate-200';
   }
 }
+
+// Single source for risk class colors: drives the legend/filter and the MapLibre fill paint.
+export const RISK_LEVELS = [
+  { color: '#a50026', label: 'Very High Risk' },
+  { color: '#f46d43', label: 'High Risk' },
+  { color: '#fee08b', label: 'Medium Risk' },
+  { color: '#1a9850', label: 'Low Risk' },
+];
+
+// ponytail: hand-maintained, bump when the tiles/GeoJSON are regenerated.
+export const DATA_UPDATED = 'Mei 2026';
+export const DATA_CREDITS = `Data: Indonesia Geospatial · BPS Kota Bekasi · OpenStreetMap · Diperbarui ${DATA_UPDATED}`;
+
+// National emergency numbers (Indonesia). Add the local BPBD Kota Bekasi line once verified.
+export const EMERGENCY_CONTACTS = [
+  { label: 'Panggilan Darurat', number: '112' },
+  { label: 'Ambulans (PSC)', number: '119' },
+  { label: 'Pemadam Kebakaran', number: '113' },
+  { label: 'Polisi', number: '110' },
+  { label: 'Basarnas (SAR)', number: '115' },
+];

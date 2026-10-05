@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import Link from 'next/link';
 import type { DrawMode } from '@/app/types/map';
 
@@ -15,6 +16,8 @@ interface MapSidebarProps {
   setShowRumahSakit: (show: boolean) => void;
   showSchool: boolean;
   setShowSchool: (show: boolean) => void;
+  showPuskesmas: boolean;
+  setShowPuskesmas: (show: boolean) => void;
   activeDrawMode: DrawMode | null;
   toggleDrawMode: (mode: DrawMode) => void;
   clearAll: () => void;
@@ -22,7 +25,7 @@ interface MapSidebarProps {
   onClose: () => void;
 }
 
-export default function MapSidebar({
+export default React.memo(function MapSidebar({
   searchQuery,
   setSearchQuery,
   handleSearch,
@@ -36,12 +39,28 @@ export default function MapSidebar({
   setShowRumahSakit,
   showSchool,
   setShowSchool,
+  showPuskesmas,
+  setShowPuskesmas,
   activeDrawMode,
   toggleDrawMode,
   clearAll,
   isOpen,
   onClose,
 }: MapSidebarProps) {
+  const [copied, setCopied] = useState(false);
+
+  // The map keeps #zoom/lat/lng in the URL (Map `hash`), so sharing location.href shares the view.
+  const shareView = async () => {
+    const url = window.location.href;
+    if (navigator.share) {
+      try { await navigator.share({ title: 'BekasiGIS', url }); } catch { /* user cancelled */ }
+      return;
+    }
+    await navigator.clipboard.writeText(url);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <div data-tour="sidebar" className={`absolute top-0 left-0 bottom-0 z-30 flex flex-col w-[300px] max-w-[88vw] p-3 sm:top-4 sm:left-4 sm:bottom-4 sm:p-0 sm:w-[320px] sm:max-w-none transition-transform duration-300 ease-in-out lg:translate-x-0 ${isOpen ? 'translate-x-0' : '-translate-x-[110%]'}`}>
       <div className="bg-white/95 backdrop-blur-md border border-slate-200 rounded-2xl shadow-xl flex flex-col h-full overflow-hidden">
@@ -53,6 +72,16 @@ export default function MapSidebar({
               <path d="M19 12H5M12 19l-7-7 7-7"/>
             </svg>
           </Link>
+          <button
+            onClick={shareView}
+            title="Bagikan tampilan peta"
+            className="flex items-center gap-1.5 px-3 py-2 border border-slate-200 rounded-lg hover:bg-slate-50 transition-colors text-slate-700 text-[12px] font-bold"
+            style={{ fontFamily: 'Syne, sans-serif' }}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+            </svg>
+            {copied ? 'Tersalin!' : 'Share'}
+          </button>
           <div className="flex items-center gap-3">
             <div className="leading-tight font-extrabold text-slate-900 tracking-wider text-[12px] uppercase text-right" style={{ fontFamily: 'Syne, sans-serif' }}>
               GIS<br/>KOTA<br/>BEKASI
@@ -149,6 +178,12 @@ export default function MapSidebar({
                 <input type="checkbox" className="w-4 h-4 accent-red-500 cursor-pointer" checked={showRumahSakit} onChange={(e) => setShowRumahSakit(e.target.checked)}/>
               </label>
 
+              {/* Puskesmas Toggle */}
+              <label className="flex items-center justify-between group cursor-pointer p-2.5 rounded-lg hover:bg-white hover:shadow-sm transition-all border border-transparent hover:border-slate-200">
+                <span className="text-[13px] font-bold text-slate-700" style={{ fontFamily: 'Syne, sans-serif' }}>Puskesmas</span>
+                <input type="checkbox" className="w-4 h-4 accent-emerald-500 cursor-pointer" checked={showPuskesmas} onChange={(e) => setShowPuskesmas(e.target.checked)}/>
+              </label>
+
               {/* Sekolah Toggle */}
               <label className="flex items-center justify-between group cursor-pointer p-2.5 rounded-lg hover:bg-white hover:shadow-sm transition-all border border-transparent hover:border-slate-200">
                 <span className="text-[13px] font-bold text-slate-700" style={{ fontFamily: 'Syne, sans-serif' }}>Sekolah</span>
@@ -235,4 +270,4 @@ export default function MapSidebar({
       </div>
     </div>
   );
-}
+});

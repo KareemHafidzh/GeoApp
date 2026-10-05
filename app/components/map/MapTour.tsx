@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import type { Map as MapLibreMap } from 'maplibre-gl';
 
 /**
@@ -105,9 +105,11 @@ interface MapTourProps {
   setSidebarOpen: (open: boolean) => void;
   /** Live map instance — used by the interactive rotate/tilt step. */
   mapInstance: MapLibreMap | null;
+  /** Whether the sidebar drawer is open — hides the help button so it doesn't overlap. */
+  sidebarOpen: boolean;
 }
 
-export default function MapTour({ setSidebarOpen, mapInstance }: MapTourProps) {
+export default React.memo(function MapTour({ setSidebarOpen, mapInstance, sidebarOpen }: MapTourProps) {
   // Auto-start on first visit. Component is client-only (parent uses ssr:false),
   // so localStorage is safe to read during initialization.
   const [active, setActive] = useState(() => {
@@ -326,7 +328,7 @@ export default function MapTour({ setSidebarOpen, mapInstance }: MapTourProps) {
       onClick={start}
       aria-label="Buka panduan penggunaan peta"
       title="Panduan Penggunaan"
-      className="absolute bottom-12 left-4 z-50 flex items-center justify-center w-11 h-11 bg-white/95 backdrop-blur-md border border-slate-200 rounded-full shadow-lg text-[#0aab8a] hover:bg-[#0aab8a] hover:text-white transition-colors"
+      className={`absolute bottom-12 left-4 lg:left-[352px] z-50 flex items-center justify-center w-11 h-11 bg-white/95 backdrop-blur-md border border-slate-200 rounded-full shadow-lg text-[#0aab8a] hover:bg-[#0aab8a] hover:text-white transition-all ${sidebarOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
     >
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="10" />
@@ -576,4 +578,4 @@ export default function MapTour({ setSidebarOpen, mapInstance }: MapTourProps) {
       </div>
     </>
   );
-}
+});
