@@ -143,15 +143,15 @@ export default function MapDashboard() {
       lajuPertumbuhan: props['Laju Pertumbuhan'] || 0,
       luasWilayahKm: props['Luas Area (km²)'] || 0,
       riskLabel: props['Risk_Label'] || 'N/A',
-      banjir2020: props['Banjir_2020'] || 0,
       banjir2021: props['Banjir_2021'] || 0,
       banjir2024: props['Banjir_2024'] || 0,
-      gempa2020: props['Gempa_2020'] || 0,
+      banjir2025: props['Banjir_2025'] || 0,
       gempa2021: props['Gempa_2021'] || 0,
       gempa2024: props['Gempa_2024'] || 0,
-      longsor2020: props['Longsor_2020'] || 0,
+      gempa2025: props['Gempa_2025'] || 0,
       longsor2021: props['Longsor_2021'] || 0,
       longsor2024: props['Longsor_2024'] || 0,
+      longsor2025: props['Longsor_2025'] || 0,
       totalBencana: props['Total Bencana (All Years)'] || 0
     });
   };

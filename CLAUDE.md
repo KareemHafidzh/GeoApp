@@ -18,7 +18,7 @@ The app runs standalone — no external tile server is required at dev time (see
 
 ## What this is
 
-**BekasiGIS** — a Next.js WebGIS that visualizes disaster-risk zones across the 12 kecamatan of Kota Bekasi. Risk classes (`Very High Risk` / `High Risk` / `Medium Risk` / `Low Risk`) are produced offline by K-Means clustering and baked into the tile data as a `Risk_Label` property; this repo only renders them.
+**BekasiGIS** — a Next.js WebGIS that visualizes disaster-risk zones across the 12 kecamatan of Kota Bekasi. Risk classes (`Risiko Tinggi` / `Risiko Sedang` / `Risiko Rendah`, K=3, data BPS 2025) are produced offline by K-Means clustering and baked into the tile data as a `Risk_Label` property; this repo only renders them.
 
 ## Architecture
 

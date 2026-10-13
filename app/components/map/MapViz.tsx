@@ -7,31 +7,31 @@ import { useState } from 'react';
 ───────────────────────────────────────────── */
 interface District {
   name: string;
-  risk: 'HIGH' | 'MEDIUM' | 'LOW';
+  risk: 'TINGGI' | 'SEDANG' | 'RENDAH';
   x: number;
   y: number;
   cluster: number;
 }
 
 const DISTRICTS: District[] = [
-  { name: 'Bekasi Barat',   risk: 'HIGH',   x: 22, y: 38, cluster: 0 },
-  { name: 'Bekasi Timur',   risk: 'MEDIUM', x: 68, y: 32, cluster: 1 },
-  { name: 'Bekasi Selatan', risk: 'HIGH',   x: 42, y: 62, cluster: 0 },
-  { name: 'Bekasi Utara',   risk: 'LOW',    x: 55, y: 18, cluster: 2 },
-  { name: 'Pondok Gede',    risk: 'MEDIUM', x: 30, y: 55, cluster: 1 },
-  { name: 'Jatiasih',       risk: 'LOW',    x: 72, y: 58, cluster: 2 },
-  { name: 'Rawalumbu',      risk: 'HIGH',   x: 60, y: 45, cluster: 0 },
-  { name: 'Bantargebang',   risk: 'MEDIUM', x: 78, y: 72, cluster: 1 },
-  { name: 'Mustika Jaya',   risk: 'LOW',    x: 84, y: 42, cluster: 2 },
-  { name: 'Jatisampurna',   risk: 'HIGH',   x: 46, y: 76, cluster: 0 },
-  { name: 'Pondok Melati',  risk: 'MEDIUM', x: 18, y: 68, cluster: 1 },
-  { name: 'Medan Satria',   risk: 'LOW',    x: 35, y: 22, cluster: 2 },
+  { name: 'Bekasi Barat',   risk: 'RENDAH', x: 22, y: 38, cluster: 2 },
+  { name: 'Bekasi Timur',   risk: 'TINGGI', x: 68, y: 32, cluster: 1 },
+  { name: 'Bekasi Selatan', risk: 'TINGGI', x: 42, y: 62, cluster: 1 },
+  { name: 'Bekasi Utara',   risk: 'TINGGI', x: 55, y: 18, cluster: 1 },
+  { name: 'Pondok Gede',    risk: 'RENDAH', x: 30, y: 55, cluster: 2 },
+  { name: 'Jatiasih',       risk: 'SEDANG', x: 72, y: 58, cluster: 0 },
+  { name: 'Rawalumbu',      risk: 'TINGGI', x: 60, y: 45, cluster: 1 },
+  { name: 'Bantargebang',   risk: 'SEDANG', x: 78, y: 72, cluster: 0 },
+  { name: 'Mustika Jaya',   risk: 'SEDANG', x: 84, y: 42, cluster: 0 },
+  { name: 'Jatisampurna',   risk: 'SEDANG', x: 46, y: 76, cluster: 0 },
+  { name: 'Pondok Melati',  risk: 'TINGGI', x: 18, y: 68, cluster: 1 },
+  { name: 'Medan Satria',   risk: 'TINGGI', x: 35, y: 22, cluster: 1 },
 ];
 
 const RISK_COLOR: Record<string, string> = {
-  HIGH:   '#e8392d',
-  MEDIUM: '#f0900a',
-  LOW:    '#0aab8a',
+  TINGGI: '#e8392d',
+  SEDANG: '#f0900a',
+  RENDAH: '#0aab8a',
 };
 
 /* ─────────────────────────────────────────────
@@ -119,7 +119,7 @@ export default function MapViz() {
                 }}
               >
                 <div className="font-semibold mb-0.5" style={{ color: RISK_COLOR[d.risk] }}>{d.name}</div>
-                <div className="text-slate-400" style={{ fontSize: 10 }}>Risk: {d.risk} · C{d.cluster + 1}</div>
+                <div className="text-slate-400" style={{ fontSize: 10 }}>Risiko: {d.risk} · C{d.cluster + 1}</div>
               </div>
             )}
           </div>
@@ -128,7 +128,7 @@ export default function MapViz() {
         {/* Legend */}
         <div className="absolute bottom-3.5 left-3.5 bg-white/90 backdrop-blur-sm border border-slate-200 rounded-xl px-3.5 py-2.5 shadow-sm"
           style={{ fontFamily: 'DM Mono, monospace', fontSize: 10 }}>
-          {(['HIGH', 'MEDIUM', 'LOW'] as const).map((r) => (
+          {(['TINGGI', 'SEDANG', 'RENDAH'] as const).map((r) => (
             <div key={r} className="flex items-center gap-1.5 mb-1 last:mb-0">
               <div className="w-2 h-2 rounded-full" style={{ background: RISK_COLOR[r] }} />
               <span className="text-slate-500">{r}</span>

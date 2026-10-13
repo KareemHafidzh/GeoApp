@@ -57,8 +57,8 @@ export default function MapPopup({ popupInfo, onClose }: MapPopupProps) {
           {/* Histori Bencana Section */}
           <div className="pt-3 border-t border-slate-100">
             <div className="flex items-center justify-between mb-2">
-              <div className="text-[10px] text-slate-400 uppercase tracking-wider" style={{ fontFamily: 'DM Mono, monospace' }}>Histori Bencana</div>
-              <div className="text-[9px] font-bold text-red-600 bg-red-50 px-1.5 py-0.5 rounded border border-red-100">Total: {popupInfo.totalBencana} Kejadian</div>
+              <div className="text-[10px] text-slate-400 uppercase tracking-wider" style={{ fontFamily: 'DM Mono, monospace' }}>Kelurahan Terdampak Bencana</div>
+              <div className="text-[9px] font-bold text-red-600 bg-red-50 px-1.5 py-0.5 rounded border border-red-100">Total: {popupInfo.totalBencana} Kelurahan</div>
             </div>
             
             <div className="overflow-hidden border border-slate-200 rounded-lg">
@@ -66,29 +66,29 @@ export default function MapPopup({ popupInfo, onClose }: MapPopupProps) {
                 <thead>
                   <tr className="bg-slate-50 text-[9px] uppercase text-slate-500 border-b border-slate-200" style={{ fontFamily: 'DM Mono, monospace' }}>
                     <th className="py-1.5 px-2 font-semibold">Bencana</th>
-                    <th className="py-1.5 px-2 font-semibold text-center border-l border-slate-200">2020</th>
                     <th className="py-1.5 px-2 font-semibold text-center border-l border-slate-200">2021</th>
                     <th className="py-1.5 px-2 font-semibold text-center border-l border-slate-200">2024</th>
+                    <th className="py-1.5 px-2 font-semibold text-center border-l border-slate-200">2025</th>
                   </tr>
                 </thead>
                 <tbody className="text-xs text-slate-700 bg-white">
                   <tr className="border-b border-slate-100">
                     <td className="py-1.5 px-2 font-medium text-blue-700">Banjir</td>
-                    <td className="py-1.5 px-2 text-center border-l border-slate-100 font-bold">{popupInfo.banjir2020}</td>
                     <td className="py-1.5 px-2 text-center border-l border-slate-100 font-bold">{popupInfo.banjir2021}</td>
                     <td className="py-1.5 px-2 text-center border-l border-slate-100 font-bold">{popupInfo.banjir2024}</td>
+                    <td className="py-1.5 px-2 text-center border-l border-slate-100 font-bold">{popupInfo.banjir2025}</td>
                   </tr>
                   <tr className="border-b border-slate-100">
                     <td className="py-1.5 px-2 font-medium text-orange-700">Longsor</td>
-                    <td className="py-1.5 px-2 text-center border-l border-slate-100 font-bold">{popupInfo.longsor2020}</td>
                     <td className="py-1.5 px-2 text-center border-l border-slate-100 font-bold">{popupInfo.longsor2021}</td>
                     <td className="py-1.5 px-2 text-center border-l border-slate-100 font-bold">{popupInfo.longsor2024}</td>
+                    <td className="py-1.5 px-2 text-center border-l border-slate-100 font-bold">{popupInfo.longsor2025}</td>
                   </tr>
                   <tr>
                     <td className="py-1.5 px-2 font-medium text-yellow-700">Gempa</td>
-                    <td className="py-1.5 px-2 text-center border-l border-slate-100 font-bold">{popupInfo.gempa2020}</td>
                     <td className="py-1.5 px-2 text-center border-l border-slate-100 font-bold">{popupInfo.gempa2021}</td>
                     <td className="py-1.5 px-2 text-center border-l border-slate-100 font-bold">{popupInfo.gempa2024}</td>
+                    <td className="py-1.5 px-2 text-center border-l border-slate-100 font-bold">{popupInfo.gempa2025}</td>
                   </tr>
                 </tbody>
               </table>

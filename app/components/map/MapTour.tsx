@@ -69,7 +69,7 @@ const STEPS: TourStep[] = [
   {
     selector: 'legend',
     title: 'Keterangan Risiko',
-    body: 'Warna pada peta menunjukkan tingkat risiko bencana, mulai dari Low Risk (hijau) hingga Very High Risk (merah tua).',
+    body: 'Warna pada peta menunjukkan tingkat risiko bencana, mulai dari Risiko Rendah (hijau), Risiko Sedang (kuning), hingga Risiko Tinggi (merah).',
     sidebar: false,
   },
   {

@@ -10,25 +10,23 @@ export const DEFAULT_VIEW_STATE = {
 
 export function getRiskColor(label: string): string {
   switch (label) {
-    case 'Very High Risk': return 'bg-red-50 text-red-700 border-red-200';
-    case 'High Risk': return 'bg-orange-50 text-orange-700 border-orange-200';
-    case 'Medium Risk': return 'bg-yellow-50 text-yellow-700 border-yellow-200';
-    case 'Low Risk': return 'bg-emerald-50 text-emerald-700 border-emerald-200';
+    case 'Risiko Tinggi': return 'bg-red-50 text-red-700 border-red-200';
+    case 'Risiko Sedang': return 'bg-yellow-50 text-yellow-700 border-yellow-200';
+    case 'Risiko Rendah': return 'bg-emerald-50 text-emerald-700 border-emerald-200';
     default: return 'bg-slate-50 text-slate-700 border-slate-200';
   }
 }
 
 // Single source for risk class colors: drives the legend/filter and the MapLibre fill paint.
 export const RISK_LEVELS = [
-  { color: '#a50026', label: 'Very High Risk' },
-  { color: '#f46d43', label: 'High Risk' },
-  { color: '#fee08b', label: 'Medium Risk' },
-  { color: '#1a9850', label: 'Low Risk' },
+  { color: '#d73027', label: 'Risiko Tinggi' },
+  { color: '#fee08b', label: 'Risiko Sedang' },
+  { color: '#1a9850', label: 'Risiko Rendah' },
 ];
 
 // ponytail: hand-maintained, bump when the tiles/GeoJSON are regenerated.
-export const DATA_UPDATED = 'Mei 2026';
-export const DATA_CREDITS = `Data: Indonesia Geospatial · BPS Kota Bekasi · OpenStreetMap · Diperbarui ${DATA_UPDATED}`;
+export const DATA_UPDATED = 'Oktober 2026';
+export const DATA_CREDITS = `Data: Indonesia Geospatial · BPS Kota Bekasi (Kota Bekasi Dalam Angka 2026) · OpenStreetMap · Diperbarui ${DATA_UPDATED}`;
 
 // National emergency numbers (Indonesia). Add the local BPBD Kota Bekasi line once verified.
 export const EMERGENCY_CONTACTS = [
