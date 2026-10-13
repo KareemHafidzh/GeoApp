@@ -173,3 +173,8 @@ body {
 .maplibregl-ctrl-top-left {
   display: none !important;
 }
+
+/* Attribution links are distinguished by color alone (a11y: link-in-text-block). */
+.maplibregl-ctrl.maplibregl-ctrl-attrib a {
+  text-decoration: underline;
+}
