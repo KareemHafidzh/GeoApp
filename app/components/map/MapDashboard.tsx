@@ -7,7 +7,8 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 import maplibregl from 'maplibre-gl';
 import { Protocol } from 'pmtiles';
 import { area } from '@turf/area';
-import type { FeatureCollection, Point } from 'geojson';
+import { booleanPointInPolygon } from '@turf/boolean-point-in-polygon';
+import type { Feature, FeatureCollection, MultiPolygon, Point, Polygon } from 'geojson';
 
 // Hooks & Constants
 import { useGeoman } from '@/app/hooks/useGeoman';
@@ -75,8 +76,8 @@ export default function MapDashboard() {
   const [drawnAreaInfo, setDrawnAreaInfo] = useState<DrawnAreaInfo | null>(null);
 
   // Custom Hooks
-  const { activeDrawMode, toggleDrawMode, clearAll } = useGeoman(mapInstance);
-  const { searchQuery, setSearchQuery, handleSearch } = useMapSearch(mapRef);
+  const { activeDrawMode, toggleDrawMode, clearAll, geomanRef } = useGeoman(mapInstance);
+  const { searchQuery, setSearchQuery, handleSearch, searching, searchMessage, searchResults, activeResult, selectResult } = useMapSearch(mapRef);
 
   useEffect(() => {
     fetch('/school.geojson')
@@ -119,7 +120,32 @@ export default function MapDashboard() {
     setMapInstance(e.target);
   };
 
+  // Drawn shape under a point, measured on Geoman's own geometry. (queryRenderedFeatures returns
+  // tile-clipped, simplified pieces, which under-reported the area by ~4–5% and varied with tiling.)
+  const drawnShapeAt = ({ lng, lat }: { lng: number; lat: number }) => {
+    const shape = geomanRef.current?.features.exportGeoJson().features.find((f) =>
+      (f.geometry.type === 'Polygon' || f.geometry.type === 'MultiPolygon') &&
+      booleanPointInPolygon([lng, lat], f as Feature<Polygon | MultiPolygon>));
+    if (!shape) return null;
+    const m2 = area(shape);
+    return {
+      key: String(shape.id ?? JSON.stringify(shape.geometry)),
+      info: { areaKm: (m2 / 1e6).toFixed(3), areaM: m2.toLocaleString(undefined, { maximumFractionDigits: 2 }) },
+    };
+  };
+
   const onClick = (event: MapLayerMouseEvent) => {
+    // While a draw tool is active, clicks/taps place vertices; don't open the kelurahan card over the drawing.
+    if (activeDrawMode) return;
+    // Tapping a drawn shape shows its area (touch screens have no hover) instead of the kelurahan card underneath.
+    const shape = drawnShapeAt(event.lngLat);
+    if (shape) {
+      lastHoveredGeomanId.current = shape.key;
+      setDrawnAreaInfo(shape.info);
+      setPopupInfo(null);
+      return;
+    }
+
     const features = event.features;
     if (!features || features.length === 0) {
       setPopupInfo(null);
@@ -163,42 +189,11 @@ export default function MapDashboard() {
 
     setCursorLngLat({ lng: event.lngLat.lng, lat: event.lngLat.lat });
     
-    if (mapRef.current) {
-      const map = mapRef.current.getMap();
-      const allRendered = map.queryRenderedFeatures(event.point);
-      
-      const geomanFeature = allRendered.find((f) => {
-        const id = f.layer?.id || '';
-        const source = (typeof f.source === 'string') ? f.source : '';
-        const isGeoman = id.includes('geoman') || id.includes('gm_') || id.includes('gm-') || id.includes('pm-') || source.includes('geoman') || source.includes('gm_') || source.includes('gm-') || source.includes('pm-');
-        const isNotMine = !['risk-fills', 'desa-borders', 'district-borders'].includes(id);
-        return isGeoman && isNotMine && f.geometry && (f.geometry.type === 'Polygon' || f.geometry.type === 'MultiPolygon');
-      });
-
-      if (geomanFeature) {
-        // Create a unique ID to prevent recalculating area while simply moving mouse inside the same polygon
-        const featureId = geomanFeature.id ? String(geomanFeature.id) : JSON.stringify(geomanFeature.geometry);
-        if (lastHoveredGeomanId.current !== featureId) {
-          lastHoveredGeomanId.current = featureId;
-          try {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            const areaSqMeters = area(geomanFeature as any);
-            if (areaSqMeters > 0) {
-              const areaSqKm = (areaSqMeters / 1000000).toFixed(3);
-              setDrawnAreaInfo({ areaKm: areaSqKm, areaM: areaSqMeters.toLocaleString(undefined, { maximumFractionDigits: 2 }) });
-            } else {
-              setDrawnAreaInfo(null);
-            }
-          } catch {
-            setDrawnAreaInfo(null);
-          }
-        }
-      } else {
-        if (lastHoveredGeomanId.current !== null) {
-          lastHoveredGeomanId.current = null;
-          setDrawnAreaInfo(null);
-        }
-      }
+    // Only update when the shape under the pointer changes, so a closed card stays closed while moving inside it.
+    const shape = drawnShapeAt(event.lngLat);
+    if ((shape?.key ?? null) !== lastHoveredGeomanId.current) {
+      lastHoveredGeomanId.current = shape?.key ?? null;
+      setDrawnAreaInfo(shape?.info ?? null);
     }
 
     const features = event.features;
@@ -247,6 +242,11 @@ export default function MapDashboard() {
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
         handleSearch={handleSearch}
+        searching={searching}
+        searchMessage={searchMessage}
+        searchResults={searchResults}
+        activeResult={activeResult}
+        selectResult={selectResult}
         showRiskLayer={showRiskLayer}
         setShowRiskLayer={setShowRiskLayer}
         showDesaBorders={showDesaBorders}
