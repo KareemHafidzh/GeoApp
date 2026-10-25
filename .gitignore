@@ -40,7 +40,11 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# thesis testing tools & results (not part of the app)
-app/bench/
-bench-tools/
+# thesis testing tools & results (not part of the app); only the benchmark code is tracked
+app/bench/*
+!app/bench/BenchMap.tsx
+!app/bench/page.tsx
+bench-tools/*
+!bench-tools/run-bench.mjs
+!bench-tools/render-tiles.mjs
 public/raster_tiles/
