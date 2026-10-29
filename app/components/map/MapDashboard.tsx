@@ -8,6 +8,7 @@ import maplibregl from 'maplibre-gl';
 import { Protocol } from 'pmtiles';
 import { area } from '@turf/area';
 import { booleanPointInPolygon } from '@turf/boolean-point-in-polygon';
+import { centerOfMass } from '@turf/center-of-mass';
 import type { Feature, FeatureCollection, MultiPolygon, Point, Polygon } from 'geojson';
 
 // Hooks & Constants
@@ -128,9 +129,10 @@ export default function MapDashboard() {
       booleanPointInPolygon([lng, lat], f as Feature<Polygon | MultiPolygon>));
     if (!shape) return null;
     const m2 = area(shape);
+    const [longitude, latitude] = centerOfMass(shape).geometry.coordinates;
     return {
       key: String(shape.id ?? JSON.stringify(shape.geometry)),
-      info: { areaKm: (m2 / 1e6).toFixed(3), areaM: m2.toLocaleString(undefined, { maximumFractionDigits: 2 }) },
+      info: { longitude, latitude, areaKm: (m2 / 1e6).toFixed(3), areaM: m2.toLocaleString(undefined, { maximumFractionDigits: 2 }) },
     };
   };
 

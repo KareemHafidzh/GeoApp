@@ -34,6 +34,8 @@ export interface HoverInfo {
 }
 
 export interface DrawnAreaInfo {
+  longitude: number; // centre of the shape, where the card is pinned
+  latitude: number;
   areaKm: string;
   areaM: string;
 }
