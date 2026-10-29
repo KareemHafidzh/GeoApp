@@ -47,4 +47,8 @@ app/bench/*
 bench-tools/*
 !bench-tools/run-bench.mjs
 !bench-tools/render-tiles.mjs
+!bench-tools/README.md
 public/raster_tiles/
+
+# local CLI tools (pmtiles converter, downloads)
+/tools/
