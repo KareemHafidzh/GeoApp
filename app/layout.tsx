@@ -8,7 +8,7 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "BekasiGIS — Disaster Risk Mapping Platform",
+  title: "Geodashboard Bekasi — Disaster Risk Mapping Platform",
   description: "Interactive geospatial platform using K-Means ML clustering to visualize disaster-prone zones across Kota Bekasi.",
 };
 

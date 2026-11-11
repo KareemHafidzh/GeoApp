@@ -760,8 +760,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          106.9445626,
-          -6.2767094
+          106.9445863,
+          -6.2768851
         ]
       },
       "id": "way/767429751"
@@ -1716,9 +1716,6 @@
       "properties": {
         "@id": "way/1206871931",
         "amenity": "school",
-        "contact:mobile": "+6285882713317",
-        "contact:website": "https://smkmandiribekasi.sch.id/",
-        "contact:whatsapp": "https://wa.me/+6285882713317",
         "grades": "10-12",
         "name": "SMK Mandiri Bekasi",
         "@geometry": "center"
@@ -1741,7 +1738,6 @@
         "amenity": "school",
         "grades": "10-12",
         "name": "SMK BISTEK Bekasi",
-        "phone": "+622182347928",
         "website": "https://smkbistekbekasi.sch.id/",
         "@geometry": "center"
       },
@@ -1762,10 +1758,8 @@
         "addr:postcode": "17423",
         "addr:street": "Jalan Rawa Semut 2",
         "amenity": "school",
-        "email": "smpitalikhlas86bks@gmail.com",
         "grades": "7-12",
         "name": "SMPIT AL IKHLAS",
-        "phone": "+622182744577",
         "religion": "muslim",
         "website": "https://smpitalikhlas86.sch.id/",
         "@geometry": "center"
@@ -1790,7 +1784,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          106.9316654,
+          106.9316725,
           -6.2832347
         ]
       },

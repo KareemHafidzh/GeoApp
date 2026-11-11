@@ -91,16 +91,6 @@ body {
   0%, 100% { transform: translateY(0);   }
   45%      { transform: translateY(5px); }
 }
-/* Feedback panel: slide-in from the right (tablet/desktop drawer). */
-@keyframes feedbackSlideIn {
-  from { transform: translateX(100%); }
-  to   { transform: translateX(0);    }
-}
-/* Feedback panel: pop-in (phone centered popup card). */
-@keyframes feedbackPopIn {
-  from { opacity: 0; transform: translateY(-50%) scale(0.94); }
-  to   { opacity: 1; transform: translateY(-50%) scale(1);    }
-}
 
 .animate-scanline     { animation: scanline 5s linear infinite; }
 .animate-pulse-ring   { animation: pulse-ring 2.4s ease-out infinite; }
@@ -112,11 +102,6 @@ body {
 .anim-fade-up   { animation: fadeUp 0.65s ease both; }
 .anim-fade-in   { animation: fadeIn 0.9s ease both; }
 
-/* Feedback panel entrance. Base = phone popup; sm+ = right drawer. */
-.anim-feedback-pop   { animation: feedbackPopIn 0.32s cubic-bezier(0.22, 1, 0.36, 1) both; }
-@media (min-width: 640px) {
-  .anim-feedback-pop { animation: feedbackSlideIn 0.34s cubic-bezier(0.22, 1, 0.36, 1) both; }
-}
 
 .nav-underline {
   position: relative;

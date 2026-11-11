@@ -1,13 +1,13 @@
 'use client';
 
-import Navbar from './components/layout/Navbar';
-import Hero from './components/home/hero';
-import About from './components/home/about';
-import Features from './components/home/features';
-import DataSources from './components/home/data-sources';
-import Contact from './components/home/contact';
-import Footer from './components/layout/Footer';
-import { useScrollY } from './hooks/useScrollY';
+import Navbar from '@/features/home/components/layout/Navbar';
+import HeroDashboard from '@/features/home/components/dashboard/HeroDashboard';
+import About from '@/features/home/components/sections/About';
+import Features from '@/features/home/components/sections/Features';
+import DataSources from '@/features/home/components/sections/DataSources';
+import Contact from '@/features/home/components/sections/Contact';
+import Footer from '@/features/home/components/layout/Footer';
+import { useScrollY } from '@/features/home/hooks/useScrollY';
 
 export default function Home() {
   const scrollY = useScrollY();
@@ -36,7 +36,7 @@ export default function Home() {
       <Navbar isScrolled={navScrolled} />
       
       <div className="relative z-10">
-        <Hero scrollY={scrollY} />
+        <HeroDashboard />
         <About />
         <Features />
         <DataSources />

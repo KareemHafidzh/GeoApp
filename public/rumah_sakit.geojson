@@ -10,8 +10,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          107.000658,
-          -6.242328
+          107.0015524,
+          -6.24216
         ]
       }
     },
@@ -24,8 +24,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          106.996111,
-          -6.236111
+          106.9949635,
+          -6.2417963
         ]
       }
     },
@@ -52,8 +52,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          106.992222,
-          -6.237222
+          106.9926014,
+          -6.2410275
         ]
       }
     },
@@ -66,8 +66,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          106.974444,
-          -6.265556
+          106.9721715,
+          -6.2688215
         ]
       }
     },
@@ -80,8 +80,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          106.985833,
-          -6.264167
+          106.9766211,
+          -6.2747771
         ]
       }
     },
@@ -94,8 +94,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          107.016,
-          -6.262
+          107.0085295,
+          -6.2567063
         ]
       }
     },
@@ -108,8 +108,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          107.0201,
-          -6.265
+          107.02051,
+          -6.2600864
         ]
       }
     },
@@ -122,8 +122,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          107.015278,
-          -6.261111
+          107.0133208,
+          -6.2605573
         ]
       }
     },
@@ -136,8 +136,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          106.9853,
-          -6.1957
+          106.9772157,
+          -6.2109922
         ]
       }
     },
@@ -150,8 +150,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          106.9965,
-          -6.2115
+          106.9888393,
+          -6.2020325
         ]
       }
     },
@@ -164,8 +164,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          106.9202,
-          -6.2754
+          106.9123297,
+          -6.2756843
         ]
       }
     },
@@ -178,8 +178,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          106.9585,
-          -6.3015
+          106.9634242,
+          -6.2947595
         ]
       }
     },
@@ -192,8 +192,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          106.9538,
-          -6.3072
+          106.9535834,
+          -6.2879315
         ]
       }
     },
@@ -206,8 +206,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          107.0271,
-          -6.2825
+          107.0314225,
+          -6.2911547
         ]
       }
     },
@@ -220,8 +220,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          106.9186,
-          -6.3764
+          106.918475,
+          -6.3756848
         ]
       }
     },
@@ -234,8 +234,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          106.9221,
-          -6.3761
+          106.9117168,
+          -6.3760327
         ]
       }
     },
@@ -248,8 +248,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          106.985,
-          -6.3082
+          106.9844692,
+          -6.3190061
         ]
       }
     },
@@ -290,8 +290,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          106.9242,
-          -6.3685
+          106.9215198,
+          -6.3634629
         ]
       }
     },
@@ -304,8 +304,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          106.9254,
-          -6.2821
+          106.9135259,
+          -6.2828534
         ]
       }
     },
@@ -318,8 +318,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          106.9932,
-          -6.2573
+          106.9810682,
+          -6.2691639
         ]
       }
     },
@@ -332,8 +332,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          107.0054,
-          -6.2081
+          107.0185444,
+          -6.2070006
         ]
       }
     },
@@ -346,8 +346,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          107.0123,
-          -6.2704
+          107.0264925,
+          -6.2427358
         ]
       }
     },
@@ -355,13 +355,13 @@
       "type": "Feature",
       "properties": {
         "nama_rs": "RS Siloam Sepanjang Jaya",
-        "kecamatan": "Rawalumbu"
+        "kecamatan": "Rawa Lumbu"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          106.9984,
-          -6.2625
+          106.9988737,
+          -6.2698557
         ]
       }
     },
@@ -416,8 +416,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          106.9688,
-          -6.2589
+          106.9599484,
+          -6.2781364
         ]
       }
     },
@@ -430,8 +430,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          107.0182,
-          -6.2415
+          107.0297366,
+          -6.2522047
         ]
       }
     },
@@ -472,8 +472,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          107.0135,
-          -6.2392
+          107.0009224,
+          -6.2518175
         ]
       }
     },
@@ -486,8 +486,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          106.9312,
-          -6.2884
+          106.9301621,
+          -6.2819292
         ]
       }
     },
@@ -500,8 +500,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          107.0074,
-          -6.2381
+          107.0105954,
+          -6.2329764
         ]
       }
     },
@@ -509,13 +509,13 @@
       "type": "Feature",
       "properties": {
         "nama_rs": "RSU Rawa Lumbu",
-        "kecamatan": "Rawalumbu"
+        "kecamatan": "Rawa Lumbu"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          107.0012,
-          -6.2691
+          106.9989585,
+          -6.2806855
         ]
       }
     },
@@ -537,13 +537,13 @@
       "type": "Feature",
       "properties": {
         "nama_rs": "RSU St. Elisabeth",
-        "kecamatan": "Rawalumbu"
+        "kecamatan": "Rawa Lumbu"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          106.9981,
-          -6.2942
+          106.9910962,
+          -6.2760904
         ]
       }
     },
@@ -556,8 +556,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          107.0145,
-          -6.2411
+          107.0105409,
+          -6.2471625
         ]
       }
     },
@@ -570,8 +570,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          107.0112,
-          -6.2472
+          107.0015543,
+          -6.2480823
         ]
       }
     },
@@ -654,8 +654,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          106.9651,
-          -6.2342
+          106.958469,
+          -6.2311363
         ]
       }
     },
@@ -682,8 +682,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          107.0121,
-          -6.2085
+          107.0221042,
+          -6.2227241
         ]
       }
     }

@@ -41,14 +41,11 @@ yarn-error.log*
 next-env.d.ts
 
 # thesis testing tools & results (not part of the app); only the benchmark code is tracked
-app/bench/*
-!app/bench/BenchMap.tsx
-!app/bench/page.tsx
-bench-tools/*
-!bench-tools/run-bench.mjs
-!bench-tools/render-tiles.mjs
-!bench-tools/README.md
+app/performance-test/*
+!app/performance-test/BenchMap.tsx
+!app/performance-test/page.tsx
+/tools/*
+!/tools/run-bench.mjs
+!/tools/render-tiles.mjs
+!/tools/README.md
 public/raster_tiles/
-
-# local CLI tools (pmtiles converter, downloads)
-/tools/

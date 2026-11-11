@@ -18,24 +18,26 @@ The app runs standalone — no external tile server is required at dev time (see
 
 ## What this is
 
-**BekasiGIS** — a Next.js WebGIS that visualizes disaster-risk zones across the 12 kecamatan of Kota Bekasi. Risk classes (`Risiko Tinggi` / `Risiko Sedang` / `Risiko Rendah`, K=3, data BPS 2025) are produced offline by K-Means clustering and baked into the tile data as a `Risk_Label` property; this repo only renders them.
+**Geodashboard Bekasi** (formerly BekasiGIS) — a Next.js WebGIS that visualizes disaster-risk zones across the 12 kecamatan of Kota Bekasi. Risk classes (`Risiko Tinggi` / `Risiko Sedang` / `Risiko Rendah`, K=3, data BPS 2025) are produced offline by K-Means clustering and baked into the tile data as a `Risk_Label` property; this repo only renders them.
 
 ## Architecture
 
-Next.js 16 App Router, React 19, Tailwind CSS v4, TypeScript. Everything lives under `app/`. There are two distinct surfaces:
+Next.js 16 App Router, React 19, Tailwind CSS v4, TypeScript. Code is organized by feature: `app/` holds routes only (`page.tsx`, `map/page.tsx`, `performance-test/`), `features/<name>/` holds each feature's components, hooks, constants and types, and `tools/` holds testing scripts and local CLI tools (not part of the app). Import via the `@/` root alias (e.g. `@/features/map/constants`). There are two distinct surfaces:
 
-1. **Marketing homepage** (`app/page.tsx`) — composed from `components/home/*` and `components/layout/*`. Heavy bespoke styling: animation keyframes/utility classes live in `app/globals.css` (`anim-fade-up`, `animate-blink`, etc.), fonts and effects are mostly inline `style={{ fontFamily: 'Syne'/'DM Mono' }}`. `useScrollY` drives parallax and the navbar scrolled-state.
+1. **Marketing homepage** (`app/page.tsx`) — composed from `features/home/components/`: `layout/` (`Navbar`, `Footer`), `sections/` (`About`, `Features`, `DataSources`, `Contact`) and `dashboard/` (the hero). Heavy bespoke styling: animation keyframes/utility classes live in `app/globals.css` (`anim-fade-up`, `animate-blink`, etc.), fonts and effects are mostly inline `style={{ fontFamily: 'Syne'/'DM Mono' }}` (dashboard cards share these via `dashboard/ui.ts`). `hooks/useScrollY` drives background parallax and the navbar scrolled-state; `HeroDashboard` is `memo`'d so scroll doesn't re-render it.
+   - **Hero dashboard** — `HeroDashboard` lays out `KeyStats`, `AffectedRanking`, `RiskDistribution`, `KpiRow` around `RiskGlobe`. `RiskGlobe` is a fixed MapLibre view (`interactive={false}`, no basemap, only `spatial_risk.pmtiles`) whose camera leans toward the cursor; it's `next/dynamic` with `ssr: false`. Block height and pin lift share one formula (`heightM`), so change them together.
+   - **Dashboard numbers** are hardcoded in `features/home/data/stats.ts`, aggregated from `public/spatial_risk.geojson`. They count *kelurahan affected*, not incidents. After regenerating the data run `node tools/check-home-stats.mjs` (fails if any number drifted).
 
-2. **Map dashboard** (`app/map/page.tsx` → `components/map/MapDashboard.tsx`) — the real application. `MapDashboard` is loaded via `next/dynamic` with **`ssr: false`** because MapLibre and the PMTiles protocol require the browser. `MapDashboard` is the single stateful container; all sibling map components (`MapSidebar`, `MapLegend`, `MapAreaInfo`, `MapCoordinateBar`, `MapHoverTooltip`, `MapPopup`) are presentational and receive state + setters as props.
+2. **Map dashboard** (`app/map/page.tsx` → `features/map/components/MapDashboard.tsx`) — the real application. `MapDashboard` is loaded via `next/dynamic` with **`ssr: false`** because MapLibre and the PMTiles protocol require the browser. `MapDashboard` is the single stateful container; all sibling map components (`MapSidebar`, `MapLegend`, `MapAreaInfo`, `MapCoordinateBar`, `MapHoverTooltip`, `MapPopup`) are presentational and receive state + setters as props.
 
 ### Map data flow
 
-- **Tile data** is served as **PMTiles** from `public/*.pmtiles` (`spatial_risk.pmtiles`, `kecamatan_borders.pmtiles`). The PMTiles protocol is registered once at module load in `MapDashboard.tsx` (`maplibregl.addProtocol("pmtiles", ...)`), and sources reference it as `url="pmtiles:///spatial_risk.pmtiles"`. Note the project migrated from MBTiles/TileServer-GL to PMTiles — `TILE_SERVER_URL` in `constants/map.ts` and the README's "Run TileServer-GL" step are **stale leftovers** of the old approach.
+- **Tile data** is served as **PMTiles** from `public/*.pmtiles` (`spatial_risk.pmtiles`, `kecamatan_borders.pmtiles`). The PMTiles protocol is registered once at module load in `MapDashboard.tsx` (`maplibregl.addProtocol("pmtiles", ...)`), and sources reference it as `url="pmtiles:///spatial_risk.pmtiles"`. Note the project migrated from MBTiles/TileServer-GL to PMTiles — `TILE_SERVER_URL` in `features/map/constants.ts` and the README's "Run TileServer-GL" step are **stale leftovers** of the old approach.
 - **Point layers** (`rumah_sakit.geojson`, `school.geojson`) are fetched from `public/` at runtime into React state and passed to `<Source type="geojson">`.
-- **Basemap** is the external CartoCDN Positron style (`MAP_STYLE` in `constants/map.ts`).
-- Feature properties carry Indonesian, space-containing keys (e.g. `'Total Penduduk'`, `'Banjir_2020'`, `'Luas Area (km²)'`) read by string index in `MapDashboard.onClick`. Risk colors live in `RISK_LEVELS` (`constants/map.ts`), which drives the legend/filter and the MapLibre fill `match` expression; the Tailwind class strings in `getRiskColor()` are a second copy that must be kept in sync.
+- **Basemap** is the external CartoCDN Positron style (`MAP_STYLE` in `features/map/constants.ts`).
+- Feature properties carry Indonesian, space-containing keys (e.g. `'Total Penduduk'`, `'Banjir_2020'`, `'Luas Area (km²)'`) read by string index in `MapDashboard.onClick`. Risk colors live in `RISK_LEVELS` (`features/map/constants.ts`), which drives the legend/filter and the MapLibre fill `match` expression; the Tailwind class strings in `getRiskColor()` are a second copy that must be kept in sync.
 
-### Custom hooks (`app/hooks/`)
+### Custom hooks (`features/*/`)
 
 - `useGeoman` — wraps `@geoman-io/maplibre-geoman-free` for the measurement tools. **All Geoman built-in UI is disabled** (`uiEnabled: false` for every control, plus `.maplibregl-ctrl-top-left { display: none }` in globals.css); drawing is driven entirely from `MapSidebar`'s custom buttons via `toggleDrawMode`. `clearAll()` intentionally does `window.location.reload()` as a shortcut to wipe drawn shapes (noted in-code) — be aware before "fixing" it.
 - `useMapSearch` — geocodes via Nominatim, hardcoding `+Bekasi` onto the query, then `flyTo` the result.
