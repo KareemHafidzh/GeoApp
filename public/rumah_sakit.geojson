@@ -38,8 +38,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          106.985556,
-          -6.245833
+          106.9837531,
+          -6.2475707
         ]
       }
     },
@@ -262,8 +262,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          106.9951,
-          -6.3154
+          106.9865765,
+          -6.3146388
         ]
       }
     },
@@ -276,8 +276,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          107.0183,
-          -6.2112
+          107.027722,
+          -6.2102844
         ]
       }
     },
@@ -374,8 +374,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          106.9795,
-          -6.2461
+          106.9811766,
+          -6.2477271
         ]
       }
     },
@@ -388,8 +388,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          106.9681,
-          -6.2584
+          106.9612974,
+          -6.2780657
         ]
       }
     },
@@ -402,8 +402,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          106.9855,
-          -6.1832
+          106.9776049,
+          -6.1850925
         ]
       }
     },
@@ -444,8 +444,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          107.0041,
-          -6.2443
+          107.0037819,
+          -6.2462138
         ]
       }
     },
@@ -458,8 +458,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          106.9189,
-          -6.3752
+          106.925786,
+          -6.3470238
         ]
       }
     },
@@ -528,8 +528,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          107.0184,
-          -6.3125
+          107.0122387,
+          -6.3181061
         ]
       }
     },
@@ -579,13 +579,13 @@
       "type": "Feature",
       "properties": {
         "nama_rs": "RS Medik Zainuttaqwa",
-        "kecamatan": "Medan Satria"
+        "kecamatan": "Bekasi Utara"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          107.0021,
-          -6.1915
+          106.998978,
+          -6.1861187
         ]
       }
     },
@@ -612,8 +612,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          106.9283,
-          -6.2951
+          106.9210596,
+          -6.2962451
         ]
       }
     },
@@ -621,13 +621,13 @@
       "type": "Feature",
       "properties": {
         "nama_rs": "RS Taman Harapan Baru",
-        "kecamatan": "Medan Satria"
+        "kecamatan": "Bekasi Utara"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          106.9931,
-          -6.1824
+          106.9986277,
+          -6.1765963
         ]
       }
     },
@@ -640,8 +640,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          107.0082,
-          -6.2235
+          106.9887072,
+          -6.2044486
         ]
       }
     },
@@ -663,13 +663,13 @@
       "type": "Feature",
       "properties": {
         "nama_rs": "RSIA Taman Harapan Baru",
-        "kecamatan": "Medan Satria"
+        "kecamatan": "Bekasi Utara"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          106.9932,
-          -6.1825
+          106.9957965,
+          -6.1808105
         ]
       }
     },
