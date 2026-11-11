@@ -1,0 +1,39 @@
+// Asserts every number on the homepage dashboard (features/home/stats.ts) matches public/spatial_risk.geojson.
+// Run: node tools/check-home-stats.mjs   (Node ≥23 strips the TS types on import)
+import { readFileSync } from 'node:fs';
+import assert from 'node:assert/strict';
+import { KECAMATAN, TOTALS, FLOODS_BY_YEAR, LANDSLIDES_BY_YEAR } from '../features/home/stats.ts';
+
+const geo = JSON.parse(readFileSync(new URL('../public/spatial_risk.geojson', import.meta.url)));
+// Each kelurahan feature repeats its kecamatan's figures; keep one per kecamatan.
+const kec = {};
+for (const f of geo.features) kec[f.properties['Kecamatan / District']] = f.properties;
+const all = Object.values(kec);
+const sum = (key) => all.reduce((a, p) => a + p[key], 0);
+
+assert.equal(KECAMATAN.length, all.length);
+for (const k of KECAMATAN) {
+  const p = kec[k.name];
+  assert.ok(p, `unknown kecamatan ${k.name}`);
+  assert.equal(k.risk, p.Risk_Label, k.name);
+  assert.equal(k.incidents, p['Total Bencana (All Years)'], k.name);
+  assert.equal(k.floods, p['Total Banjir (All Years)'], k.name);
+  assert.equal(k.landslides, p['Total Longsor (All Years)'], k.name);
+  assert.equal(k.density, Math.round(p['Kepadatan (jiwa/km²)']), k.name);
+}
+assert.equal(TOTALS.population, sum('Total Penduduk'));
+assert.equal(TOTALS.areaKm2, Math.round(sum('Luas Area (km²)') * 10) / 10);
+assert.equal(TOTALS.incidents, sum('Total Bencana (All Years)'));
+assert.equal(TOTALS.floods, sum('Total Banjir (All Years)'));
+assert.equal(TOTALS.landslides, sum('Total Longsor (All Years)'));
+assert.equal(TOTALS.healthFacilities, sum('Total Faskes'));
+assert.equal(TOTALS.schools, sum('Total Sekolah'));
+assert.equal(sum('Total Gempa (All Years)'), 0, 'earthquakes appeared in the data: add them to the dashboard');
+for (const { year, value } of FLOODS_BY_YEAR) assert.equal(value, sum(`Banjir_${year}`), `Banjir_${year}`);
+for (const { year, value } of LANDSLIDES_BY_YEAR) assert.equal(value, sum(`Longsor_${year}`), `Longsor_${year}`);
+assert.deepEqual(
+  Object.keys(geo.features[0].properties).filter((k) => /^Banjir_\d{4}$/.test(k)).map((k) => k.slice(7)),
+  FLOODS_BY_YEAR.map((y) => y.year),
+  'year columns changed',
+);
+console.log('home stats match spatial_risk.geojson ✓');
