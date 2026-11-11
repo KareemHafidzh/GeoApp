@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { KECAMATAN, TOTALS, FLOODS_BY_YEAR, LANDSLIDES_BY_YEAR } from '@/features/home/data/stats';
 import { card, fmt, mono, syne } from './ui';
 
@@ -19,10 +18,10 @@ function MiniBars({ values, color }: { values: { year: string; value: number }[]
   );
 }
 
-/** Bottom row: four KPI cards plus the call-to-action into /map. */
+/** Bottom row: four KPI cards. */
 export default function KpiRow() {
   return (
-    <div className="lg:col-span-12 order-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+    <div className="lg:col-span-12 order-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       <div className={`${card} p-5`}>
         <div className="text-xs text-slate-500" style={syne}>Kelurahan Terdampak Banjir</div>
         <div className="font-extrabold text-3xl text-slate-900" style={syne}>{TOTALS.floods}</div>
@@ -45,15 +44,6 @@ export default function KpiRow() {
         <div className="text-xs text-slate-500" style={syne}>Sekolah (SMP–SMA/K)</div>
         <div className="font-extrabold text-3xl text-slate-900" style={syne}>{fmt(TOTALS.schools)}</div>
         <div className="text-[10px] text-slate-400 mt-1" style={mono}>SMP + SMA/K · BPS</div>
-      </div>
-      <div className="rounded-3xl p-5 bg-gradient-to-br from-slate-900 to-emerald-900 text-white flex flex-col justify-between sm:col-span-2 lg:col-span-1">
-        <div>
-          <div className="font-bold text-lg leading-tight" style={syne}>Jelajahi peta risiko interaktif</div>
-          <p className="text-white/60 text-xs mt-2" style={mono}>Ukur area, cari faskes terdekat, filter kelas risiko.</p>
-        </div>
-        <Link href="/map" className="mt-4 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#0aab8a] hover:bg-emerald-500 font-bold text-sm transition-colors" style={syne}>
-          Open Spatial Map →
-        </Link>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import { KECAMATAN, TOTALS } from '@/features/home/data/stats';
 import { card, fmt, mono, riskCount, syne } from './ui';
+import CtaCard from './CtaCard';
 
 const STATS = [
   { label: 'Total Penduduk', value: `${(TOTALS.population / 1e6).toFixed(2)} jt`, sub: `${TOTALS.areaKm2} km² wilayah`, bg: '#e0f2fe', d: 'M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm8 0a2.5 2.5 0 1 0 0-5M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6M16 14c2.8 0 5 2.2 5 5' },
@@ -32,6 +33,8 @@ export default function KeyStats() {
           {fmt(highRiskAffected)} kelurahan terdampak di zona ini (2021, 2024, 2025)
         </span>
       </div>
+
+      <CtaCard />
 
       {STATS.map((s, i) => (
         <div key={s.label} className={`${card} anim-fade-up p-4 flex items-center gap-4`} style={{ animationDelay: `${0.15 + i * 0.07}s` }}>
