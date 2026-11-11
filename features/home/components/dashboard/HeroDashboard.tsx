@@ -28,7 +28,7 @@ export default memo(function HeroDashboard() {
             <RiskGlobe />
           </div>
           <div className="absolute top-3 left-3 hidden sm:flex items-center gap-1.5 bg-white/90 backdrop-blur-sm border border-slate-200 rounded-full px-3 py-1 shadow-sm pointer-events-none font-mono text-[11px] text-emerald-700">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-blink" /> 3D · tinggi = kelurahan terdampak
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-blink" /> 3D · tinggi = kelurahan terdampak (3 thn)
           </div>
         </div>
 
@@ -39,7 +39,7 @@ export default memo(function HeroDashboard() {
 
         <KpiRow />
 
-        <p className="md:col-span-2 lg:col-span-12 text-[11px] text-slate-400 text-center font-mono">Data BPS Kota Bekasi · diperbarui {DATA_UPDATED}</p>
+        <p className="md:col-span-2 lg:col-span-12 text-[11px] text-slate-400 text-center font-mono">Data: BPS Kota Bekasi (Kota Bekasi Dalam Angka 2026) · inaRISK BNPB · kelurahan terdampak = jumlah 2021 + 2024 + 2025 · diperbarui {DATA_UPDATED}</p>
       </div>
     </section>
   );

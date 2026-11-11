@@ -20,7 +20,7 @@ function YearBars({ values, color }: { values: { year: string; value: number }[]
 }
 
 const TILES: { label: string; value: string; unit?: string; extra: ReactNode }[] = [
-  { label: 'Total penduduk', value: `${(TOTALS.population / 1e6).toFixed(2)} jt`, extra: `${TOTALS.areaKm2} km² wilayah` },
+  { label: 'Total penduduk', value: `${(TOTALS.population / 1e6).toLocaleString('id-ID', { maximumFractionDigits: 2 })} jt`, extra: `${TOTALS.areaKm2.toLocaleString('id-ID')} km² wilayah` },
   { label: 'Fasilitas kesehatan', value: fmt(TOTALS.healthFacilities), extra: 'RS + puskesmas · BPS' },
   { label: 'Sekolah', value: fmt(TOTALS.schools), extra: 'SMP + SMA/K · BPS' },
   {
@@ -31,8 +31,8 @@ const TILES: { label: string; value: string; unit?: string; extra: ReactNode }[]
       </div>
     ),
   },
-  { label: 'Kel. terdampak banjir', value: fmt(TOTALS.floods), extra: <YearBars values={FLOODS_BY_YEAR} color="#60a5fa" /> },
-  { label: 'Kel. terdampak longsor', value: fmt(TOTALS.landslides), extra: <YearBars values={LANDSLIDES_BY_YEAR} color="#f59e0b" /> },
+  { label: 'Kel. terdampak banjir (3 thn)', value: fmt(TOTALS.floods), extra: <YearBars values={FLOODS_BY_YEAR} color="#60a5fa" /> },
+  { label: 'Kel. terdampak longsor (3 thn)', value: fmt(TOTALS.landslides), extra: <YearBars values={LANDSLIDES_BY_YEAR} color="#f59e0b" /> },
 ];
 
 /** Bottom strip: six compact KPI tiles. */

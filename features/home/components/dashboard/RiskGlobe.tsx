@@ -45,10 +45,10 @@ const ICONS = {
 const by = (name: string) => KECAMATAN.find((k) => k.name === name)!;
 const CALLOUTS = [
   // stem = px between pin and card; staggered by hand so the cards don't stack on each other.
-  { k: by('Bekasi Barat'),   value: '19.1k/km²', label: 'Terpadat', icon: ICONS.people, stem: 80 },
+  { k: by('Bekasi Barat'),   value: '19.135/km²', label: 'Terpadat', icon: ICONS.people, stem: 80 },
   { k: by('Bekasi Selatan'), value: '15', label: 'Kel. terdampak', icon: ICONS.flood, stem: 24, phone: true },
   { k: by('Bekasi Timur'),   value: '12', label: 'Kel. banjir', icon: ICONS.flood, stem: 60 },
-  { k: by('Jatisampurna'),   value: '2', label: 'Kel. longsor', icon: ICONS.slide, stem: 30, phone: true },
+  { k: by('Jatiasih'),       value: '3', label: 'Kel. longsor', icon: ICONS.slide, stem: 4 },
 ];
 
 // A fixed visualization, not a map: no drag/zoom, the camera only leans a few degrees toward the cursor.

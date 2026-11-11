@@ -25,7 +25,7 @@ export default function KeyStats() {
         <div>
           <div className="text-slate-800 text-sm font-semibold">Kecamatan berisiko tinggi</div>
           <div className="text-red-600 text-[13px] leading-snug mt-0.5">
-            {fmt(highRiskAffected)} dari {fmt(TOTALS.affected)} kelurahan terdampak ada di zona ini
+            {fmt(highRiskAffected)} dari {fmt(TOTALS.affected)} catatan kelurahan terdampak (2021, 2024, 2025) ada di zona ini
           </div>
         </div>
       </div>
