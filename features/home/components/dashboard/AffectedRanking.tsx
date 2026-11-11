@@ -1,5 +1,5 @@
 import { KECAMATAN } from '@/features/home/data/stats';
-import { card, mono, RISK_HEX, syne } from './ui';
+import { card, RISK_HEX } from './ui';
 
 // KECAMATAN is already sorted by affected, descending.
 const TOP = KECAMATAN.slice(0, 6);
@@ -9,18 +9,18 @@ const MAX = TOP[0].affected;
 export default function AffectedRanking() {
   return (
     <div className={`${card} p-5 anim-fade-up`} style={{ animationDelay: '0.2s' }}>
-      <div className="flex items-center justify-between mb-4">
-        <h3 className="font-bold text-slate-900 text-sm" style={syne}>Kelurahan Terdampak per Kecamatan</h3>
-        <span className="text-[10px] text-slate-400 border border-slate-200 rounded-lg px-2 py-0.5" style={mono}>Top 6</span>
+      <div className="flex items-baseline justify-between gap-2 mb-3">
+        <h3 className="font-bold text-slate-900 text-[15px] leading-snug">Kelurahan terdampak</h3>
+        <span className="text-[11px] text-slate-400 font-mono shrink-0">Top 6 kec.</span>
       </div>
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-2.5">
         {TOP.map((k) => (
-          <div key={k.name} className="grid grid-cols-[96px_1fr_24px] items-center gap-2">
-            <span className="text-xs text-slate-600 truncate" style={syne}>{k.name}</span>
+          <div key={k.name} className="grid grid-cols-[minmax(0,7.5rem)_1fr_1.5rem] items-center gap-2.5">
+            <span className="text-[13px] text-slate-600 truncate">{k.name}</span>
             <div className="h-2 rounded-full bg-slate-100 overflow-hidden">
               <div className="h-full rounded-full" style={{ width: `${(k.affected / MAX) * 100}%`, background: RISK_HEX[k.risk] }} />
             </div>
-            <span className="text-xs font-bold text-slate-800 text-right" style={mono}>{k.affected}</span>
+            <span className="text-[13px] font-semibold text-slate-800 text-right font-mono tabular-nums">{k.affected}</span>
           </div>
         ))}
       </div>
