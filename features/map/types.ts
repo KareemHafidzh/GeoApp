@@ -46,5 +46,7 @@ export interface CursorLngLat {
 }
 
 export type DrawMode = 'marker' | 'line' | 'polygon' | 'circle' | 'rectangle' | 'freehand';
+// Draw a new shape, or change one already on the map.
+export type MapTool = DrawMode | 'edit' | 'drag' | 'delete';
 
 export type RiskLabel = 'Risiko Tinggi' | 'Risiko Sedang' | 'Risiko Rendah';

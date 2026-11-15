@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
-import type { DrawMode } from '@/features/map/types';
+import type { MapTool } from '@/features/map/types';
 import type { SearchResult } from '@/features/map/hooks/useMapSearch';
 
 interface MapSidebarProps {
@@ -24,8 +24,8 @@ interface MapSidebarProps {
   setShowSchool: (show: boolean) => void;
   showPuskesmas: boolean;
   setShowPuskesmas: (show: boolean) => void;
-  activeDrawMode: DrawMode | null;
-  toggleDrawMode: (mode: DrawMode) => void;
+  activeDrawMode: MapTool | null;
+  toggleDrawMode: (mode: MapTool) => void;
   clearAll: () => void;
   isOpen: boolean;
   hidden: boolean;
@@ -228,6 +228,7 @@ export default React.memo(function MapSidebar({
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={activeDrawMode === 'marker' ? 'text-[#0aab8a]' : 'text-slate-700 group-hover:text-[#0aab8a]'}>
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
                 </svg>
+                <span className="mt-1.5 text-[10px] font-bold text-slate-600">Titik</span>
               </button>
               <button 
                 onClick={() => toggleDrawMode('line')} 
@@ -237,6 +238,7 @@ export default React.memo(function MapSidebar({
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={activeDrawMode === 'line' ? 'text-[#0aab8a]' : 'text-slate-700 group-hover:text-[#0aab8a]'}>
                   <circle cx="6" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><line x1="8.12" y1="8.12" x2="15.88" y2="15.88"/>
                 </svg>
+                <span className="mt-1.5 text-[10px] font-bold text-slate-600">Garis</span>
               </button>
               <button 
                 onClick={() => toggleDrawMode('polygon')} 
@@ -246,6 +248,7 @@ export default React.memo(function MapSidebar({
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={activeDrawMode === 'polygon' ? 'text-[#0aab8a]' : 'text-slate-700 group-hover:text-[#0aab8a]'}>
                   <path d="M12 2l9 7-3.5 13h-11L3 9z"/>
                 </svg>
+                <span className="mt-1.5 text-[10px] font-bold text-slate-600">Poligon</span>
               </button>
               <button 
                 onClick={() => toggleDrawMode('circle')} 
@@ -255,6 +258,7 @@ export default React.memo(function MapSidebar({
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={activeDrawMode === 'circle' ? 'text-[#0aab8a]' : 'text-slate-700 group-hover:text-[#0aab8a]'}>
                   <circle cx="12" cy="12" r="10"/>
                 </svg>
+                <span className="mt-1.5 text-[10px] font-bold text-slate-600">Lingkaran</span>
               </button>
               <button 
                 onClick={() => toggleDrawMode('rectangle')} 
@@ -264,6 +268,7 @@ export default React.memo(function MapSidebar({
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={activeDrawMode === 'rectangle' ? 'text-[#0aab8a]' : 'text-slate-700 group-hover:text-[#0aab8a]'}>
                   <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
                 </svg>
+                <span className="mt-1.5 text-[10px] font-bold text-slate-600">Persegi</span>
               </button>
               <button 
                 onClick={() => toggleDrawMode('freehand')} 
@@ -274,9 +279,23 @@ export default React.memo(function MapSidebar({
                   <path d="M17.5 19c-1.5 0-2.5-2-2.5-2s-1-2-2.5-2-2.5 2-2.5 2-1 2-2.5 2"/>
                   <path d="M22 12c-1.5 0-2.5-2-2.5-2s-1-2-2.5-2-2.5 2-2.5 2-1 2-2.5 2"/>
                 </svg>
+                <span className="mt-1.5 text-[10px] font-bold text-slate-600">Bebas</span>
               </button>
             </div>
-            
+
+            {/* Change shapes already on the map */}
+            <div className="grid grid-cols-3 gap-2 mb-3">
+              {([['edit', 'Ubah ukuran'], ['drag', 'Geser'], ['delete', 'Hapus satu']] as const).map(([tool, label]) => (
+                <button
+                  key={tool}
+                  onClick={() => toggleDrawMode(tool)}
+                  aria-pressed={activeDrawMode === tool}
+                  className={`py-2 border rounded-xl text-[11px] font-bold transition-colors shadow-sm ${activeDrawMode === tool ? 'bg-green-50 border-[#0aab8a] text-[#0aab8a]' : 'bg-white border-slate-200 text-slate-700 hover:border-[#0aab8a] hover:bg-green-50/50'}`}>
+                  {label}
+                </button>
+              ))}
+            </div>
+
             <button 
               onClick={clearAll}
               className="w-full flex items-center justify-center gap-2 py-3 bg-red-50 text-red-600 font-bold text-[13px] border border-red-200 rounded-xl hover:bg-red-100 transition-colors"

@@ -27,13 +27,26 @@ import MapTour from './MapTour';
 import MapEmergency, { type NearestResult } from './MapEmergency';
 
 // Types
-import type { PopupInfo, HoverInfo, DrawnAreaInfo, CursorLngLat } from '@/features/map/types';
+import type { PopupInfo, HoverInfo, DrawnAreaInfo, CursorLngLat, MapTool } from '@/features/map/types';
 import type { Map as MapLibreMap, ExpressionSpecification } from 'maplibre-gl';
 
 const POI_TYPES: Record<string, string> = {
   'rumah-sakit-points': 'Rumah Sakit',
   'puskesmas-points': 'Puskesmas',
   'school-points': 'Sekolah',
+};
+
+// What to do on the map while a measuring tool is active (shown in a banner; the gestures aren't guessable).
+const TOOL_HINTS: Record<MapTool, string> = {
+  marker: 'Ketuk peta untuk menaruh titik.',
+  line: 'Ketuk peta untuk menambah titik garis. Ketuk titik terakhir sekali lagi untuk selesai.',
+  polygon: 'Ketuk peta untuk menambah sudut. Ketuk titik pertama untuk menutup area.',
+  circle: 'Ketuk titik pusat, lalu ketuk lagi di tepi untuk menentukan besar lingkaran.',
+  rectangle: 'Ketuk satu sudut, lalu ketuk sudut seberangnya.',
+  freehand: 'Ketuk untuk mulai, gerakkan untuk menggambar, lalu ketuk lagi untuk selesai.',
+  edit: 'Seret titik putih pada bentuk untuk mengubah ukuran atau bentuknya.',
+  drag: 'Seret bentuk untuk memindahkannya.',
+  delete: 'Ketuk bentuk yang ingin dihapus.',
 };
 
 // Built from RISK_LEVELS so the legend/filter and fill colors can't drift apart.
@@ -132,6 +145,12 @@ export default function MapDashboard() {
       ? { type: 'FeatureCollection', features: [...rumahSakitData.features, ...puskesmasData.features] }
       : null,
   [rumahSakitData, puskesmasData]);
+
+  // Picking a tool closes the drawer on phones/tablets so the map is free to draw on.
+  const pickTool = useCallback((tool: MapTool) => {
+    toggleDrawMode(tool);
+    setSidebarOpen(false);
+  }, [toggleDrawMode]);
 
   const toggleRisk = useCallback((label: string) =>
     setHiddenRisks(prev => prev.includes(label) ? prev.filter(l => l !== label) : [...prev, label]), []);
@@ -301,12 +320,21 @@ export default function MapDashboard() {
         showPuskesmas={showPuskesmas}
         setShowPuskesmas={setShowPuskesmas}
         activeDrawMode={activeDrawMode}
-        toggleDrawMode={toggleDrawMode}
+        toggleDrawMode={pickTool}
         clearAll={clearAll}
         isOpen={sidebarOpen}
         hidden={sidebarHidden}
         onClose={hideSidebar}
       />
+
+      {activeDrawMode && (
+        <div role="status" className="absolute z-20 top-24 lg:top-4 left-1/2 -translate-x-1/2 w-[calc(100vw-2rem)] max-w-[340px] flex items-center gap-3 bg-slate-900/90 backdrop-blur-md text-white rounded-2xl pl-4 pr-2 py-2 shadow-xl anim-fade-in">
+          <p className="flex-1 text-[12px] leading-snug font-medium">{TOOL_HINTS[activeDrawMode]}</p>
+          <button onClick={() => toggleDrawMode(activeDrawMode)} className="shrink-0 px-3 py-1.5 rounded-xl bg-[#0aab8a] hover:bg-[#088c71] text-[12px] font-bold transition-colors">
+            Selesai
+          </button>
+        </div>
+      )}
 
       <MapLegend hiddenRisks={hiddenRisks} toggleRisk={toggleRisk} />
 

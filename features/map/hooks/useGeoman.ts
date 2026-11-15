@@ -3,12 +3,12 @@
 import { useRef, useEffect, useState, useCallback } from 'react';
 import { Geoman, type GmOptionsPartial } from '@geoman-io/maplibre-geoman-free';
 import '@geoman-io/maplibre-geoman-free/dist/maplibre-geoman.css';
-import type { DrawMode } from '@/features/map/types';
+import type { MapTool } from '@/features/map/types';
 import type { Map as MapLibreMap } from 'maplibre-gl';
 
 export function useGeoman(mapInstance: MapLibreMap | null) {
   const geomanRef = useRef<Geoman | null>(null);
-  const [activeDrawMode, setActiveDrawMode] = useState<DrawMode | null>(null);
+  const [activeDrawMode, setActiveDrawMode] = useState<MapTool | null>(null);
 
   useEffect(() => {
     if (!mapInstance || geomanRef.current) return;
@@ -43,16 +43,28 @@ export function useGeoman(mapInstance: MapLibreMap | null) {
     };
     const gm = new Geoman(mapInstance, gmOptions);
     geomanRef.current = gm;
+
+    // A finished shape goes straight into resize mode: its handles appear, so it's obvious it can
+    // still be adjusted. (Deferred: Geoman is still mid-event when gm:create fires.)
+    const onCreate = () => setTimeout(() => {
+      gm.disableAllModes();
+      gm.enableGlobalEditMode();
+      setActiveDrawMode('edit');
+    }, 0);
+    mapInstance.on('gm:create', onCreate);
+    return () => { mapInstance.off('gm:create', onCreate); };
   }, [mapInstance]);
 
-  const toggleDrawMode = useCallback((mode: DrawMode) => {
-    if (activeDrawMode === mode) {
-      geomanRef.current?.disableDraw();
-      setActiveDrawMode(null);
-    } else {
-      geomanRef.current?.enableDraw(mode);
-      setActiveDrawMode(mode);
-    }
+  const toggleDrawMode = useCallback((mode: MapTool) => {
+    const gm = geomanRef.current;
+    if (!gm) return;
+    gm.disableAllModes();
+    if (activeDrawMode === mode) return setActiveDrawMode(null);
+    if (mode === 'edit') gm.enableGlobalEditMode();
+    else if (mode === 'drag') gm.enableGlobalDragMode();
+    else if (mode === 'delete') gm.enableGlobalRemovalMode();
+    else gm.enableDraw(mode);
+    setActiveDrawMode(mode);
   }, [activeDrawMode]);
 
   const clearAll = useCallback(() => {
