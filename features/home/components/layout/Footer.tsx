@@ -12,7 +12,7 @@ export default function Footer() {
             <circle cx="16" cy="16" r="3" fill="#0f172a" />
           </svg>
           <div className="font-bold text-[13px] tracking-[0.06em] text-slate-800" style={{ fontFamily: 'Syne, sans-serif' }}>
-            BEKASIGIS
+            GEODASHBOARD BEKASI
           </div>
         </div>
 

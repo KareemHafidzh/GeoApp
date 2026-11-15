@@ -19,7 +19,7 @@ export default function Navbar({ isScrolled }: { isScrolled: boolean }) {
             <polygon points="16,2 29,9.5 29,22.5 16,30 3,22.5 3,9.5" fill="none" stroke="#0f172a" strokeWidth="1.8" />
             <circle cx="16" cy="16" r="3" fill="#0f172a" />
           </svg>
-          <span className="font-bold text-[13px] tracking-[0.06em] text-slate-800" style={{ fontFamily: 'Syne, sans-serif' }}>BEKASIGIS</span>
+          <span className="font-bold text-[13px] tracking-[0.06em] text-slate-800" style={{ fontFamily: 'Syne, sans-serif' }}>GEODASHBOARD BEKASI</span>
         </Link>
 
         {/* Desktop Nav */}
