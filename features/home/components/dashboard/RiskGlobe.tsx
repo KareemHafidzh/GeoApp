@@ -45,17 +45,18 @@ const ICONS = {
 const by = (name: string) => KECAMATAN.find((k) => k.name === name)!;
 const CALLOUTS = [
   // stem = px between pin and card; staggered by hand so the cards don't stack on each other.
-  { k: by('Bekasi Barat'),   value: '19.135/km²', label: 'Terpadat', icon: ICONS.people, stem: 80 },
-  { k: by('Bekasi Selatan'), value: '15', label: 'Kel. terdampak', icon: ICONS.flood, stem: 24, phone: true },
-  { k: by('Bekasi Timur'),   value: '12', label: 'Kel. banjir', icon: ICONS.flood, stem: 60 },
-  { k: by('Jatiasih'),       value: '3', label: 'Kel. longsor', icon: ICONS.slide, stem: 4 },
+  // phoneStem does the same for the <640px view, where the pins sit closer together (gaps cover the 12px float).
+  { k: by('Bekasi Barat'),   value: '19.135/km²', label: 'Terpadat', icon: ICONS.people, stem: 80, phoneStem: 130 },
+  { k: by('Bekasi Selatan'), value: '15', label: 'Kel. terdampak', icon: ICONS.flood, stem: 24, phoneStem: 24 },
+  { k: by('Bekasi Timur'),   value: '12', label: 'Kel. banjir', icon: ICONS.flood, stem: 60, phoneStem: 78 },
+  { k: by('Jatiasih'),       value: '3', label: 'Kel. longsor', icon: ICONS.slide, stem: 4, phoneStem: 4 },
 ];
 
 // A fixed visualization, not a map: no drag/zoom, the camera only leans a few degrees toward the cursor.
 export default function RiskGlobe() {
   const mapRef = useRef<MapRef>(null);
-  // ponytail: zoom chosen once by viewport width (component is client-only); phones get a wider view and only the callouts marked `phone`, so they don't collide.
-  const [view] = useState(() => (window.innerWidth < 640 ? { ...BEKASI, zoom: 9.8, latitude: -6.262, phone: true } : { ...BEKASI, phone: false }));
+  // ponytail: zoom chosen once by viewport width (component is client-only); phones get a wider view and the callouts' `phoneStem` spacing.
+  const [view] = useState(() => (window.innerWidth < 640 ? { ...BEKASI, zoom: 9.55, latitude: -6.214, phone: true } : { ...BEKASI, phone: false }));
   const frame = useRef(0);
 
   const lean = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -92,7 +93,7 @@ export default function RiskGlobe() {
           }} />
       </Source>
 
-      {CALLOUTS.filter((c) => !view.phone || c.phone).map(({ k, value, label, icon, stem }, i) => (
+      {CALLOUTS.map(({ k, value, label, icon, stem, phoneStem }, i) => (
         <Marker key={k.name} longitude={k.lng} latitude={k.lat} anchor="bottom" offset={[0, 6 - liftPx(k.affected, view.zoom)]}>
           <div className="anim-fade-up flex flex-col items-center" style={{ animationDelay: `${0.4 + i * 0.15}s` }}>
             <div className={i % 2 ? 'animate-float-slow' : 'animate-float'}>
@@ -106,7 +107,7 @@ export default function RiskGlobe() {
                 </div>
               </div>
             </div>
-            <div className="w-px bg-slate-900/30" style={{ height: stem }} />
+            <div className="w-px bg-slate-900/30" style={{ height: view.phone ? phoneStem : stem }} />
             <div className="relative w-3 h-3">
               <div className="absolute inset-0 rounded-full animate-pulse-ring" style={{ border: `2px solid ${RISK_HEX[k.risk]}` }} />
               <div className="w-3 h-3 rounded-full border-2 border-white" style={{ background: RISK_HEX[k.risk] }} />

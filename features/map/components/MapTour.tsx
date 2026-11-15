@@ -107,9 +107,10 @@ interface MapTourProps {
   mapInstance: MapLibreMap | null;
   /** Whether the sidebar drawer is open — hides the help button so it doesn't overlap. */
   sidebarOpen: boolean;
+  sidebarHidden: boolean;
 }
 
-export default React.memo(function MapTour({ setSidebarOpen, mapInstance, sidebarOpen }: MapTourProps) {
+export default React.memo(function MapTour({ setSidebarOpen, mapInstance, sidebarOpen, sidebarHidden }: MapTourProps) {
   // Auto-start on first visit. Component is client-only (parent uses ssr:false),
   // so localStorage is safe to read during initialization.
   const [active, setActive] = useState(() => {
@@ -328,7 +329,7 @@ export default React.memo(function MapTour({ setSidebarOpen, mapInstance, sideba
       onClick={start}
       aria-label="Buka panduan penggunaan peta"
       title="Panduan Penggunaan"
-      className={`absolute bottom-12 left-4 lg:left-[352px] z-50 flex items-center justify-center w-11 h-11 bg-white/95 backdrop-blur-md border border-slate-200 rounded-full shadow-lg text-[#0aab8a] hover:bg-[#0aab8a] hover:text-white transition-all ${sidebarOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+      className={`absolute bottom-12 left-4 ${sidebarHidden ? '' : 'lg:left-[352px]'} z-50 flex items-center justify-center w-11 h-11 bg-white/95 backdrop-blur-md border border-slate-200 rounded-full shadow-lg text-[#0aab8a] hover:bg-[#0aab8a] hover:text-white transition-all ${sidebarOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
     >
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="10" />

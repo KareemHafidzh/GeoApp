@@ -28,6 +28,7 @@ interface MapSidebarProps {
   toggleDrawMode: (mode: DrawMode) => void;
   clearAll: () => void;
   isOpen: boolean;
+  hidden: boolean;
   onClose: () => void;
 }
 
@@ -56,6 +57,7 @@ export default React.memo(function MapSidebar({
   toggleDrawMode,
   clearAll,
   isOpen,
+  hidden,
   onClose,
 }: MapSidebarProps) {
   const [copied, setCopied] = useState(false);
@@ -73,16 +75,16 @@ export default React.memo(function MapSidebar({
   };
 
   return (
-    <div data-tour="sidebar" className={`absolute top-0 left-0 bottom-0 z-30 flex flex-col w-[300px] max-w-[88vw] p-3 sm:top-4 sm:left-4 sm:bottom-4 sm:p-0 sm:w-[320px] sm:max-w-none transition-transform duration-300 ease-in-out lg:translate-x-0 ${isOpen ? 'translate-x-0' : '-translate-x-[110%]'}`}>
+    <div data-tour="sidebar" className={`absolute top-0 left-0 bottom-0 z-30 flex flex-col w-[300px] max-w-[88vw] p-3 sm:top-4 sm:left-4 sm:bottom-4 sm:p-0 sm:w-[320px] sm:max-w-none transition-transform duration-300 ease-in-out ${hidden ? '' : 'lg:translate-x-0'} ${isOpen ? 'translate-x-0' : '-translate-x-[110%]'}`}>
       <div className="bg-white/95 backdrop-blur-md border border-slate-200 rounded-2xl shadow-xl flex flex-col h-full overflow-hidden">
 
         {/* Top Section: Logo & Back Button */}
         <div className="p-4 flex items-center justify-between border-b border-slate-100">
-          <Link href="/" aria-label="Kembali ke beranda" className="p-2 border border-slate-200 rounded-lg hover:bg-slate-50 transition-colors text-slate-700">
+          <button onClick={onClose} aria-label="Sembunyikan panel" title="Sembunyikan panel" className="p-2 border border-slate-200 rounded-lg hover:bg-slate-50 transition-colors text-slate-700">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M19 12H5M12 19l-7-7 7-7"/>
             </svg>
-          </Link>
+          </button>
           <button
             onClick={shareView}
             title="Bagikan tampilan peta"
@@ -93,24 +95,16 @@ export default React.memo(function MapSidebar({
             </svg>
             {copied ? 'Tersalin!' : 'Share'}
           </button>
-          <div className="flex items-center gap-3">
-            <div className="leading-tight font-extrabold text-slate-900 tracking-wider text-[12px] uppercase text-right" style={{ fontFamily: 'Syne, sans-serif' }}>
-              GIS<br/>KOTA<br/>BEKASI
-            </div>
-            {/* Close button — mobile/tablet only */}
-            <button
-              onClick={onClose}
-              aria-label="Close panel"
-              className="lg:hidden p-2 -mr-1 border border-slate-200 rounded-lg hover:bg-slate-50 transition-colors text-slate-500">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
-              </svg>
-            </button>
+          <div className="leading-tight font-extrabold text-slate-900 tracking-wider text-[12px] uppercase text-right" style={{ fontFamily: 'Syne, sans-serif' }}>
+            GIS<br/>KOTA<br/>BEKASI
           </div>
         </div>
+        <Link href="/" className="mx-4 mt-3 py-2 text-center rounded-lg bg-[#0aab8a] hover:bg-[#088c71] transition-colors text-white text-[12px] font-bold shadow-sm" style={{ fontFamily: 'Syne, sans-serif' }}>
+          Back to Dashboard
+        </Link>
 
         {/* Search Section */}
-        <div data-tour="search" className="p-4 border-b border-slate-100 bg-slate-50/50">
+        <div data-tour="search" className="p-4 pt-3 border-b border-slate-100 bg-slate-50/50">
           <form onSubmit={handleSearch} className="relative flex items-center">
             <input 
               type="text" 

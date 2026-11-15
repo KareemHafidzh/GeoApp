@@ -23,7 +23,7 @@ export default memo(function HeroDashboard() {
         <KeyStats />
 
         {/* Center: fixed 3D view of the risk zones */}
-        <div className="md:col-span-2 lg:col-span-6 relative h-[340px] sm:h-[420px] lg:h-[clamp(440px,58vh,540px)] anim-fade-in">
+        <div className="md:col-span-2 lg:col-span-6 relative h-[400px] sm:h-[420px] lg:h-[clamp(440px,58vh,540px)] anim-fade-in">
           <div className="absolute inset-0 rounded-[28px] overflow-hidden bg-gradient-to-b from-sky-50 to-white">
             <RiskGlobe />
           </div>

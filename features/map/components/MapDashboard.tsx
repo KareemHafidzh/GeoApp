@@ -52,7 +52,15 @@ export default function MapDashboard() {
   const lastHoveredGeomanId = useRef<string | null>(null);
   
   // UI States
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false); // drawer below lg
+  const [sidebarHidden, setSidebarHidden] = useState(false); // slid away by the user (any size)
+
+  const hideSidebar = useCallback(() => { setSidebarOpen(false); setSidebarHidden(true); }, []);
+  // The tour opens the sidebar to point at it, so that also has to un-hide it.
+  const setSidebarOpenForTour = useCallback((open: boolean) => {
+    setSidebarOpen(open);
+    if (open) setSidebarHidden(false);
+  }, []);
 
   // Layer States
   const [showRiskLayer, setShowRiskLayer] = useState(true);
@@ -229,11 +237,11 @@ export default function MapDashboard() {
   return (
     <div className="relative w-full h-screen bg-slate-50 overflow-hidden">
 
-      {/* Floating menu button — opens sidebar drawer on mobile/tablet */}
+      {/* Floating menu button — brings the sidebar back (drawer below lg, hidden panel at lg) */}
       <button
-        onClick={() => setSidebarOpen(true)}
+        onClick={() => { setSidebarHidden(false); setSidebarOpen(window.innerWidth < 1024); }}
         aria-label="Open menu"
-        className={`lg:hidden absolute top-4 left-4 z-20 flex items-center justify-center w-11 h-11 bg-white/95 backdrop-blur-md border border-slate-200 rounded-xl shadow-lg text-slate-800 transition-opacity ${sidebarOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+        className={`absolute top-4 left-4 z-20 flex items-center justify-center w-11 h-11 bg-white/95 backdrop-blur-md border border-slate-200 rounded-xl shadow-lg text-slate-800 transition-opacity ${sidebarOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'} ${sidebarHidden ? '' : 'lg:opacity-0 lg:pointer-events-none'}`}>
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" />
         </svg>
@@ -272,14 +280,15 @@ export default function MapDashboard() {
         toggleDrawMode={toggleDrawMode}
         clearAll={clearAll}
         isOpen={sidebarOpen}
-        onClose={() => setSidebarOpen(false)}
+        hidden={sidebarHidden}
+        onClose={hideSidebar}
       />
 
       <MapLegend hiddenRisks={hiddenRisks} toggleRisk={toggleRisk} />
 
-      <MapTour setSidebarOpen={setSidebarOpen} mapInstance={mapInstance} sidebarOpen={sidebarOpen} />
+      <MapTour setSidebarOpen={setSidebarOpenForTour} mapInstance={mapInstance} sidebarOpen={sidebarOpen} sidebarHidden={sidebarHidden} />
 
-      <MapEmergency facilities={facilities} nearest={nearest} onNearest={handleNearest} sidebarOpen={sidebarOpen} />
+      <MapEmergency facilities={facilities} nearest={nearest} onNearest={handleNearest} sidebarOpen={sidebarOpen} sidebarHidden={sidebarHidden} />
 
       <Map
         ref={mapRef} 

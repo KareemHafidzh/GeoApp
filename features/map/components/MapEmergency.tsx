@@ -17,13 +17,14 @@ interface MapEmergencyProps {
   nearest: NearestResult | null;
   onNearest: (result: NearestResult | null) => void;
   sidebarOpen: boolean;
+  sidebarHidden: boolean;
 }
 
 /**
  * Floating "Darurat" button (bottom-left) with
  * emergency phone numbers and a straight-line nearest-facility finder.
  */
-export default function MapEmergency({ facilities, nearest, onNearest, sidebarOpen }: MapEmergencyProps) {
+export default function MapEmergency({ facilities, nearest, onNearest, sidebarOpen, sidebarHidden }: MapEmergencyProps) {
   const [open, setOpen] = useState(false);
   const [status, setStatus] = useState<string | null>(null);
 
@@ -50,7 +51,7 @@ export default function MapEmergency({ facilities, nearest, onNearest, sidebarOp
   };
 
   return (
-    <div className={`absolute bottom-[6.5rem] left-4 lg:left-[352px] z-50 flex flex-col items-start gap-2 transition-opacity ${sidebarOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+    <div className={`absolute bottom-[6.5rem] left-4 ${sidebarHidden ? '' : 'lg:left-[352px]'} z-50 flex flex-col items-start gap-2 transition-opacity ${sidebarOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
       {open && (
         <div className="w-[280px] max-w-[calc(100vw-2rem)] bg-white/95 backdrop-blur-md border border-slate-200 rounded-2xl shadow-xl p-4 flex flex-col gap-3">
           <h3 className="font-extrabold text-slate-900 text-sm tracking-wide uppercase" style={{ fontFamily: 'Syne, sans-serif' }}>Kontak Darurat</h3>

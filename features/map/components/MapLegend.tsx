@@ -13,9 +13,19 @@ export default React.memo(function MapLegend({ hiddenRisks, toggleRisk }: MapLeg
   const [open, setOpen] = useState(() =>
     typeof window === 'undefined' ? true : window.innerWidth >= 1024
   );
+  const [hidden, setHidden] = useState(false);
 
   return (
-    <div data-tour="legend" className="absolute top-4 right-4 z-10 w-[260px] max-w-[calc(100vw-2rem)] bg-white/95 backdrop-blur-md rounded-2xl p-4 sm:p-5 shadow-xl border border-slate-200 flex flex-col gap-3">
+    <div data-tour="legend" className={`absolute top-4 right-4 z-10 w-[260px] max-w-[calc(100vw-7.5rem)] bg-white/95 backdrop-blur-md rounded-2xl p-4 sm:p-5 shadow-xl border border-slate-200 flex flex-col gap-3 transition-transform duration-300 ease-in-out ${hidden ? 'translate-x-[calc(100%+1rem)]' : ''}`}>
+      {/* Tab on the card's left edge: rides along with it, so it stays on screen as the handle to slide back. */}
+      <button
+        onClick={() => setHidden((h) => !h)}
+        aria-label={hidden ? 'Tampilkan legenda' : 'Sembunyikan legenda'}
+        className="absolute top-3 -left-8 flex items-center justify-center w-8 h-10 bg-white/95 backdrop-blur-md border border-r-0 border-slate-200 rounded-l-xl shadow-lg text-slate-700 hover:bg-slate-50 transition-colors">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={`transition-transform duration-300 ${hidden ? 'rotate-180' : ''}`}>
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+      </button>
       <button
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
