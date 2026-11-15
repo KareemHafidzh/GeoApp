@@ -75,7 +75,7 @@ const STEPS: TourStep[] = [
   {
     selector: null,
     title: 'Putar & Miringkan Peta 🧭',
-    body: 'Ayo coba langsung! Tahan klik kanan mouse lalu geser — atau gunakan dua jari di layar sentuh — untuk memutar arah dan memiringkan peta ke tampilan 3D. Tombol kompas di kanan bawah mengembalikan peta ke arah utara.',
+    body: 'Ayo coba langsung! Tahan klik kanan mouse lalu geser — atau gunakan dua jari di layar sentuh, atau tekan tombol 3D di kanan bawah — untuk memutar arah dan memiringkan peta ke tampilan 3D. Tombol kompas di kanan bawah mengembalikan peta ke arah utara.',
     sidebar: false,
     interactive: 'rotate',
   },
@@ -204,11 +204,15 @@ export default React.memo(function MapTour({ setSidebarOpen, mapInstance, sideba
       if (el) {
         const r = el.getBoundingClientRect();
         if (r.width > 0 && r.height > 0) {
+          // Clip to the screen: on phones the full-height sidebar (and sections at the end of its
+          // scroll) would otherwise push the spotlight's top/bottom edges off screen.
+          const top = Math.max(4, r.top - PAD);
+          const left = Math.max(4, r.left - PAD);
           rect = {
-            top: r.top - PAD,
-            left: r.left - PAD,
-            width: r.width + PAD * 2,
-            height: r.height + PAD * 2,
+            top,
+            left,
+            width: Math.min(vw - 4, r.right + PAD) - left,
+            height: Math.min(vh - 4, r.bottom + PAD) - top,
           };
         }
       }
@@ -412,9 +416,9 @@ export default React.memo(function MapTour({ setSidebarOpen, mapInstance, sideba
       {/* Interactive gesture demo (pointer-events-none so the map underneath
           stays usable while the user tries the gesture). */}
       {interactive && revealed && (
-        <div className="fixed inset-0 z-[61] pointer-events-none flex items-center justify-center">
+        <div className="fixed inset-0 z-[61] pointer-events-none flex items-start pt-[110px] sm:pt-0 sm:items-center justify-center">
           {current.interactive === 'rotate' ? (
-            <div className="flex items-center gap-6 sm:gap-8 -translate-y-16 anim-fade-in">
+            <div className="flex items-center gap-6 sm:gap-8 sm:-translate-y-16 anim-fade-in">
               {/* Right-click + drag */}
               <div className="flex flex-col items-center gap-3">
                 <svg width="58" height="96" viewBox="0 0 60 96" fill="none">
@@ -456,7 +460,7 @@ export default React.memo(function MapTour({ setSidebarOpen, mapInstance, sideba
             </div>
           ) : (
             // Click / tap a zone
-            <div className="flex flex-col items-center gap-3 -translate-y-16 anim-fade-in">
+            <div className="flex flex-col items-center gap-3 sm:-translate-y-16 anim-fade-in">
               <svg width="96" height="96" viewBox="0 0 96 96" fill="none">
                 {/* expanding ripples */}
                 <circle cx="48" cy="54" r="20" fill="none" stroke="#0aab8a" strokeWidth="2.5" style={{ transformBox: 'fill-box', transformOrigin: 'center', animation: 'tourRipple 1.8s ease-out infinite' }} />

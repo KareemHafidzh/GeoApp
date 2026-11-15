@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, useState, useEffect, useMemo, useCallback } from 'react';
-import Map, { Source, Layer, NavigationControl, Marker } from 'react-map-gl/maplibre';
+import Map, { Source, Layer, NavigationControl, Marker, useControl } from 'react-map-gl/maplibre';
 import type { MapRef, MapLayerMouseEvent } from 'react-map-gl/maplibre';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import maplibregl from 'maplibre-gl';
@@ -38,6 +38,28 @@ const POI_TYPES: Record<string, string> = {
 
 // Built from RISK_LEVELS so the legend/filter and fill colors can't drift apart.
 const RISK_FILL_COLOR = ['match', ['get', 'Risk_Label'], ...RISK_LEVELS.flatMap(l => [l.label, l.color]), '#cccccc'] as unknown as ExpressionSpecification;
+
+// One-tap 2D/3D tilt toggle: two-finger pitch is hard to find (and to do) on phones.
+function PitchControl() {
+  useControl(() => {
+    const div = document.createElement('div');
+    div.className = 'maplibregl-ctrl maplibregl-ctrl-group';
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.title = 'Miringkan peta (3D)';
+    btn.style.cssText = 'font: 700 11px system-ui, sans-serif; color: #334155;';
+    btn.textContent = '3D';
+    div.append(btn);
+    let map: MapLibreMap | null = null;
+    const sync = () => { if (map) btn.textContent = map.getPitch() > 10 ? '2D' : '3D'; };
+    btn.onclick = () => map?.easeTo({ pitch: map.getPitch() > 10 ? 0 : 60, duration: 600 });
+    return {
+      onAdd(m: MapLibreMap) { map = m; m.on('pitchend', sync); sync(); return div; },
+      onRemove() { map?.off('pitchend', sync); div.remove(); },
+    };
+  }, { position: 'bottom-right' });
+  return null;
+}
 
 // Register PMTiles protocol
 const protocol = new Protocol();
@@ -172,6 +194,8 @@ export default function MapDashboard() {
     const feature = features[0]; 
     if (feature.layer.id !== 'risk-fills') return;
     const props = feature.properties;
+    // Phones: slide the tapped point into the lower part of the screen so the card above it isn't hidden under the top controls.
+    if (window.innerWidth < 640) mapRef.current?.easeTo({ center: event.lngLat, offset: [0, window.innerHeight * 0.3], duration: 400 });
     
     setPopupInfo({
       longitude: event.lngLat.lng,
@@ -235,7 +259,7 @@ export default function MapDashboard() {
   };
 
   return (
-    <div className="relative w-full h-screen bg-slate-50 overflow-hidden">
+    <div className="relative w-full h-dvh bg-slate-50 overflow-hidden">
 
       {/* Floating menu button — brings the sidebar back (drawer below lg, hidden panel at lg) */}
       <button
@@ -304,7 +328,8 @@ export default function MapDashboard() {
         interactiveLayerIds={['risk-fills', ...Object.keys(POI_TYPES)]} 
         cursor={hoverInfo ? 'pointer' : (popupInfo ? 'auto' : 'crosshair')}
       >
-        <NavigationControl position="bottom-right" />
+        <NavigationControl position="bottom-right" visualizePitch />
+        <PitchControl />
 
         <MapAreaInfo drawnAreaInfo={drawnAreaInfo} onClose={() => setDrawnAreaInfo(null)} />
         <MapCoordinateBar cursorLngLat={cursorLngLat} />
