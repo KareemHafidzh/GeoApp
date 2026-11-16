@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Geodashboard Bekasi — Peta Risiko Bencana Kota Bekasi",
-  description: "Peta interaktif untuk melihat wilayah rawan banjir dan longsor di 12 kecamatan Kota Bekasi.",
+  description: "Peta interaktif untuk membandingkan risiko bencana di 12 kecamatan Kota Bekasi.",
 };
 
 export default function RootLayout({

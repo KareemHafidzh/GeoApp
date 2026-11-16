@@ -11,8 +11,8 @@ export default function MapPopup({ popupInfo, onClose }: MapPopupProps) {
   if (!popupInfo) return null;
 
   return (
-    <Popup longitude={popupInfo.longitude} latitude={popupInfo.latitude} anchor="bottom" onClose={onClose} closeOnClick={false} maxWidth="min(340px, calc(100vw - 32px))" className="modern-popup">
-      <div className="p-0.5 sm:p-2 min-w-[250px] sm:min-w-[260px] max-h-[70vh] overflow-y-auto">
+    <Popup longitude={popupInfo.longitude} latitude={popupInfo.latitude} anchor="bottom" onClose={onClose} closeOnClick={false} maxWidth="min(460px, calc(100vw - 32px))" className="modern-popup">
+      <div className="p-0.5 sm:p-2 min-w-[250px] sm:min-w-[440px] max-h-[70vh] overflow-y-auto">
         
         {/* Popup Header */}
         <div className="mb-2 sm:mb-4 pr-5">
@@ -38,16 +38,16 @@ export default function MapPopup({ popupInfo, onClose }: MapPopupProps) {
                 <span className="text-slate-400 transition-transform group-open:rotate-180">▾</span>
               </summary>
               <div className="px-2.5 pb-2.5">
-                <p className="mb-1.5">Warna dihitung dari data Kec. {popupInfo.district} di bawah ini, dibanding kecamatan lain. Bukan dari tabel bencana.</p>
-                <ul className="grid grid-cols-2 gap-x-3 gap-y-1">
+                <p className="mb-1.5">Data Kec. {popupInfo.district} dibanding kecamatan lain:</p>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-1">
                   {popupInfo.factors.map((f) => (
                     <li key={f.label} className="flex items-baseline justify-between gap-1">
-                      <span className="truncate">{f.label}</span>
+                      <span>{f.label}</span>
                       <span className={`font-bold whitespace-nowrap ${f.raises ? 'text-red-600' : 'text-emerald-600'}`}>{f.value} {f.raises ? '▲' : '▼'}</span>
                     </li>
                   ))}
                 </ul>
-                <p className="mt-1.5 text-[10px] text-slate-400"><span className="text-red-600">▲</span> menaikkan skor risiko · <span className="text-emerald-600">▼</span> menurunkan. Kecamatan dengan pola serupa dikelompokkan dalam satu kelas.</p>
+                <p className="mt-1.5 text-[10px] text-slate-400"><span className="text-red-600">▲</span> menaikkan risiko · <span className="text-emerald-600">▼</span> menurunkan. Sekolah, guru, RS &amp; puskesmas dihitung per 100 ribu warga.</p>
               </div>
             </details>
           )}

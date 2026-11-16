@@ -29,9 +29,9 @@ export default React.memo(function MapLegend({ hiddenRisks, toggleRisk, hidden, 
       {/* ponytail: wording mirrors the offline K-Means inputs (RISK_FACTORS) — update when the model changes. */}
       <div className="flex flex-col gap-2 text-[12px] text-slate-600 leading-relaxed">
         <p className="text-[13px] font-medium">Warna membandingkan 12 kecamatan di Kota Bekasi.</p>
-        <p><strong className="text-red-700">Risiko lebih tinggi</strong> jika daerahnya rawan bencana, penduduknya padat, dan banyak sekolah.</p>
+        <p><strong className="text-red-700">Risiko lebih tinggi</strong> jika daerahnya rawan bencana, penduduknya padat dan cepat bertambah, serta banyak sekolah dan guru.</p>
         <p><strong className="text-emerald-700">Risiko lebih rendah</strong> jika banyak rumah sakit dan puskesmas.</p>
-        <p>Riwayat banjir dan longsor tidak ikut dihitung. Hijau bukan berarti bebas bencana.</p>
+        <p>Riwayat bencana tidak ikut dihitung. Hijau bukan berarti bebas bencana.</p>
         <p className="text-[11px] text-slate-400">Sumber: BPS Kota Bekasi, BNPB (inaRISK).</p>
       </div>
       <p className="text-[11px] text-slate-400 font-medium -mb-1">Klik kelas risiko untuk menyaring peta.</p>

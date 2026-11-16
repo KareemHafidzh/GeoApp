@@ -18,7 +18,7 @@ const datasets = [
   {
     id: 'bps',
     title: 'Kota Bekasi Dalam Angka 2026',
-    description: 'Diterbitkan BPS Kota Bekasi. Berisi data 2025 tiap kecamatan: jumlah penduduk, luas wilayah, fasilitas kesehatan, sekolah, dan jumlah kelurahan yang terdampak bencana pada 2021, 2024, dan 2025. Data ini dipakai untuk menentukan tingkat risiko dan ditampilkan saat kamu mengklik wilayah di peta.',
+    description: 'Diterbitkan BPS Kota Bekasi. Berisi data 2025 tiap kecamatan: jumlah penduduk, luas wilayah, fasilitas kesehatan, sekolah, dan jumlah kelurahan yang terdampak bencana pada 2021, 2024, dan 2025. Data penduduk, fasilitas kesehatan, dan sekolah dipakai untuk menentukan tingkat risiko. Data kelurahan terdampak hanya ditampilkan saat kamu mengklik wilayah di peta.',
     url: 'https://bekasikota.bps.go.id/',
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">

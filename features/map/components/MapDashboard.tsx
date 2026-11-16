@@ -117,6 +117,29 @@ export default function MapDashboard() {
   // Interaction States
   const [popupInfo, setPopupInfo] = useState<PopupInfo | null>(null);
   const [hoverInfo, setHoverInfo] = useState<HoverInfo | null>(null);
+
+  // Keep the area card in the middle of the free map area (right of the sidebar when it's showing).
+  // A ResizeObserver re-centres it when it opens and again when "Kenapa …?" expands it.
+  useEffect(() => {
+    if (!popupInfo) return;
+    let observer: ResizeObserver | undefined;
+    const frame = requestAnimationFrame(() => {
+      const el = document.querySelector('.modern-popup');
+      const map = mapRef.current;
+      if (!el || !map) return;
+      observer = new ResizeObserver(() => {
+        const card = el.getBoundingClientRect();
+        const box = map.getContainer().getBoundingClientRect();
+        const sidebar = document.querySelector('[data-tour="sidebar"]')?.getBoundingClientRect();
+        const left = sidebar && sidebar.right > box.left ? sidebar.right : box.left;
+        const dx = card.left + card.width / 2 - (left + box.right) / 2;
+        const dy = card.top + card.height / 2 - (box.top + box.bottom) / 2;
+        map.panBy([dx, dy], { duration: 400 });
+      });
+      observer.observe(el);
+    });
+    return () => { cancelAnimationFrame(frame); observer?.disconnect(); };
+  }, [popupInfo]);
   const [cursorLngLat, setCursorLngLat] = useState<CursorLngLat>({ lng: 0, lat: 0 });
   const [drawnAreaInfo, setDrawnAreaInfo] = useState<DrawnAreaInfo | null>(null);
 
@@ -218,8 +241,6 @@ export default function MapDashboard() {
     const feature = features[0]; 
     if (feature.layer.id !== 'risk-fills') return;
     const props = feature.properties;
-    // Phones: slide the tapped point into the lower part of the screen so the card above it isn't hidden under the top controls.
-    if (window.innerWidth < 640) mapRef.current?.easeTo({ center: event.lngLat, offset: [0, window.innerHeight * 0.3], duration: 400 });
     
     setPopupInfo({
       longitude: event.lngLat.lng,
@@ -246,7 +267,7 @@ export default function MapDashboard() {
       totalBencana: props['Total Bencana (All Years)'] || 0,
       factors: RISK_FACTORS.filter((f) => typeof props[f.key] === 'number').map((f) => ({
         label: f.label,
-        value: props[f.key].toLocaleString('id-ID', { maximumFractionDigits: f.digits }),
+        value: props[f.key].toLocaleString('id-ID', { maximumFractionDigits: f.digits }) + ('unit' in f ? f.unit : ''),
         raises: (props[f.key] > f.median) === (f.sign > 0),
       })),
     });

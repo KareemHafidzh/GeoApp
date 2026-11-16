@@ -15,7 +15,7 @@ export default function KeyStats() {
         <h1 className="font-extrabold text-slate-900 leading-[1.05] tracking-[-0.03em] text-[2.25rem] lg:text-[2.5rem]">
           Peta <span className="text-[#0aab8a]">Risiko Bencana</span> Kota Bekasi
         </h1>
-        <p className="text-slate-500 mt-2 text-[15px] leading-relaxed">Aplikasi peta online untuk melihat kecamatan mana di Kota Bekasi yang paling rawan banjir dan longsor. Warna merah = paling rawan, kuning = sedang, hijau = lebih aman. Tidak perlu login, gratis dibuka dari HP maupun laptop.</p>
+        <p className="text-slate-500 mt-2 text-[15px] leading-relaxed">Aplikasi peta online untuk membandingkan risiko bencana antar kecamatan di Kota Bekasi. Warna merah = risiko lebih tinggi, kuning = sedang, hijau = lebih rendah. Tidak perlu login, gratis dibuka dari HP maupun laptop.</p>
       </div>
 
       <div className="anim-fade-up flex items-center gap-4" style={{ animationDelay: '0.08s' }}>

@@ -28,13 +28,13 @@ export const RISK_LEVELS = [
 // RobustScaler centres on, so "above median" is exactly "pushes the composite score up" (down when sign is -1).
 // ponytail: medians hardcoded from spatial_risk.geojson; recompute when the model data is regenerated.
 export const RISK_FACTORS = [
-  { key: 'Indeks_Bahaya_Bencana', label: 'Indeks bahaya', median: 0.1967, sign: 1, digits: 3 },
-  { key: 'Density', label: 'Kepadatan /km²', median: 12839, sign: 1, digits: 0 },
-  { key: 'Laju Pertumbuhan', label: 'Pertumbuhan %', median: 0.465, sign: 1, digits: 2 },
-  { key: 'SMAK_per_100k', label: 'SMA/K per 100 rb', median: 10.52, sign: 1, digits: 1 },
-  { key: 'SMP_per_100k', label: 'SMP per 100 rb', median: 11.4, sign: 1, digits: 1 },
-  { key: 'Guru_per_100k', label: 'Guru per 100 rb', median: 412.4, sign: 1, digits: 0 },
-  { key: 'Health_per_100k', label: 'Faskes per 100 rb', median: 3.47, sign: -1, digits: 1 },
+  { key: 'Indeks_Bahaya_Bencana', label: 'Rawan bencana', median: 0.1967, sign: 1, digits: 3 },
+  { key: 'Density', label: 'Warga per km²', median: 12839, sign: 1, digits: 0 },
+  { key: 'Laju Pertumbuhan', label: 'Pertumbuhan warga', median: 0.465, sign: 1, digits: 2, unit: '%/thn' },
+  { key: 'SMAK_per_100k', label: 'SMA/SMK', median: 10.52, sign: 1, digits: 1 },
+  { key: 'SMP_per_100k', label: 'SMP', median: 11.4, sign: 1, digits: 1 },
+  { key: 'Guru_per_100k', label: 'Guru', median: 412.4, sign: 1, digits: 0 },
+  { key: 'Health_per_100k', label: 'RS & puskesmas', median: 3.47, sign: -1, digits: 1 },
 ];
 
 // ponytail: hand-maintained, bump when the tiles/GeoJSON are regenerated.

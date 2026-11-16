@@ -163,7 +163,7 @@ export default React.memo(function MapSidebar({
             <h3 className="text-[15px] font-bold text-slate-800 mb-2" style={{ fontFamily: 'Syne, sans-serif' }}>Apa ini?</h3>
             <div className="bg-emerald-50/50 border border-emerald-100 rounded-xl p-3.5 text-slate-600 text-[12.5px] leading-relaxed shadow-sm">
               <p className="mb-2.5">
-                <strong className="text-emerald-700 font-bold">Geodashboard Bekasi</strong> adalah peta untuk melihat <strong className="text-emerald-700 font-bold">wilayah rawan banjir &amp; longsor</strong> di Kota Bekasi. Klik area di peta untuk melihat detailnya.
+                <strong className="text-emerald-700 font-bold">Geodashboard Bekasi</strong> adalah peta untuk <strong className="text-emerald-700 font-bold">membandingkan risiko bencana</strong> antar kecamatan di Kota Bekasi. Klik area di peta untuk melihat detailnya.
               </p>
               <div className="flex flex-col gap-2 mt-3 pt-3 border-t border-emerald-100/60">
                 <div className="flex items-start gap-2.5">

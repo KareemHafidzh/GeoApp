@@ -18,7 +18,7 @@ export default function RiskDistribution() {
         </div>
       ))}
       <p className="text-xs text-slate-500 mt-2 leading-relaxed">
-        Padat penduduk belum tentu rawan: Bekasi Barat paling padat, tetapi tingkat risikonya rendah.
+        Bekasi Barat paling padat, tetapi risikonya rendah karena jumlah sekolah dan gurunya paling sedikit dibanding jumlah warga.
       </p>
     </div>
   );
