@@ -24,6 +24,19 @@ export const RISK_LEVELS = [
   { color: '#1a9850', label: 'Risiko Rendah' },
 ];
 
+// The seven K-Means inputs (thesis notebook GeoAI4). `median` is the median of the 12 kecamatan, which is what
+// RobustScaler centres on, so "above median" is exactly "pushes the composite score up" (down when sign is -1).
+// ponytail: medians hardcoded from spatial_risk.geojson; recompute when the model data is regenerated.
+export const RISK_FACTORS = [
+  { key: 'Indeks_Bahaya_Bencana', label: 'Indeks bahaya', median: 0.1967, sign: 1, digits: 3 },
+  { key: 'Density', label: 'Kepadatan /km²', median: 12839, sign: 1, digits: 0 },
+  { key: 'Laju Pertumbuhan', label: 'Pertumbuhan %', median: 0.465, sign: 1, digits: 2 },
+  { key: 'SMAK_per_100k', label: 'SMA/K per 100 rb', median: 10.52, sign: 1, digits: 1 },
+  { key: 'SMP_per_100k', label: 'SMP per 100 rb', median: 11.4, sign: 1, digits: 1 },
+  { key: 'Guru_per_100k', label: 'Guru per 100 rb', median: 412.4, sign: 1, digits: 0 },
+  { key: 'Health_per_100k', label: 'Faskes per 100 rb', median: 3.47, sign: -1, digits: 1 },
+];
+
 // ponytail: hand-maintained, bump when the tiles/GeoJSON are regenerated.
 export const DATA_UPDATED = 'November 2026';
 export const DATA_CREDITS = `Data: Indonesia Geospasial · BPS Kota Bekasi (Kota Bekasi Dalam Angka 2026) · inaRISK BNPB · OpenStreetMap · Diperbarui ${DATA_UPDATED}`;

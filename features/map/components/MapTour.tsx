@@ -108,9 +108,11 @@ interface MapTourProps {
   /** Whether the sidebar drawer is open — hides the help button so it doesn't overlap. */
   sidebarOpen: boolean;
   sidebarHidden: boolean;
+  /** Slides the legend back in; the legend step calls it so the spotlight never lands on an off-screen card. */
+  onShowLegend: () => void;
 }
 
-export default React.memo(function MapTour({ setSidebarOpen, mapInstance, sidebarOpen, sidebarHidden }: MapTourProps) {
+export default React.memo(function MapTour({ setSidebarOpen, mapInstance, sidebarOpen, sidebarHidden, onShowLegend }: MapTourProps) {
   // Auto-start on first visit. Component is client-only (parent uses ssr:false),
   // so localStorage is safe to read during initialization.
   const [active, setActive] = useState(() => {
@@ -138,8 +140,10 @@ export default React.memo(function MapTour({ setSidebarOpen, mapInstance, sideba
   // Keep the sidebar drawer in sync with the current step (affects mobile only;
   // on desktop the sidebar is always visible via CSS).
   useEffect(() => {
-    if (active) setSidebarOpen(current.sidebar);
-  }, [active, step, current.sidebar, setSidebarOpen]);
+    if (!active) return;
+    setSidebarOpen(current.sidebar);
+    if (current.selector === 'legend') onShowLegend();
+  }, [active, step, current.sidebar, current.selector, setSidebarOpen, onShowLegend]);
 
   // On each step: hide the card, scroll the target into view, then reveal. The
   // spotlight (a CSS-transitioned box) glides toward the target meanwhile.

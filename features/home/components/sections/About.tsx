@@ -30,7 +30,7 @@ export default function About() {
               <strong>Geodashboard Bekasi</strong> adalah peta online yang menunjukkan <strong>kecamatan mana di Kota Bekasi yang paling rawan bencana</strong>, terutama banjir dan longsor. Cocok untuk mahasiswa, warga, maupun siapa saja yang ingin tahu kondisi wilayah tempat tinggalnya.
             </p>
             <p>
-              Tingkat risiko dihitung dengan metode <strong>K-Means</strong> dari data jumlah penduduk, fasilitas, kejadian bencana (BPS, Kota Bekasi Dalam Angka 2026), dan indeks bahaya BNPB (inaRISK). Hasilnya membagi 12 kecamatan menjadi Risiko Tinggi, Sedang, dan Rendah. Penilaian ini perbandingan antar kecamatan, jadi &quot;Risiko Rendah&quot; bukan berarti pasti bebas bencana.
+              Tingkat risiko dihitung dengan metode <strong>K-Means</strong> dari data kepadatan dan pertumbuhan penduduk, fasilitas kesehatan, sekolah dan guru (BPS, Kota Bekasi Dalam Angka 2026), serta indeks bahaya BNPB (inaRISK). Riwayat banjir dan longsor hanya ditampilkan sebagai informasi, tidak ikut dihitung. Hasilnya membagi 12 kecamatan menjadi Risiko Tinggi, Sedang, dan Rendah. Penilaian ini perbandingan antar kecamatan, jadi &quot;Risiko Rendah&quot; bukan berarti pasti bebas bencana.
             </p>
           </div>
 

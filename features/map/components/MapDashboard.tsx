@@ -14,7 +14,7 @@ import type { Feature, FeatureCollection, MultiPolygon, Point, Polygon } from 'g
 // Hooks & Constants
 import { useGeoman } from '@/features/map/hooks/useGeoman';
 import { useMapSearch } from '@/features/map/hooks/useMapSearch';
-import { MAP_STYLE, DEFAULT_VIEW_STATE, RISK_LEVELS, DATA_CREDITS } from '@/features/map/constants';
+import { MAP_STYLE, DEFAULT_VIEW_STATE, RISK_LEVELS, RISK_FACTORS, DATA_CREDITS } from '@/features/map/constants';
 
 // Subcomponents
 import MapSidebar from './MapSidebar';
@@ -89,6 +89,8 @@ export default function MapDashboard() {
   // UI States
   const [sidebarOpen, setSidebarOpen] = useState(false); // drawer below lg
   const [sidebarHidden, setSidebarHidden] = useState(false); // slid away by the user (any size)
+  const [legendHidden, setLegendHidden] = useState(false);
+  const showLegend = useCallback(() => setLegendHidden(false), []);
 
   const hideSidebar = useCallback(() => { setSidebarOpen(false); setSidebarHidden(true); }, []);
   // The tour opens the sidebar to point at it, so that also has to un-hide it.
@@ -241,7 +243,12 @@ export default function MapDashboard() {
       longsor2021: props['Longsor_2021'] || 0,
       longsor2024: props['Longsor_2024'] || 0,
       longsor2025: props['Longsor_2025'] || 0,
-      totalBencana: props['Total Bencana (All Years)'] || 0
+      totalBencana: props['Total Bencana (All Years)'] || 0,
+      factors: RISK_FACTORS.filter((f) => typeof props[f.key] === 'number').map((f) => ({
+        label: f.label,
+        value: props[f.key].toLocaleString('id-ID', { maximumFractionDigits: f.digits }),
+        raises: (props[f.key] > f.median) === (f.sign > 0),
+      })),
     });
   };
 
@@ -281,7 +288,7 @@ export default function MapDashboard() {
   };
 
   return (
-    <div className="relative w-full h-dvh bg-slate-50 overflow-hidden">
+    <div className="relative w-full h-dvh bg-slate-50 overflow-clip">
 
       {/* Floating menu button — brings the sidebar back (drawer below lg, hidden panel at lg) */}
       <button
@@ -339,9 +346,9 @@ export default function MapDashboard() {
         </div>
       )}
 
-      <MapLegend hiddenRisks={hiddenRisks} toggleRisk={toggleRisk} />
+      <MapLegend hiddenRisks={hiddenRisks} toggleRisk={toggleRisk} hidden={legendHidden} setHidden={setLegendHidden} />
 
-      <MapTour setSidebarOpen={setSidebarOpenForTour} mapInstance={mapInstance} sidebarOpen={sidebarOpen} sidebarHidden={sidebarHidden} />
+      <MapTour setSidebarOpen={setSidebarOpenForTour} mapInstance={mapInstance} sidebarOpen={sidebarOpen} sidebarHidden={sidebarHidden} onShowLegend={showLegend} />
 
       <MapEmergency facilities={facilities} nearest={nearest} onNearest={handleNearest} sidebarOpen={sidebarOpen} sidebarHidden={sidebarHidden} />
 

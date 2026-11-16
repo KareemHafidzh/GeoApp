@@ -1,15 +1,16 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { RISK_LEVELS } from '@/features/map/constants';
 
 interface MapLegendProps {
   hiddenRisks: string[];
   toggleRisk: (label: string) => void;
+  hidden: boolean;
+  setHidden: (hidden: boolean | ((h: boolean) => boolean)) => void;
 }
 
-export default React.memo(function MapLegend({ hiddenRisks, toggleRisk }: MapLegendProps) {
-  const [hidden, setHidden] = useState(false);
+export default React.memo(function MapLegend({ hiddenRisks, toggleRisk, hidden, setHidden }: MapLegendProps) {
 
   return (
     <div data-tour="legend" className={`absolute top-4 right-4 z-10 w-[260px] max-w-[calc(100vw-7.5rem)] bg-white/95 backdrop-blur-md rounded-2xl p-4 sm:p-5 shadow-xl border border-slate-200 flex flex-col gap-3 transition-transform duration-300 ease-in-out ${hidden ? 'translate-x-[calc(100%+1rem)]' : ''}`}>
@@ -25,9 +26,14 @@ export default React.memo(function MapLegend({ hiddenRisks, toggleRisk }: MapLeg
       <h3 className="font-extrabold text-slate-900 text-sm tracking-wide uppercase" style={{ fontFamily: 'Syne, sans-serif' }}>
         Informasi Risiko Bencana
       </h3>
-      <p className="text-[13px] text-slate-600 leading-relaxed font-medium">
-        Peta ini menampilkan zona klasifikasi risiko bencana di wilayah Kota Bekasi. Klasifikasi didasarkan pada tingkat risiko yang dipetakan per wilayah.
-      </p>
+      {/* ponytail: wording mirrors the offline K-Means inputs (RISK_FACTORS) — update when the model changes. */}
+      <div className="flex flex-col gap-2 text-[12px] text-slate-600 leading-relaxed">
+        <p className="text-[13px] font-medium">Warna membandingkan 12 kecamatan di Kota Bekasi.</p>
+        <p><strong className="text-red-700">Risiko lebih tinggi</strong> jika daerahnya rawan bencana, penduduknya padat, dan banyak sekolah.</p>
+        <p><strong className="text-emerald-700">Risiko lebih rendah</strong> jika banyak rumah sakit dan puskesmas.</p>
+        <p>Riwayat banjir dan longsor tidak ikut dihitung. Hijau bukan berarti bebas bencana.</p>
+        <p className="text-[11px] text-slate-400">Sumber: BPS Kota Bekasi, BNPB (inaRISK).</p>
+      </div>
       <p className="text-[11px] text-slate-400 font-medium -mb-1">Klik kelas risiko untuk menyaring peta.</p>
       <div className="flex flex-col gap-2.5 mt-1">
         {RISK_LEVELS.map((level) => {

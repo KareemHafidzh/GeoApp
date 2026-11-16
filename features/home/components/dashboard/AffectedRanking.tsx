@@ -10,7 +10,7 @@ export default function AffectedRanking() {
   return (
     <div className={`${card} p-5 anim-fade-up`} style={{ animationDelay: '0.2s' }}>
       <div className="flex items-baseline justify-between gap-2 mb-3">
-        <h3 className="font-bold text-slate-900 text-[15px] leading-snug">Kelurahan terdampak (3 thn)</h3>
+        <h3 className="font-bold text-slate-900 text-[15px] leading-snug">Kelurahan yang terdampak selama 3 tahun</h3>
         <span className="text-[11px] text-slate-400 font-mono shrink-0">6 teratas</span>
       </div>
       <div className="flex flex-col gap-2.5">

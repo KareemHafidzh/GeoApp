@@ -23,6 +23,8 @@ export interface PopupInfo {
   longsor2024: number;
   longsor2025: number;
   totalBencana: number;
+  /** Model inputs for this kecamatan; `raises` = pushes the risk score up. */
+  factors: { label: string; value: string; raises: boolean }[];
 }
 
 export interface HoverInfo {

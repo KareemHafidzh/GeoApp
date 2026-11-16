@@ -28,7 +28,7 @@ export default memo(function HeroDashboard() {
             <RiskGlobe />
           </div>
           <div className="absolute top-3 left-3 hidden sm:flex items-center gap-1.5 bg-white/90 backdrop-blur-sm border border-slate-200 rounded-full px-3 py-1 shadow-sm pointer-events-none font-mono text-[11px] text-emerald-700">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-blink" /> Tampilan 3D · makin tinggi = makin banyak kelurahan terdampak (3 thn)
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-blink" /> Tampilan 3D · makin tinggi = makin banyak kelurahan yang terdampak bencana (3 thn)
           </div>
         </div>
 

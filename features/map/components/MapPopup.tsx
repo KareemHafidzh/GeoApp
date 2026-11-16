@@ -12,7 +12,7 @@ export default function MapPopup({ popupInfo, onClose }: MapPopupProps) {
 
   return (
     <Popup longitude={popupInfo.longitude} latitude={popupInfo.latitude} anchor="bottom" onClose={onClose} closeOnClick={false} maxWidth="min(340px, calc(100vw - 32px))" className="modern-popup">
-      <div className="p-0.5 sm:p-2 min-w-[250px] sm:min-w-[260px]">
+      <div className="p-0.5 sm:p-2 min-w-[250px] sm:min-w-[260px] max-h-[70vh] overflow-y-auto">
         
         {/* Popup Header */}
         <div className="mb-2 sm:mb-4 pr-5">
@@ -29,6 +29,28 @@ export default function MapPopup({ popupInfo, onClose }: MapPopupProps) {
           <div className={`inline-flex items-center px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md border text-[11px] sm:text-xs font-bold tracking-wide ${getRiskColor(popupInfo.riskLabel)}`}>
             {popupInfo.riskLabel}
           </div>
+
+          {/* Why this colour: the model inputs for this kecamatan. Native <details>, no state. */}
+          {popupInfo.factors.length > 0 && (
+            <details className="group rounded-lg border border-slate-200 bg-slate-50 text-[11px] text-slate-600 leading-snug">
+              <summary className="cursor-pointer select-none px-2.5 py-1.5 font-bold text-slate-800 flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
+                Kenapa {popupInfo.riskLabel}?
+                <span className="text-slate-400 transition-transform group-open:rotate-180">▾</span>
+              </summary>
+              <div className="px-2.5 pb-2.5">
+                <p className="mb-1.5">Warna dihitung dari data Kec. {popupInfo.district} di bawah ini, dibanding kecamatan lain. Bukan dari tabel bencana.</p>
+                <ul className="grid grid-cols-2 gap-x-3 gap-y-1">
+                  {popupInfo.factors.map((f) => (
+                    <li key={f.label} className="flex items-baseline justify-between gap-1">
+                      <span className="truncate">{f.label}</span>
+                      <span className={`font-bold whitespace-nowrap ${f.raises ? 'text-red-600' : 'text-emerald-600'}`}>{f.value} {f.raises ? '▲' : '▼'}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-1.5 text-[10px] text-slate-400"><span className="text-red-600">▲</span> menaikkan skor risiko · <span className="text-emerald-600">▼</span> menurunkan. Kecamatan dengan pola serupa dikelompokkan dalam satu kelas.</p>
+              </div>
+            </details>
+          )}
           
           {/* Data Grid */}
           <div className="grid grid-cols-3 sm:grid-cols-2 gap-y-2 sm:gap-y-3 gap-x-3 sm:gap-x-4 pt-2 sm:pt-3 border-t border-slate-100">
@@ -57,10 +79,11 @@ export default function MapPopup({ popupInfo, onClose }: MapPopupProps) {
           {/* Histori Bencana Section */}
           <div className="pt-2 sm:pt-3 border-t border-slate-100">
             <div className="flex items-center justify-between gap-2 mb-1.5 sm:mb-2">
-              <div className="text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-wide sm:tracking-wider" style={{ fontFamily: 'DM Mono, monospace' }}>Kelurahan Terdampak Bencana</div>
+              <div className="text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-wide sm:tracking-wider" style={{ fontFamily: 'DM Mono, monospace' }}>Riwayat Kelurahan Terdampak</div>
               <div className="text-[9px] font-bold text-red-600 bg-red-50 px-1.5 py-0.5 rounded border border-red-100">Total 3 tahun: {popupInfo.totalBencana}</div>
             </div>
             
+            <p className="text-[10px] text-slate-400 mb-1.5">Hanya informasi, tidak memengaruhi warna risiko.</p>
             <div className="overflow-hidden border border-slate-200 rounded-lg">
               <table className="w-full text-left border-collapse">
                 <thead>

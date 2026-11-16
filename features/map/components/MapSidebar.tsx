@@ -74,6 +74,21 @@ export default React.memo(function MapSidebar({
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const layers = [
+    { label: 'Zona Risiko', checked: showRiskLayer, set: setShowRiskLayer, accent: 'accent-[#0aab8a]', tile: 'bg-amber-50 text-amber-500',
+      icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" fillOpacity="0.55" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"><path d="M4 7l6-3 9 3 1 9-7 4-8-3z" /></svg> },
+    { label: 'Batas Kecamatan', checked: showDistrictBorders, set: setShowDistrictBorders, accent: 'accent-slate-800', tile: 'bg-slate-100 text-slate-800',
+      icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 7l6-3 9 3 1 9-7 4-8-3z" /></svg> },
+    { label: 'Batas Kelurahan', checked: showDesaBorders, set: setShowDesaBorders, accent: 'accent-slate-400', tile: 'bg-slate-100 text-blue-900',
+      icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 7l6-3 9 3 1 9-7 4-8-3z" /><path d="M10 4l1 8-7 5M11 12l9 4M11 12l2 8" /></svg> },
+    { label: 'Rumah Sakit', checked: showRumahSakit, set: setShowRumahSakit, accent: 'accent-red-500', tile: 'bg-red-50 text-red-500',
+      icon: <span className="rounded-full border-2 border-white shadow-sm w-3.5 h-3.5 bg-red-500 ring-[5px] ring-red-500/25" /> },
+    { label: 'Puskesmas', checked: showPuskesmas, set: setShowPuskesmas, accent: 'accent-emerald-500', tile: 'bg-emerald-50 text-emerald-500',
+      icon: <span className="rounded-full border-2 border-white shadow-sm w-3 h-3 bg-emerald-500 ring-4 ring-emerald-500/25" /> },
+    { label: 'Sekolah', checked: showSchool, set: setShowSchool, accent: 'accent-blue-500', tile: 'bg-blue-50 text-blue-500',
+      icon: <span className="rounded-full border-2 border-white shadow-sm w-3 h-3 bg-blue-500 ring-4 ring-blue-500/25" /> },
+  ];
+
   return (
     <div data-tour="sidebar" className={`absolute top-0 left-0 bottom-0 z-30 flex flex-col w-[300px] max-w-[88vw] p-3 sm:top-4 sm:left-4 sm:bottom-4 sm:p-0 sm:w-[320px] sm:max-w-none transition-transform duration-300 ease-in-out ${hidden ? '' : 'lg:translate-x-0'} ${isOpen ? 'translate-x-0' : '-translate-x-[110%]'}`}>
       <div className="bg-white/95 backdrop-blur-md border border-slate-200 rounded-2xl shadow-xl flex flex-col h-full overflow-hidden">
@@ -176,42 +191,19 @@ export default React.memo(function MapSidebar({
           {/* Mapset (Layers) Section */}
           <div data-tour="mapset">
             <h3 className="text-[15px] font-bold text-slate-800 mb-3" style={{ fontFamily: 'Syne, sans-serif' }}>Lapisan Peta</h3>
-            <div className="bg-slate-50/50 border border-slate-100 rounded-xl p-3 flex flex-col gap-1">
-              {/* Risk Toggle */}
-              <label className="flex items-center justify-between group cursor-pointer p-2.5 rounded-lg hover:bg-white hover:shadow-sm transition-all border border-transparent hover:border-slate-200">
-                <span className="text-[13px] font-bold text-slate-700" style={{ fontFamily: 'Syne, sans-serif' }}>Zona Risiko</span>
-                <input type="checkbox" className="w-4 h-4 accent-[#0aab8a] cursor-pointer" checked={showRiskLayer} onChange={(e) => setShowRiskLayer(e.target.checked)}/>
-              </label>
-              
-              {/* Kecamatan Borders Toggle */}
-              <label className="flex items-center justify-between group cursor-pointer p-2.5 rounded-lg hover:bg-white hover:shadow-sm transition-all border border-transparent hover:border-slate-200">
-                <span className="text-[13px] font-bold text-slate-700" style={{ fontFamily: 'Syne, sans-serif' }}>Batas Kecamatan</span>
-                <input type="checkbox" className="w-4 h-4 accent-slate-800 cursor-pointer" checked={showDistrictBorders} onChange={(e) => setShowDistrictBorders(e.target.checked)}/>
-              </label>
-              
-              {/* Kelurahan Borders Toggle */}
-              <label className="flex items-center justify-between group cursor-pointer p-2.5 rounded-lg hover:bg-white hover:shadow-sm transition-all border border-transparent hover:border-slate-200">
-                <span className="text-[13px] font-bold text-slate-700" style={{ fontFamily: 'Syne, sans-serif' }}>Batas Kelurahan</span>
-                <input type="checkbox" className="w-4 h-4 accent-slate-400 cursor-pointer" checked={showDesaBorders} onChange={(e) => setShowDesaBorders(e.target.checked)}/>
-              </label>
-
-              {/* Rumah Sakit Toggle */}
-              <label className="flex items-center justify-between group cursor-pointer p-2.5 rounded-lg hover:bg-white hover:shadow-sm transition-all border border-transparent hover:border-slate-200">
-                <span className="text-[13px] font-bold text-slate-700" style={{ fontFamily: 'Syne, sans-serif' }}>Rumah Sakit</span>
-                <input type="checkbox" className="w-4 h-4 accent-red-500 cursor-pointer" checked={showRumahSakit} onChange={(e) => setShowRumahSakit(e.target.checked)}/>
-              </label>
-
-              {/* Puskesmas Toggle */}
-              <label className="flex items-center justify-between group cursor-pointer p-2.5 rounded-lg hover:bg-white hover:shadow-sm transition-all border border-transparent hover:border-slate-200">
-                <span className="text-[13px] font-bold text-slate-700" style={{ fontFamily: 'Syne, sans-serif' }}>Puskesmas</span>
-                <input type="checkbox" className="w-4 h-4 accent-emerald-500 cursor-pointer" checked={showPuskesmas} onChange={(e) => setShowPuskesmas(e.target.checked)}/>
-              </label>
-
-              {/* Sekolah Toggle */}
-              <label className="flex items-center justify-between group cursor-pointer p-2.5 rounded-lg hover:bg-white hover:shadow-sm transition-all border border-transparent hover:border-slate-200">
-                <span className="text-[13px] font-bold text-slate-700" style={{ fontFamily: 'Syne, sans-serif' }}>Sekolah</span>
-                <input type="checkbox" className="w-4 h-4 accent-blue-500 cursor-pointer" checked={showSchool} onChange={(e) => setShowSchool(e.target.checked)}/>
-              </label>
+            <div className="bg-slate-50/50 border border-slate-100 rounded-xl p-2 flex flex-col gap-0.5">
+              {layers.map(({ label, checked, set, accent, tile, icon }) => (
+                <label key={label} className="flex items-center justify-between gap-3 cursor-pointer p-2 rounded-lg hover:bg-white hover:shadow-sm transition-all border border-transparent hover:border-slate-200">
+                  <span className="flex items-center gap-3">
+                    {/* Drawn the way the layer looks on the map; greyed out while the layer is off. */}
+                    <span aria-hidden className={`w-8 h-8 shrink-0 rounded-lg overflow-hidden flex items-center justify-center transition-all ${tile} ${checked ? '' : 'opacity-40 grayscale'}`}>
+                      {icon}
+                    </span>
+                    <span className="text-[13px] font-bold text-slate-700" style={{ fontFamily: 'Syne, sans-serif' }}>{label}</span>
+                  </span>
+                  <input type="checkbox" className={`w-4 h-4 cursor-pointer ${accent}`} checked={checked} onChange={(e) => set(e.target.checked)} />
+                </label>
+              ))}
             </div>
           </div>
 
