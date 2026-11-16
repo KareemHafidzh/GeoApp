@@ -18,7 +18,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="text-slate-400 text-[11px] tracking-wide" style={{ fontFamily: 'DM Mono, monospace' }}>
-          &copy; {year} Kareem Abdul Hafidzh. All rights reserved.
+          &copy; {year} Kareem Abdul Hafidzh. Hak cipta dilindungi.
         </div>
 
       </div>

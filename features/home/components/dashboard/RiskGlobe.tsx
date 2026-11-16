@@ -46,10 +46,10 @@ const by = (name: string) => KECAMATAN.find((k) => k.name === name)!;
 const CALLOUTS = [
   // stem = px between pin and card; staggered by hand so the cards don't stack on each other.
   // phoneStem does the same for the <640px view, where the pins sit closer together (gaps cover the 12px float).
-  { k: by('Bekasi Barat'),   value: '19.135/km²', label: 'Terpadat', icon: ICONS.people, stem: 80, phoneStem: 130 },
-  { k: by('Bekasi Selatan'), value: '15', label: 'Kel. terdampak', icon: ICONS.flood, stem: 24, phoneStem: 24 },
-  { k: by('Bekasi Timur'),   value: '12', label: 'Kel. banjir', icon: ICONS.flood, stem: 60, phoneStem: 78 },
-  { k: by('Jatiasih'),       value: '3', label: 'Kel. longsor', icon: ICONS.slide, stem: 4, phoneStem: 4 },
+  { k: by('Bekasi Barat'),   value: '19.135/km²', label: 'terpadat', icon: ICONS.people, stem: 80, phoneStem: 130 },
+  { k: by('Bekasi Selatan'), value: '15', label: 'kel. terdampak', icon: ICONS.flood, stem: 24, phoneStem: 24 },
+  { k: by('Bekasi Timur'),   value: '12', label: 'kel. banjir', icon: ICONS.flood, stem: 60, phoneStem: 78 },
+  { k: by('Jatiasih'),       value: '3', label: 'kel. longsor', icon: ICONS.slide, stem: 4, phoneStem: 4 },
 ];
 
 // A fixed visualization, not a map: no drag/zoom, the camera only leans a few degrees toward the cursor.

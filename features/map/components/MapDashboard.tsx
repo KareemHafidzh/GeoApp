@@ -43,7 +43,7 @@ const TOOL_HINTS: Record<MapTool, string> = {
   polygon: 'Ketuk peta untuk menambah sudut. Ketuk titik pertama untuk menutup area.',
   circle: 'Ketuk titik pusat, lalu ketuk lagi di tepi untuk menentukan besar lingkaran.',
   rectangle: 'Ketuk satu sudut, lalu ketuk sudut seberangnya.',
-  freehand: 'Ketuk untuk mulai, gerakkan untuk menggambar, lalu ketuk lagi untuk selesai.',
+  freehand: 'Tekan dan seret di peta untuk menggambar area, lalu lepas untuk selesai.',
   edit: 'Seret titik putih pada bentuk untuk mengubah ukuran atau bentuknya.',
   drag: 'Seret bentuk untuk memindahkannya.',
   delete: 'Ketuk bentuk yang ingin dihapus.',
@@ -147,9 +147,12 @@ export default function MapDashboard() {
   [rumahSakitData, puskesmasData]);
 
   // Picking a tool closes the drawer on phones/tablets so the map is free to draw on.
+  // Also drops the area card: it sits on the middle of the shape and would swallow the drag/tap meant for it.
   const pickTool = useCallback((tool: MapTool) => {
     toggleDrawMode(tool);
     setSidebarOpen(false);
+    setDrawnAreaInfo(null);
+    lastHoveredGeomanId.current = null;
   }, [toggleDrawMode]);
 
   const toggleRisk = useCallback((label: string) =>
@@ -250,7 +253,7 @@ export default function MapDashboard() {
     setCursorLngLat({ lng: event.lngLat.lng, lat: event.lngLat.lat });
     
     // Only update when the shape under the pointer changes, so a closed card stays closed while moving inside it.
-    const shape = drawnShapeAt(event.lngLat);
+    const shape = activeDrawMode ? null : drawnShapeAt(event.lngLat); // no area card while a tool is in use
     if ((shape?.key ?? null) !== lastHoveredGeomanId.current) {
       lastHoveredGeomanId.current = shape?.key ?? null;
       setDrawnAreaInfo(shape?.info ?? null);
@@ -283,7 +286,7 @@ export default function MapDashboard() {
       {/* Floating menu button — brings the sidebar back (drawer below lg, hidden panel at lg) */}
       <button
         onClick={() => { setSidebarHidden(false); setSidebarOpen(window.innerWidth < 1024); }}
-        aria-label="Open menu"
+        aria-label="Buka menu"
         className={`absolute top-4 left-4 z-20 flex items-center justify-center w-11 h-11 bg-white/95 backdrop-blur-md border border-slate-200 rounded-xl shadow-lg text-slate-800 transition-opacity ${sidebarOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'} ${sidebarHidden ? '' : 'lg:opacity-0 lg:pointer-events-none'}`}>
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" />
@@ -330,7 +333,7 @@ export default function MapDashboard() {
       {activeDrawMode && (
         <div role="status" className="absolute z-20 top-24 lg:top-4 left-1/2 -translate-x-1/2 w-[calc(100vw-2rem)] max-w-[340px] flex items-center gap-3 bg-slate-900/90 backdrop-blur-md text-white rounded-2xl pl-4 pr-2 py-2 shadow-xl anim-fade-in">
           <p className="flex-1 text-[12px] leading-snug font-medium">{TOOL_HINTS[activeDrawMode]}</p>
-          <button onClick={() => toggleDrawMode(activeDrawMode)} className="shrink-0 px-3 py-1.5 rounded-xl bg-[#0aab8a] hover:bg-[#088c71] text-[12px] font-bold transition-colors">
+          <button onClick={() => pickTool(activeDrawMode)} className="shrink-0 px-3 py-1.5 rounded-xl bg-[#0aab8a] hover:bg-[#088c71] text-[12px] font-bold transition-colors">
             Selesai
           </button>
         </div>
@@ -359,7 +362,7 @@ export default function MapDashboard() {
         <NavigationControl position="bottom-right" visualizePitch />
         <PitchControl />
 
-        <MapAreaInfo drawnAreaInfo={drawnAreaInfo} onClose={() => setDrawnAreaInfo(null)} />
+        <MapAreaInfo drawnAreaInfo={activeDrawMode ? null : drawnAreaInfo} onClose={() => setDrawnAreaInfo(null)} />
         <MapCoordinateBar cursorLngLat={cursorLngLat} />
         <MapHoverTooltip hoverInfo={hoverInfo} />
         <MapPopup popupInfo={popupInfo} onClose={() => setPopupInfo(null)} />

@@ -5,8 +5,8 @@ import { useState } from 'react';
 const datasets = [
   {
     id: 'geospatial',
-    title: 'Indonesia Geospatial',
-    description: 'Indonesia Geospasial provides the administrative boundary Shapefile (kelurahan and kecamatan) of Kota Bekasi. These polygons are the geometry of the risk zoning layer and the kecamatan borders on the map.',
+    title: 'Indonesia Geospasial',
+    description: 'Sumber batas wilayah kelurahan dan kecamatan Kota Bekasi. Batas inilah yang membentuk area berwarna pada peta.',
     url: 'https://www.indonesia-geospasial.com/',
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -18,7 +18,7 @@ const datasets = [
   {
     id: 'bps',
     title: 'Kota Bekasi Dalam Angka 2026',
-    description: 'Published by BPS Kota Bekasi, with 2025 data per kecamatan: population, growth rate 2020–2025, area, health facilities, junior and senior high schools and teachers, and the number of kelurahan affected by natural disasters in 2021, 2024 and 2025 (Potensi Desa). These statistics feed the K-Means clustering and the area information panel.',
+    description: 'Diterbitkan BPS Kota Bekasi. Berisi data 2025 tiap kecamatan: jumlah penduduk, luas wilayah, fasilitas kesehatan, sekolah, dan jumlah kelurahan yang terdampak bencana pada 2021, 2024, dan 2025. Data ini dipakai untuk menentukan tingkat risiko dan ditampilkan saat kamu mengklik wilayah di peta.',
     url: 'https://bekasikota.bps.go.id/',
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -31,7 +31,7 @@ const datasets = [
   {
     id: 'inarisk',
     title: 'inaRISK BNPB',
-    description: 'inaRISK by BNPB (Badan Nasional Penanggulangan Bencana) provides 100 m hazard index rasters (0–1). The mean of all eleven single-hazard indices per kecamatan forms Indeks_Bahaya_Bencana, the hazard feature used in the K-Means clustering.',
+    description: 'inaRISK dari BNPB (Badan Nasional Penanggulangan Bencana) menyediakan indeks tingkat bahaya bencana (skala 0–1). Rata-rata dari sebelas jenis bahaya di tiap kecamatan dipakai sebagai salah satu dasar penentuan tingkat risiko.',
     url: 'https://inarisk.bnpb.go.id/',
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -44,7 +44,7 @@ const datasets = [
   {
     id: 'osm',
     title: 'OpenStreetMap',
-    description: 'OpenStreetMap (OSM) is the source of the school and puskesmas point locations, and powers location search through Nominatim. The CARTO Positron basemap is also built on OSM data.',
+    description: 'Sumber titik lokasi sekolah dan puskesmas, serta mesin pencarian lokasi (Nominatim). Peta dasar CARTO Positron juga dibuat dari data OSM.',
     url: 'https://www.openstreetmap.org/',
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -66,12 +66,12 @@ export default function DataSources() {
           <div className="inline-flex items-center gap-2 text-[#0aab8a] uppercase font-bold mb-4" 
                style={{ fontFamily: 'DM Mono, monospace', fontSize: 11, letterSpacing: '0.12em' }}>
             <span className="w-8 h-px bg-[#0aab8a]" />
-            Data Foundation
+            Sumber Data
             <span className="w-8 h-px bg-[#0aab8a]" />
           </div>
           <h2 className="font-extrabold text-slate-900 leading-[1.1] text-4xl"
               style={{ fontFamily: 'Syne, sans-serif' }}>
-            Powered By Reliable Data
+            Data dari Sumber Terpercaya
           </h2>
         </div>
 
@@ -94,7 +94,7 @@ export default function DataSources() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-[#0aab8a] font-semibold hover:text-emerald-700 transition-colors"
               >
-                Visit Source Website
+                Kunjungi Situs Sumber
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                   <polyline points="15 3 21 3 21 9"></polyline>
@@ -132,7 +132,7 @@ export default function DataSources() {
                     <p className={`text-sm mt-1 transition-colors duration-300 ${
                       isActive ? 'text-slate-300' : 'text-slate-500'
                     }`}>
-                      {isActive ? 'Currently viewing details' : 'Click to view details'}
+                      {isActive ? 'Sedang ditampilkan' : 'Klik untuk melihat detail'}
                     </p>
                   </div>
                 </button>

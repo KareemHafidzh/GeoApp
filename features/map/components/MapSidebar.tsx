@@ -93,14 +93,14 @@ export default React.memo(function MapSidebar({
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
             </svg>
-            {copied ? 'Tersalin!' : 'Share'}
+            {copied ? 'Tersalin!' : 'Bagikan'}
           </button>
           <div className="leading-tight font-extrabold text-slate-900 tracking-wider text-[12px] uppercase text-right" style={{ fontFamily: 'Syne, sans-serif' }}>
             GIS<br/>KOTA<br/>BEKASI
           </div>
         </div>
         <Link href="/" className="mx-4 mt-3 py-2 text-center rounded-lg bg-[#0aab8a] hover:bg-[#088c71] transition-colors text-white text-[12px] font-bold shadow-sm" style={{ fontFamily: 'Syne, sans-serif' }}>
-          Back to Dashboard
+          Kembali ke Beranda
         </Link>
 
         {/* Search Section */}
@@ -145,29 +145,29 @@ export default React.memo(function MapSidebar({
           
           {/* Project Info Section */}
           <div>
-            <h3 className="text-[15px] font-bold text-slate-800 mb-2" style={{ fontFamily: 'Syne, sans-serif' }}>About The Project</h3>
+            <h3 className="text-[15px] font-bold text-slate-800 mb-2" style={{ fontFamily: 'Syne, sans-serif' }}>Apa ini?</h3>
             <div className="bg-emerald-50/50 border border-emerald-100 rounded-xl p-3.5 text-slate-600 text-[12.5px] leading-relaxed shadow-sm">
               <p className="mb-2.5">
-                <strong className="text-emerald-700 font-bold">Geodashboard Bekasi</strong> is a spatial analysis platform utilizing <strong className="text-emerald-700 font-bold">K-Means Machine Learning</strong> to classify disaster risk zones in Kota Bekasi.
+                <strong className="text-emerald-700 font-bold">Geodashboard Bekasi</strong> adalah peta untuk melihat <strong className="text-emerald-700 font-bold">wilayah rawan banjir &amp; longsor</strong> di Kota Bekasi. Klik area di peta untuk melihat detailnya.
               </p>
               <div className="flex flex-col gap-2 mt-3 pt-3 border-t border-emerald-100/60">
                 <div className="flex items-start gap-2.5">
                   <div className="bg-emerald-100/80 p-1 rounded-md shrink-0">
                     <svg className="w-3 h-3 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
                   </div>
-                  <span className="font-medium text-slate-700">Multi-layer Risk Mapping</span>
+                  <span className="font-medium text-slate-700">Banyak lapisan peta</span>
                 </div>
                 <div className="flex items-start gap-2.5">
                   <div className="bg-emerald-100/80 p-1 rounded-md shrink-0">
                     <svg className="w-3 h-3 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
                   </div>
-                  <span className="font-medium text-slate-700">Automated ML Clustering</span>
+                  <span className="font-medium text-slate-700">Risiko dihitung otomatis</span>
                 </div>
                 <div className="flex items-start gap-2.5">
                   <div className="bg-emerald-100/80 p-1 rounded-md shrink-0">
                     <svg className="w-3 h-3 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
                   </div>
-                  <span className="font-medium text-slate-700">Geospatial Area Calculation</span>
+                  <span className="font-medium text-slate-700">Ukur jarak &amp; luas</span>
                 </div>
               </div>
             </div>
@@ -175,23 +175,23 @@ export default React.memo(function MapSidebar({
 
           {/* Mapset (Layers) Section */}
           <div data-tour="mapset">
-            <h3 className="text-[15px] font-bold text-slate-800 mb-3" style={{ fontFamily: 'Syne, sans-serif' }}>Mapset</h3>
+            <h3 className="text-[15px] font-bold text-slate-800 mb-3" style={{ fontFamily: 'Syne, sans-serif' }}>Lapisan Peta</h3>
             <div className="bg-slate-50/50 border border-slate-100 rounded-xl p-3 flex flex-col gap-1">
               {/* Risk Toggle */}
               <label className="flex items-center justify-between group cursor-pointer p-2.5 rounded-lg hover:bg-white hover:shadow-sm transition-all border border-transparent hover:border-slate-200">
-                <span className="text-[13px] font-bold text-slate-700" style={{ fontFamily: 'Syne, sans-serif' }}>Risk Clusters</span>
+                <span className="text-[13px] font-bold text-slate-700" style={{ fontFamily: 'Syne, sans-serif' }}>Zona Risiko</span>
                 <input type="checkbox" className="w-4 h-4 accent-[#0aab8a] cursor-pointer" checked={showRiskLayer} onChange={(e) => setShowRiskLayer(e.target.checked)}/>
               </label>
               
               {/* Kecamatan Borders Toggle */}
               <label className="flex items-center justify-between group cursor-pointer p-2.5 rounded-lg hover:bg-white hover:shadow-sm transition-all border border-transparent hover:border-slate-200">
-                <span className="text-[13px] font-bold text-slate-700" style={{ fontFamily: 'Syne, sans-serif' }}>Kecamatan Borders</span>
+                <span className="text-[13px] font-bold text-slate-700" style={{ fontFamily: 'Syne, sans-serif' }}>Batas Kecamatan</span>
                 <input type="checkbox" className="w-4 h-4 accent-slate-800 cursor-pointer" checked={showDistrictBorders} onChange={(e) => setShowDistrictBorders(e.target.checked)}/>
               </label>
               
               {/* Kelurahan Borders Toggle */}
               <label className="flex items-center justify-between group cursor-pointer p-2.5 rounded-lg hover:bg-white hover:shadow-sm transition-all border border-transparent hover:border-slate-200">
-                <span className="text-[13px] font-bold text-slate-700" style={{ fontFamily: 'Syne, sans-serif' }}>Kelurahan Borders</span>
+                <span className="text-[13px] font-bold text-slate-700" style={{ fontFamily: 'Syne, sans-serif' }}>Batas Kelurahan</span>
                 <input type="checkbox" className="w-4 h-4 accent-slate-400 cursor-pointer" checked={showDesaBorders} onChange={(e) => setShowDesaBorders(e.target.checked)}/>
               </label>
 
@@ -222,7 +222,7 @@ export default React.memo(function MapSidebar({
             <div className="grid grid-cols-3 gap-2 mb-3">
               <button 
                 onClick={() => toggleDrawMode('marker')} 
-                title="Point" 
+                title="Titik" 
                 className={`flex flex-col items-center justify-center p-3 border rounded-xl transition-colors group shadow-sm ${activeDrawMode === 'marker' ? 'bg-green-50 border-[#0aab8a]' : 'bg-white border-slate-200 hover:border-[#0aab8a] hover:bg-green-50/50'}`}
               >
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={activeDrawMode === 'marker' ? 'text-[#0aab8a]' : 'text-slate-700 group-hover:text-[#0aab8a]'}>
@@ -232,7 +232,7 @@ export default React.memo(function MapSidebar({
               </button>
               <button 
                 onClick={() => toggleDrawMode('line')} 
-                title="Line" 
+                title="Garis" 
                 className={`flex flex-col items-center justify-center p-3 border rounded-xl transition-colors group shadow-sm ${activeDrawMode === 'line' ? 'bg-green-50 border-[#0aab8a]' : 'bg-white border-slate-200 hover:border-[#0aab8a] hover:bg-green-50/50'}`}
               >
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={activeDrawMode === 'line' ? 'text-[#0aab8a]' : 'text-slate-700 group-hover:text-[#0aab8a]'}>
@@ -242,7 +242,7 @@ export default React.memo(function MapSidebar({
               </button>
               <button 
                 onClick={() => toggleDrawMode('polygon')} 
-                title="Polygon" 
+                title="Poligon" 
                 className={`flex flex-col items-center justify-center p-3 border rounded-xl transition-colors group shadow-sm ${activeDrawMode === 'polygon' ? 'bg-green-50 border-[#0aab8a]' : 'bg-white border-slate-200 hover:border-[#0aab8a] hover:bg-green-50/50'}`}
               >
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={activeDrawMode === 'polygon' ? 'text-[#0aab8a]' : 'text-slate-700 group-hover:text-[#0aab8a]'}>
@@ -252,7 +252,7 @@ export default React.memo(function MapSidebar({
               </button>
               <button 
                 onClick={() => toggleDrawMode('circle')} 
-                title="Circle" 
+                title="Lingkaran" 
                 className={`flex flex-col items-center justify-center p-3 border rounded-xl transition-colors group shadow-sm ${activeDrawMode === 'circle' ? 'bg-green-50 border-[#0aab8a]' : 'bg-white border-slate-200 hover:border-[#0aab8a] hover:bg-green-50/50'}`}
               >
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={activeDrawMode === 'circle' ? 'text-[#0aab8a]' : 'text-slate-700 group-hover:text-[#0aab8a]'}>
@@ -262,7 +262,7 @@ export default React.memo(function MapSidebar({
               </button>
               <button 
                 onClick={() => toggleDrawMode('rectangle')} 
-                title="Rectangle" 
+                title="Persegi" 
                 className={`flex flex-col items-center justify-center p-3 border rounded-xl transition-colors group shadow-sm ${activeDrawMode === 'rectangle' ? 'bg-green-50 border-[#0aab8a]' : 'bg-white border-slate-200 hover:border-[#0aab8a] hover:bg-green-50/50'}`}
               >
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={activeDrawMode === 'rectangle' ? 'text-[#0aab8a]' : 'text-slate-700 group-hover:text-[#0aab8a]'}>
@@ -272,7 +272,7 @@ export default React.memo(function MapSidebar({
               </button>
               <button 
                 onClick={() => toggleDrawMode('freehand')} 
-                title="Freehand" 
+                title="Gambar bebas" 
                 className={`flex flex-col items-center justify-center p-3 border rounded-xl transition-colors group shadow-sm ${activeDrawMode === 'freehand' ? 'bg-green-50 border-[#0aab8a]' : 'bg-white border-slate-200 hover:border-[#0aab8a] hover:bg-green-50/50'}`}
               >
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={activeDrawMode === 'freehand' ? 'text-[#0aab8a]' : 'text-slate-700 group-hover:text-[#0aab8a]'}>

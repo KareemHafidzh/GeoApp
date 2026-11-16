@@ -13,9 +13,9 @@ export default function KeyStats() {
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-blink" /> Kota Bekasi · Data 2025
         </div>
         <h1 className="font-extrabold text-slate-900 leading-[1.05] tracking-[-0.03em] text-[2.25rem] lg:text-[2.5rem]">
-          Disaster <span className="text-[#0aab8a]">Risk</span> Atlas
+          Peta <span className="text-[#0aab8a]">Risiko Bencana</span> Kota Bekasi
         </h1>
-        <p className="text-slate-500 mt-2 text-[15px] leading-relaxed">K-Means clustering of 12 kecamatan. Real data, safer city.</p>
+        <p className="text-slate-500 mt-2 text-[15px] leading-relaxed">Aplikasi peta online untuk melihat kecamatan mana di Kota Bekasi yang paling rawan banjir dan longsor. Warna merah = paling rawan, kuning = sedang, hijau = lebih aman. Tidak perlu login, gratis dibuka dari HP maupun laptop.</p>
       </div>
 
       <div className="anim-fade-up flex items-center gap-4" style={{ animationDelay: '0.08s' }}>

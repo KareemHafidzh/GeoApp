@@ -12,12 +12,12 @@ export default function About() {
           <div className="inline-flex items-center gap-2 text-[#0aab8a] uppercase font-bold mb-4" 
                style={{ fontFamily: 'DM Mono, monospace', fontSize: 11, letterSpacing: '0.12em' }}>
             <span className="w-8 h-px bg-[#0aab8a]" />
-            About The Project
+            Tentang Aplikasi
           </div>
           <h2 className="font-extrabold text-slate-900 leading-[1.1] tracking-[-0.02em] text-4xl md:text-5xl"
               style={{ fontFamily: 'Syne, sans-serif' }}>
-            Transforming Data into <br />
-            <span className="text-slate-400">Actionable Intelligence.</span>
+            Dari Data Rumit <br />
+            <span className="text-slate-400">Jadi Peta yang Mudah Dibaca.</span>
           </h2>
         </div>
 
@@ -27,10 +27,10 @@ export default function About() {
           {/* Left Text */}
           <div className="space-y-6 text-slate-500 leading-relaxed" style={{ fontSize: 16 }}>
             <p>
-              Geodashboard Bekasi was developed to address the growing need for accurate, accessible, and dynamic disaster risk mapping in Kota Bekasi. By leveraging modern web technologies and geospatial data, we aim to provide local authorities and citizens with clear insights into vulnerable zones.
+              <strong>Geodashboard Bekasi</strong> adalah peta online yang menunjukkan <strong>kecamatan mana di Kota Bekasi yang paling rawan bencana</strong>, terutama banjir dan longsor. Cocok untuk mahasiswa, warga, maupun siapa saja yang ingin tahu kondisi wilayah tempat tinggalnya.
             </p>
             <p>
-              Using <strong>Machine Learning (K-Means Clustering)</strong>, our system combines population and facility statistics from Kota Bekasi Dalam Angka 2026 with the BNPB inaRISK hazard index to group the 12 kecamatan into High, Medium, and Low risk categories. This automated approach ensures that resource allocation and emergency planning are driven by data. The zoning is comparative between kecamatan, so a Low Risk label does not mean free of disaster risk.
+              Tingkat risiko dihitung dengan metode <strong>K-Means</strong> dari data jumlah penduduk, fasilitas, kejadian bencana (BPS, Kota Bekasi Dalam Angka 2026), dan indeks bahaya BNPB (inaRISK). Hasilnya membagi 12 kecamatan menjadi Risiko Tinggi, Sedang, dan Rendah. Penilaian ini perbandingan antar kecamatan, jadi &quot;Risiko Rendah&quot; bukan berarti pasti bebas bencana.
             </p>
           </div>
 
@@ -44,8 +44,8 @@ export default function About() {
                   <polyline points="2 12 12 17 22 12" />
                 </svg>
               </div>
-              <h3 className="font-bold text-slate-900 mb-2" style={{ fontFamily: 'Syne, sans-serif' }}>Multi-Layer Mapping</h3>
-              <p className="text-sm text-slate-500">View administrative boundaries intersecting with education and risk data.</p>
+              <h3 className="font-bold text-slate-900 mb-2" style={{ fontFamily: 'Syne, sans-serif' }}>Banyak Lapisan Peta</h3>
+              <p className="text-sm text-slate-500">Tampilkan batas wilayah, sekolah, rumah sakit, dan zona risiko sekaligus, lalu nyalakan atau matikan sesuai kebutuhan.</p>
             </div>
 
             <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
@@ -55,8 +55,8 @@ export default function About() {
                   <path d="M22 12A10 10 0 0 0 12 2v10z" />
                 </svg>
               </div>
-              <h3 className="font-bold text-slate-900 mb-2" style={{ fontFamily: 'Syne, sans-serif' }}>Data-Driven Insights</h3>
-              <p className="text-sm text-slate-500">Calculate exact land area (Hectares) automatically via Turf.js.</p>
+              <h3 className="font-bold text-slate-900 mb-2" style={{ fontFamily: 'Syne, sans-serif' }}>Berbasis Data</h3>
+              <p className="text-sm text-slate-500">Klik wilayah untuk melihat penduduk, luas, dan riwayat banjir, longsor, serta gempa.</p>
             </div>
           </div>
 

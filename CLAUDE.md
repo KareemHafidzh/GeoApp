@@ -39,7 +39,7 @@ Next.js 16 App Router, React 19, Tailwind CSS v4, TypeScript. Code is organized 
 
 ### Custom hooks (`features/*/`)
 
-- `useGeoman` — wraps `@geoman-io/maplibre-geoman-free` for the measurement tools. **All Geoman built-in UI is disabled** (`uiEnabled: false` for every control, plus `.maplibregl-ctrl-top-left { display: none }` in globals.css); drawing is driven entirely from `MapSidebar`'s custom buttons via `toggleDrawMode`. `clearAll()` intentionally does `window.location.reload()` as a shortcut to wipe drawn shapes (noted in-code) — be aware before "fixing" it.
+- `useGeoman` — wraps `@geoman-io/maplibre-geoman-free` for the measurement tools. **All Geoman built-in UI is disabled** (`uiEnabled: false` for every control, plus `.maplibregl-ctrl-top-left { display: none }` in globals.css); drawing is driven entirely from `MapSidebar`'s custom buttons via `toggleDrawMode`. `toggleDrawMode` takes a `MapTool`: a draw shape or `edit`/`drag`/`delete` (Geoman's global modes); a finished shape switches to `edit` automatically (`gm:create`), and `TOOL_HINTS` in `MapDashboard` is the on-map instruction banner per tool. `freehand` is not a Geoman mode (the free build lacks it): an effect in `useGeoman` collects the drag stroke and imports it as a polygon. `clearAll()` intentionally does `window.location.reload()` as a shortcut to wipe drawn shapes (noted in-code) — be aware before "fixing" it.
 - `useMapSearch` — geocodes via Nominatim, hardcoding `+Bekasi` onto the query, then `flyTo` the result.
 
 ### Responsive conventions

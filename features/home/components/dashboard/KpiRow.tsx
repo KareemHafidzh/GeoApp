@@ -31,8 +31,8 @@ const TILES: { label: string; value: string; unit?: string; extra: ReactNode }[]
       </div>
     ),
   },
-  { label: 'Kel. terdampak banjir (3 thn)', value: fmt(TOTALS.floods), extra: <YearBars values={FLOODS_BY_YEAR} color="#60a5fa" /> },
-  { label: 'Kel. terdampak longsor (3 thn)', value: fmt(TOTALS.landslides), extra: <YearBars values={LANDSLIDES_BY_YEAR} color="#f59e0b" /> },
+  { label: 'Kelurahan kena banjir (3 thn)', value: fmt(TOTALS.floods), extra: <YearBars values={FLOODS_BY_YEAR} color="#60a5fa" /> },
+  { label: 'Kelurahan kena longsor (3 thn)', value: fmt(TOTALS.landslides), extra: <YearBars values={LANDSLIDES_BY_YEAR} color="#f59e0b" /> },
 ];
 
 /** Bottom strip: six compact KPI tiles. */

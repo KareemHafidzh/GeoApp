@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function Navbar({ isScrolled }: { isScrolled: boolean }) {
     const [menuOpen, setMenuOpen] = useState(false);
-    const navItems = ['About', 'Features', 'Contact'];
+    const navItems = [['Cara Pakai', 'cara-pakai'], ['Tentang', 'about'], ['Fitur', 'features'], ['Kontak', 'contact']];
 
     return (
       <header className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-5 sm:px-8 lg:px-12 h-[68px] transition-all duration-300 ${
@@ -24,10 +24,10 @@ export default function Navbar({ isScrolled }: { isScrolled: boolean }) {
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-9">
-          {navItems.map((item) => (
+          {navItems.map(([item, id]) => (
             <a
               key={item}
-              href={`#${item.toLowerCase()}`}
+              href={`#${id}`}
               className="nav-underline text-slate-500 hover:text-slate-900 transition-colors duration-200 text-[11.5px] tracking-[0.1em] uppercase"
               style={{ fontFamily: 'DM Mono, monospace' }}>
               {item}
@@ -41,7 +41,7 @@ export default function Navbar({ isScrolled }: { isScrolled: boolean }) {
             href="/map"
             className="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-900 text-white text-[13px] font-bold rounded-[9px] tracking-wide transition-all duration-200 hover:bg-slate-700 hover:-translate-y-0.5 hover:shadow-lg"
             style={{ fontFamily: 'Syne, sans-serif' }}>
-            Open Map
+            Buka Peta
             <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
               <path d="M2 6.5h9M8 3.5l3 3-3 3"
                 stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -52,7 +52,7 @@ export default function Navbar({ isScrolled }: { isScrolled: boolean }) {
         {/* Mobile Hamburger Button */}
         <button
           onClick={() => setMenuOpen((o) => !o)}
-          aria-label="Toggle navigation menu"
+          aria-label="Buka/tutup menu navigasi"
           aria-expanded={menuOpen}
           className="md:hidden flex items-center justify-center w-10 h-10 -mr-1.5 text-slate-800">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -65,10 +65,10 @@ export default function Navbar({ isScrolled }: { isScrolled: boolean }) {
         {/* Mobile Dropdown Menu */}
         {menuOpen && (
           <div className="md:hidden absolute top-[68px] left-0 right-0 bg-white/97 backdrop-blur-xl border-b border-slate-100 shadow-lg flex flex-col px-5 py-4 gap-1 anim-fade-in">
-            {navItems.map((item) => (
+            {navItems.map(([item, id]) => (
               <a
                 key={item}
-                href={`#${item.toLowerCase()}`}
+                href={`#${id}`}
                 onClick={() => setMenuOpen(false)}
                 className="text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-lg px-3 py-3 text-[13px] tracking-[0.1em] uppercase transition-colors"
                 style={{ fontFamily: 'DM Mono, monospace' }}>
@@ -80,7 +80,7 @@ export default function Navbar({ isScrolled }: { isScrolled: boolean }) {
               onClick={() => setMenuOpen(false)}
               className="mt-2 inline-flex items-center justify-center gap-2 px-5 py-3.5 bg-slate-900 text-white text-[14px] font-bold rounded-xl tracking-wide hover:bg-slate-700 transition-colors"
               style={{ fontFamily: 'Syne, sans-serif' }}>
-              Open Map
+              Buka Peta
               <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
                 <path d="M2 6.5h9M8 3.5l3 3-3 3"
                   stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

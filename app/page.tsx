@@ -2,6 +2,7 @@
 
 import Navbar from '@/features/home/components/layout/Navbar';
 import HeroDashboard from '@/features/home/components/dashboard/HeroDashboard';
+import HowTo from '@/features/home/components/sections/HowTo';
 import About from '@/features/home/components/sections/About';
 import Features from '@/features/home/components/sections/Features';
 import DataSources from '@/features/home/components/sections/DataSources';
@@ -37,6 +38,7 @@ export default function Home() {
       
       <div className="relative z-10">
         <HeroDashboard />
+        <HowTo />
         <About />
         <Features />
         <DataSources />

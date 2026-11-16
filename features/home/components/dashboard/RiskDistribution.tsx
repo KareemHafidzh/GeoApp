@@ -5,7 +5,7 @@ import { card, riskCount } from './ui';
 export default function RiskDistribution() {
   return (
     <div className={`${card} p-5 anim-fade-up`} style={{ animationDelay: '0.28s' }}>
-      <h3 className="font-bold text-slate-900 text-[15px] mb-3">Distribusi risiko (K=3)</h3>
+      <h3 className="font-bold text-slate-900 text-[15px] mb-3">Berapa kecamatan di tiap tingkat risiko?</h3>
       <div className="flex h-2.5 rounded-full overflow-hidden mb-3">
         {RISK_LEVELS.map((r) => <div key={r.label} style={{ flex: riskCount(r.label), background: r.color }} />)}
       </div>
@@ -18,7 +18,7 @@ export default function RiskDistribution() {
         </div>
       ))}
       <p className="text-xs text-slate-500 mt-2 leading-relaxed">
-        Kepadatan tinggi ≠ risiko tinggi: Bekasi Barat terpadat, namun berisiko rendah.
+        Padat penduduk belum tentu rawan: Bekasi Barat paling padat, tetapi tingkat risikonya rendah.
       </p>
     </div>
   );

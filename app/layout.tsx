@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Geodashboard Bekasi — Disaster Risk Mapping Platform",
-  description: "Interactive geospatial platform using K-Means ML clustering to visualize disaster-prone zones across Kota Bekasi.",
+  title: "Geodashboard Bekasi — Peta Risiko Bencana Kota Bekasi",
+  description: "Peta interaktif untuk melihat wilayah rawan banjir dan longsor di 12 kecamatan Kota Bekasi.",
 };
 
 export default function RootLayout({
@@ -23,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="id">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

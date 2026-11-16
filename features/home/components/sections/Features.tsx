@@ -1,8 +1,8 @@
 export default function Features() {
   const features = [
     {
-      title: 'Interactive WebGIS',
-      desc: 'High-performance vector tile rendering powered by MapLibre GL JS for smooth panning and zooming.',
+      title: 'Peta Interaktif',
+      desc: 'Geser, perbesar, dan putar peta dengan lancar, bahkan di HP. Klik wilayah mana pun untuk melihat datanya.',
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon>
@@ -12,8 +12,8 @@ export default function Features() {
       )
     },
     {
-      title: 'K-Means ML Clustering',
-      desc: 'Automated categorization of disaster risk zones (High, Medium, Low) using Python and K-Means algorithms.',
+      title: 'Pengelompokan Risiko Otomatis',
+      desc: 'Setiap kecamatan dikelompokkan komputer ke risiko Tinggi, Sedang, atau Rendah berdasarkan data BPS dan BNPB (metode K-Means).',
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
@@ -23,8 +23,8 @@ export default function Features() {
       )
     },
     {
-      title: 'Real-time Area Calc',
-      desc: 'Instant, precise calculation of administrative land area in hectares utilizing Turf.js geospatial math.',
+      title: 'Ukur Jarak & Luas',
+      desc: 'Gambar garis atau area di peta, lalu lihat panjang dan luasnya langsung. Berguna untuk tugas atau survei.',
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
@@ -42,12 +42,12 @@ export default function Features() {
           <div className="inline-flex items-center gap-2 text-[#0aab8a] uppercase font-bold mb-4" 
                style={{ fontFamily: 'DM Mono, monospace', fontSize: 11, letterSpacing: '0.12em' }}>
             <span className="w-8 h-px bg-[#0aab8a]" />
-            Core Capabilities
+            Kemampuan Utama
             <span className="w-8 h-px bg-[#0aab8a]" />
           </div>
           <h2 className="font-extrabold text-slate-900 leading-[1.1] text-4xl"
               style={{ fontFamily: 'Syne, sans-serif' }}>
-            System Features
+            Fitur Aplikasi
           </h2>
         </div>
 
