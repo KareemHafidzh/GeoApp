@@ -1,4 +1,4 @@
-// Shared tokens for the homepage dashboard cards. Fonts come from Tailwind's font-sans / font-mono (Geist, loaded in app/layout.tsx).
+// Gaya kartu dan fungsi bantu yang dipakai bersama oleh komponen hero beranda.
 import { RISK_LEVELS } from '@/features/map/constants';
 import { KECAMATAN } from '@/features/home/data/stats';
 

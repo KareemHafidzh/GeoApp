@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 
+// Dataset yang dipakai aplikasi, ditampilkan sebagai pilihan di bagian ini.
 const datasets = [
   {
     id: 'geospatial',
@@ -56,6 +57,7 @@ const datasets = [
   }
 ];
 
+// Bagian "Sumber Data": daftar dataset beserta asal dan keterangannya.
 export default function DataSources() {
   const [activeDataset, setActiveDataset] = useState(datasets[0]);
 
@@ -63,25 +65,22 @@ export default function DataSources() {
     <section id="data-sources" className="relative py-10 px-5 sm:px-8 lg:px-12">
       <div className="relative z-10 max-w-[1240px] mx-auto w-full">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 text-[#0aab8a] uppercase font-bold mb-4" 
-               style={{ fontFamily: 'DM Mono, monospace', fontSize: 11, letterSpacing: '0.12em' }}>
+          <div className="inline-flex items-center gap-2 text-[#0aab8a] uppercase font-bold mb-4 font-mono" style={{ fontSize: 11, letterSpacing: '0.12em' }}>
             <span className="w-8 h-px bg-[#0aab8a]" />
             Sumber Data
             <span className="w-8 h-px bg-[#0aab8a]" />
           </div>
-          <h2 className="font-extrabold text-slate-900 leading-[1.1] text-4xl"
-              style={{ fontFamily: 'Syne, sans-serif' }}>
+          <h2 className="font-extrabold text-slate-900 leading-[1.1] text-4xl">
             Data dari Sumber Terpercaya
           </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left Column: Description */}
           <div className="bg-white/70 backdrop-blur-md p-8 md:p-10 rounded-2xl border border-slate-200/60 shadow-sm transition-all duration-500 ease-in-out h-full flex flex-col justify-center">
             <div className="w-16 h-16 rounded-xl bg-slate-900 text-white flex items-center justify-center mb-6 transition-colors duration-300">
               {activeDataset.icon}
             </div>
-            <h3 className="text-3xl font-bold text-slate-900 mb-6" style={{ fontFamily: 'Syne, sans-serif' }}>
+            <h3 className="text-3xl font-bold text-slate-900 mb-6">
               {activeDataset.title}
             </h3>
             <p className="text-slate-500 leading-relaxed text-lg mb-8 min-h-[120px]">
@@ -104,7 +103,6 @@ export default function DataSources() {
             </div>
           </div>
 
-          {/* Right Column: Dataset Selectors */}
           <div className="flex flex-col gap-4">
             {datasets.map((dataset) => {
               const isActive = activeDataset.id === dataset.id;
@@ -126,7 +124,7 @@ export default function DataSources() {
                   <div>
                     <h4 className={`text-xl font-bold transition-colors duration-300 ${
                       isActive ? 'text-white' : 'text-slate-900'
-                    }`} style={{ fontFamily: 'Syne, sans-serif' }}>
+                    }`}>
                       {dataset.title}
                     </h4>
                     <p className={`text-sm mt-1 transition-colors duration-300 ${

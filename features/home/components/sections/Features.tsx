@@ -1,3 +1,4 @@
+// Bagian "Fitur": ringkasan kemampuan halaman peta.
 export default function Features() {
   const features = [
     {
@@ -39,14 +40,12 @@ export default function Features() {
     <section id="features" className="relative py-10 px-5 sm:px-8 lg:px-12">
       <div className="relative z-10 max-w-[1240px] mx-auto w-full">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 text-[#0aab8a] uppercase font-bold mb-4" 
-               style={{ fontFamily: 'DM Mono, monospace', fontSize: 11, letterSpacing: '0.12em' }}>
+          <div className="inline-flex items-center gap-2 text-[#0aab8a] uppercase font-bold mb-4 font-mono" style={{ fontSize: 11, letterSpacing: '0.12em' }}>
             <span className="w-8 h-px bg-[#0aab8a]" />
             Kemampuan Utama
             <span className="w-8 h-px bg-[#0aab8a]" />
           </div>
-          <h2 className="font-extrabold text-slate-900 leading-[1.1] text-4xl"
-              style={{ fontFamily: 'Syne, sans-serif' }}>
+          <h2 className="font-extrabold text-slate-900 leading-[1.1] text-4xl">
             Fitur Aplikasi
           </h2>
         </div>
@@ -57,7 +56,7 @@ export default function Features() {
               <div className="w-12 h-12 rounded-xl bg-slate-900 text-white flex items-center justify-center mb-6 group-hover:bg-[#0aab8a] transition-colors duration-300">
                 {feat.icon}
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3" style={{ fontFamily: 'Syne, sans-serif' }}>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">
                 {feat.title}
               </h3>
               <p className="text-slate-500 leading-relaxed text-sm">

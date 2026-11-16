@@ -1,5 +1,4 @@
-export const TILE_SERVER_URL = process.env.NEXT_PUBLIC_TILE_SERVER_URL || 'http://localhost:8080';
-
+// Peta dasar CartoCDN Positron dan posisi awal kamera (pusat Kota Bekasi).
 export const MAP_STYLE = 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json';
 
 export const DEFAULT_VIEW_STATE = {
@@ -8,6 +7,7 @@ export const DEFAULT_VIEW_STATE = {
   zoom: 11,
 };
 
+// Kelas Tailwind untuk lencana risiko di kartu detail; samakan dengan RISK_LEVELS bila kelas berubah.
 export function getRiskColor(label: string): string {
   switch (label) {
     case 'Risiko Tinggi': return 'bg-red-50 text-red-700 border-red-200';
@@ -17,16 +17,16 @@ export function getRiskColor(label: string): string {
   }
 }
 
-// Single source for risk class colors: drives the legend/filter and the MapLibre fill paint.
+// Sumber tunggal warna kelas risiko: dipakai legenda, filter, dan warna isi zona di peta.
 export const RISK_LEVELS = [
   { color: '#d73027', label: 'Risiko Tinggi' },
   { color: '#fee08b', label: 'Risiko Sedang' },
   { color: '#1a9850', label: 'Risiko Rendah' },
 ];
 
-// The seven K-Means inputs (thesis notebook GeoAI4). `median` is the median of the 12 kecamatan, which is what
-// RobustScaler centres on, so "above median" is exactly "pushes the composite score up" (down when sign is -1).
-// ponytail: medians hardcoded from spatial_risk.geojson; recompute when the model data is regenerated.
+// Tujuh input K-Means (notebook skripsi GeoAI4). `median` = median 12 kecamatan, titik tengah RobustScaler,
+// jadi "di atas median" berarti menaikkan skor risiko (menurunkan bila sign = -1).
+// ponytail: median ditulis manual dari spatial_risk.geojson; hitung ulang bila data model diperbarui.
 export const RISK_FACTORS = [
   { key: 'Indeks_Bahaya_Bencana', label: 'Rawan bencana', median: 0.1967, sign: 1, digits: 3 },
   { key: 'Density', label: 'Warga per km²', median: 12839, sign: 1, digits: 0 },
@@ -37,11 +37,11 @@ export const RISK_FACTORS = [
   { key: 'Health_per_100k', label: 'RS & puskesmas', median: 3.47, sign: -1, digits: 1 },
 ];
 
-// ponytail: hand-maintained, bump when the tiles/GeoJSON are regenerated.
+// ponytail: diisi manual, perbarui saat tiles/GeoJSON dibuat ulang.
 export const DATA_UPDATED = 'November 2026';
 export const DATA_CREDITS = `Data: Indonesia Geospasial · BPS Kota Bekasi (Kota Bekasi Dalam Angka 2026) · inaRISK BNPB · OpenStreetMap · Diperbarui ${DATA_UPDATED}`;
 
-// National emergency numbers (Indonesia). Add the local BPBD Kota Bekasi line once verified.
+// Nomor darurat nasional; tambahkan nomor BPBD Kota Bekasi setelah diverifikasi.
 export const EMERGENCY_CONTACTS = [
   { label: 'Panggilan Darurat', number: '112' },
   { label: 'Ambulans (PSC)', number: '119' },

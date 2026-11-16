@@ -35,7 +35,7 @@ const TILES: { label: string; value: string; unit?: string; extra: ReactNode }[]
   { label: 'Kelurahan kena longsor (3 thn)', value: fmt(TOTALS.landslides), extra: <YearBars values={LANDSLIDES_BY_YEAR} color="#f59e0b" /> },
 ];
 
-/** Bottom strip: six compact KPI tiles. */
+// Baris enam angka ringkas di bawah hero.
 export default function KpiRow() {
   return (
     <div className="md:col-span-2 lg:col-span-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 lg:gap-4">

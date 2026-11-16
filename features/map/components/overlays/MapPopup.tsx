@@ -7,6 +7,7 @@ interface MapPopupProps {
   onClose: () => void;
 }
 
+// Kartu detail kelurahan saat zona diklik: kelas risiko, alasan warnanya, data wilayah, dan riwayat bencana.
 export default function MapPopup({ popupInfo, onClose }: MapPopupProps) {
   if (!popupInfo) return null;
 
@@ -14,23 +15,21 @@ export default function MapPopup({ popupInfo, onClose }: MapPopupProps) {
     <Popup longitude={popupInfo.longitude} latitude={popupInfo.latitude} anchor="bottom" onClose={onClose} closeOnClick={false} maxWidth="min(460px, calc(100vw - 32px))" className="modern-popup">
       <div className="p-0.5 sm:p-2 min-w-[250px] sm:min-w-[440px] max-h-[70vh] overflow-y-auto">
         
-        {/* Popup Header */}
         <div className="mb-2 sm:mb-4 pr-5">
-          <div className="text-[10px] uppercase tracking-widest text-[#0aab8a] font-bold mb-1" style={{ fontFamily: 'DM Mono, monospace' }}>
+          <div className="text-[10px] uppercase tracking-widest text-[#0aab8a] font-bold mb-1 font-mono">
             Kec. {popupInfo.district}
           </div>
-          <h3 className="font-extrabold text-slate-900 text-base sm:text-xl leading-tight" style={{ fontFamily: 'Syne, sans-serif' }}>
+          <h3 className="font-extrabold text-slate-900 text-base sm:text-xl leading-tight">
             {popupInfo.village}
           </h3>
         </div>
         
-        {/* Risk Layer Specific UI */}
         <div className="space-y-2 sm:space-y-3">
           <div className={`inline-flex items-center px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md border text-[11px] sm:text-xs font-bold tracking-wide ${getRiskColor(popupInfo.riskLabel)}`}>
             {popupInfo.riskLabel}
           </div>
 
-          {/* Why this colour: the model inputs for this kecamatan. Native <details>, no state. */}
+          {/* "Kenapa warnanya ini?": nilai input model untuk kecamatan ini, memakai <details> bawaan tanpa state. */}
           {popupInfo.factors.length > 0 && (
             <details className="group rounded-lg border border-slate-200 bg-slate-50 text-[11px] text-slate-600 leading-snug">
               <summary className="cursor-pointer select-none px-2.5 py-1.5 font-bold text-slate-800 flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
@@ -52,34 +51,33 @@ export default function MapPopup({ popupInfo, onClose }: MapPopupProps) {
             </details>
           )}
           
-          {/* Data Grid */}
           <div className="grid grid-cols-3 sm:grid-cols-2 gap-y-2 sm:gap-y-3 gap-x-3 sm:gap-x-4 pt-2 sm:pt-3 border-t border-slate-100">
             <div>
-              <div className="text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-wide sm:tracking-wider mb-0.5 truncate" style={{ fontFamily: 'DM Mono, monospace' }}>Penduduk</div>
+              <div className="text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-wide sm:tracking-wider mb-0.5 truncate font-mono">Penduduk</div>
               <div className="text-[13px] sm:text-sm font-bold text-slate-800">{popupInfo.totalPenduduk?.toLocaleString()}</div>
             </div>
             <div>
-              <div className="text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-wide sm:tracking-wider mb-0.5 truncate" style={{ fontFamily: 'DM Mono, monospace' }}>Pertumbuhan</div>
+              <div className="text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-wide sm:tracking-wider mb-0.5 truncate font-mono">Pertumbuhan</div>
               <div className="text-[13px] sm:text-sm font-bold text-slate-800">{popupInfo.lajuPertumbuhan}%</div>
             </div>
             <div>
-              <div className="text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-wide sm:tracking-wider mb-0.5 truncate" style={{ fontFamily: 'DM Mono, monospace' }}>Total RS</div>
+              <div className="text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-wide sm:tracking-wider mb-0.5 truncate font-mono">Total RS</div>
               <div className="text-[13px] sm:text-sm font-bold text-slate-800">{popupInfo.totalRS}</div>
             </div>
             <div>
-              <div className="text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-wide sm:tracking-wider mb-0.5 truncate" style={{ fontFamily: 'DM Mono, monospace' }}>SMA/K</div>
+              <div className="text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-wide sm:tracking-wider mb-0.5 truncate font-mono">SMA/K</div>
               <div className="text-[13px] sm:text-sm font-bold text-slate-800">{popupInfo.totalSma}</div>
             </div>
             <div className="sm:col-span-2 sm:mt-1">
-              <div className="text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-wide sm:tracking-wider mb-0.5 truncate" style={{ fontFamily: 'DM Mono, monospace' }}>Luas Area</div>
+              <div className="text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-wide sm:tracking-wider mb-0.5 truncate font-mono">Luas Area</div>
               <div className="text-[13px] sm:text-sm font-bold text-slate-800">{popupInfo.luasWilayahKm} km²</div>
             </div>
           </div>
 
-          {/* Histori Bencana Section */}
+          {/* Jumlah kelurahan terdampak per jenis bencana dan tahun. */}
           <div className="pt-2 sm:pt-3 border-t border-slate-100">
             <div className="flex items-center justify-between gap-2 mb-1.5 sm:mb-2">
-              <div className="text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-wide sm:tracking-wider" style={{ fontFamily: 'DM Mono, monospace' }}>Riwayat Kelurahan Terdampak</div>
+              <div className="text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-wide sm:tracking-wider font-mono">Riwayat Kelurahan Terdampak</div>
               <div className="text-[9px] font-bold text-red-600 bg-red-50 px-1.5 py-0.5 rounded border border-red-100">Total 3 tahun: {popupInfo.totalBencana}</div>
             </div>
             
@@ -87,7 +85,7 @@ export default function MapPopup({ popupInfo, onClose }: MapPopupProps) {
             <div className="overflow-hidden border border-slate-200 rounded-lg">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="bg-slate-50 text-[9px] uppercase text-slate-500 border-b border-slate-200" style={{ fontFamily: 'DM Mono, monospace' }}>
+                  <tr className="bg-slate-50 text-[9px] uppercase text-slate-500 border-b border-slate-200 font-mono">
                     <th className="py-1 sm:py-1.5 px-2 font-semibold">Bencana</th>
                     <th className="py-1 sm:py-1.5 px-2 font-semibold text-center border-l border-slate-200">2021</th>
                     <th className="py-1 sm:py-1.5 px-2 font-semibold text-center border-l border-slate-200">2024</th>

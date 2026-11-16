@@ -1,5 +1,6 @@
 
 
+// Isi kartu detail kelurahan yang dibuka saat zona diklik.
 export interface PopupInfo {
   longitude: number;
   latitude: number;
@@ -23,10 +24,11 @@ export interface PopupInfo {
   longsor2024: number;
   longsor2025: number;
   totalBencana: number;
-  /** Model inputs for this kecamatan; `raises` = pushes the risk score up. */
+  /** Input model untuk kecamatan ini; `raises` = ikut menaikkan skor risiko. */
   factors: { label: string; value: string; raises: boolean }[];
 }
 
+// Isi tooltip titik fasilitas saat kursor di atasnya.
 export interface HoverInfo {
   longitude: number;
   latitude: number;
@@ -35,8 +37,9 @@ export interface HoverInfo {
   type: string;
 }
 
+// Luas area gambar dan titik tengahnya, tempat kartu luas ditempel.
 export interface DrawnAreaInfo {
-  longitude: number; // centre of the shape, where the card is pinned
+  longitude: number;
   latitude: number;
   areaKm: string;
   areaM: string;
@@ -47,8 +50,9 @@ export interface CursorLngLat {
   lat: number;
 }
 
-export type DrawMode = 'marker' | 'line' | 'polygon' | 'circle' | 'rectangle' | 'freehand';
-// Draw a new shape, or change one already on the map.
+type DrawMode = 'marker' | 'line' | 'polygon' | 'circle' | 'rectangle' | 'freehand';
+// Alat ukur: gambar bentuk baru, atau ubah bentuk yang sudah ada.
 export type MapTool = DrawMode | 'edit' | 'drag' | 'delete';
 
-export type RiskLabel = 'Risiko Tinggi' | 'Risiko Sedang' | 'Risiko Rendah';
+// Kunci tiap lapisan peta yang bisa dinyalakan/dimatikan dari panel.
+export type LayerKey = 'risk' | 'kecamatan' | 'kelurahan' | 'rumahSakit' | 'puskesmas' | 'sekolah';

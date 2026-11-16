@@ -1,3 +1,4 @@
+// Bagian kontak pembuat aplikasi.
 export default function Contact() {
   return (
     <section id="contact" className="relative py-10 px-5 sm:px-8 lg:px-12 border-t border-slate-100/30">
@@ -7,8 +8,7 @@ export default function Contact() {
           <span className="text-2xl">👋</span>
         </div>
 
-        <h2 className="font-extrabold text-slate-900 leading-[1.1] text-4xl md:text-5xl mb-6"
-            style={{ fontFamily: 'Syne, sans-serif' }}>
+        <h2 className="font-extrabold text-slate-900 leading-[1.1] text-4xl md:text-5xl mb-6">
           Ada Saran atau <br className="hidden md:block" />
           <span className="text-[#0aab8a]">Masukan untuk Kami?</span>
         </h2>
@@ -17,7 +17,6 @@ export default function Contact() {
           Halo, saya Kareem Abdul Hafidzh, pengembang aplikasi ini. Aplikasi ini masih dalam pengembangan, jadi kritik dan saran dari kamu sangat membantu.
         </p>
 
-        {/* Social Links */}
         <div className="flex flex-wrap items-center justify-center gap-4">
           <a href="mailto:kareem.hafidzh@binus.ac.id" 
              className="flex items-center gap-2 px-6 py-3 bg-slate-900 text-white rounded-xl font-medium hover:bg-slate-800 hover:-translate-y-0.5 transition-all shadow-md">

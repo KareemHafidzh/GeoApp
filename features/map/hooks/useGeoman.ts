@@ -9,6 +9,7 @@ import type { Map as MapLibreMap, MapMouseEvent, MapTouchEvent, GeoJSONSource } 
 const FREEHAND = 'freehand-preview';
 const strokeLine = (coordinates: number[][]) => ({ type: 'Feature' as const, properties: {}, geometry: { type: 'LineString' as const, coordinates } });
 
+// Hubungkan Geoman ke peta untuk alat ukur: gambar bentuk, ubah, geser, hapus, dan gambar bebas.
 export function useGeoman(mapInstance: MapLibreMap | null) {
   const geomanRef = useRef<Geoman | null>(null);
   const [activeDrawMode, setActiveDrawMode] = useState<MapTool | null>(null);
@@ -47,8 +48,8 @@ export function useGeoman(mapInstance: MapLibreMap | null) {
     const gm = new Geoman(mapInstance, gmOptions);
     geomanRef.current = gm;
 
-    // A finished shape goes straight into resize mode: its handles appear, so it's obvious it can
-    // still be adjusted. (Deferred: Geoman is still mid-event when gm:create fires.)
+    // Bentuk yang selesai digambar langsung masuk mode ubah ukuran agar pegangannya terlihat.
+    // (Ditunda satu tick karena Geoman masih memproses event saat gm:create terpicu.)
     const onCreate = () => setTimeout(() => {
       gm.disableAllModes();
       gm.enableGlobalEditMode();
@@ -58,8 +59,8 @@ export function useGeoman(mapInstance: MapLibreMap | null) {
     return () => { mapInstance.off('gm:create', onCreate); };
   }, [mapInstance]);
 
-  // Freehand ("Bebas"): Geoman's free build has no freehand mode, so the stroke is collected here
-  // and handed to Geoman as an ordinary polygon — it then measures, moves and deletes like the rest.
+  // Gambar bebas: versi gratis Geoman tidak punya mode ini, jadi goresan dikumpulkan di sini lalu
+  // dimasukkan ke Geoman sebagai poligon biasa yang bisa diukur, digeser, dan dihapus.
   useEffect(() => {
     const map = mapInstance;
     const gm = geomanRef.current;
@@ -72,14 +73,14 @@ export function useGeoman(mapInstance: MapLibreMap | null) {
     let ring: number[][] | null = null;
     let last = { x: 0, y: 0 };
     const down = (e: MapMouseEvent | MapTouchEvent) => {
-      // A second finger means pinch-zoom, not drawing.
+      // Jari kedua berarti cubit-zoom, bukan menggambar.
       if ('touches' in e.originalEvent && e.originalEvent.touches.length > 1) { ring = null; preview.setData(strokeLine([])); return; }
-      e.preventDefault(); // the drag draws instead of panning the map
+      e.preventDefault(); // seretan dipakai untuk menggambar, bukan menggeser peta
       ring = [e.lngLat.toArray()];
       last = e.point;
     };
     const move = (e: MapMouseEvent | MapTouchEvent) => {
-      if (!ring || Math.hypot(e.point.x - last.x, e.point.y - last.y) < 6) return; // a vertex every 6px is plenty
+      if (!ring || Math.hypot(e.point.x - last.x, e.point.y - last.y) < 6) return; // satu titik tiap 6px sudah cukup halus
       last = e.point;
       ring.push(e.lngLat.toArray());
       preview.setData(strokeLine(ring));
@@ -90,7 +91,7 @@ export function useGeoman(mapInstance: MapLibreMap | null) {
       preview.setData(strokeLine([]));
       if (!done || done.length < 3) return;
       gm.features.importGeoJson({ type: 'Feature', properties: { shape: 'polygon' }, geometry: { type: 'Polygon', coordinates: [[...done, done[0]]] } });
-      setActiveDrawMode(null); // one stroke = one area; tap it to read its size
+      setActiveDrawMode(null); // satu goresan = satu area; ketuk untuk melihat luasnya
     };
     map.on('mousedown', down); map.on('touchstart', down);
     map.on('mousemove', move); map.on('touchmove', move);
@@ -112,15 +113,14 @@ export function useGeoman(mapInstance: MapLibreMap | null) {
     if (mode === 'edit') gm.enableGlobalEditMode();
     else if (mode === 'drag') gm.enableGlobalDragMode();
     else if (mode === 'delete') gm.enableGlobalRemovalMode();
-    else if (mode !== 'freehand') gm.enableDraw(mode); // freehand is handled by the effect above
+    else if (mode !== 'freehand') gm.enableDraw(mode); // gambar bebas ditangani efek di atas
     setActiveDrawMode(mode);
   }, [activeDrawMode]);
 
   const clearAll = useCallback(() => {
     geomanRef.current?.disableDraw();
     setActiveDrawMode(null);
-    // Ideally we should use geoman API to remove layers, 
-    // but preserving the original behavior here:
+    // ponytail: muat ulang halaman sebagai cara cepat menghapus semua gambar; ganti dengan gm.features.deleteAll() bila perlu.
     window.location.reload();
   }, []);
 

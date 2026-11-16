@@ -4,10 +4,10 @@ import CtaCard from './CtaCard';
 
 const highRiskAffected = KECAMATAN.filter((k) => k.risk === 'Risiko Tinggi').reduce((a, k) => a + k.affected, 0);
 
-/** Intro column: headline, high-risk count and the call-to-action. */
+// Kolom pembuka: judul, jumlah kecamatan berisiko tinggi, dan tombol buka peta.
 export default function KeyStats() {
   return (
-    <div className="md:col-span-2 lg:col-span-3 flex flex-col gap-5 lg:justify-between">
+    <div className="md:col-span-2 lg:col-span-6 flex flex-col gap-5 lg:justify-between">
       <div className="anim-fade-up">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 font-mono text-[11px] uppercase tracking-[0.1em] mb-3">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-blink" /> Kota Bekasi · Data 2025

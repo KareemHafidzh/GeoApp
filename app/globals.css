@@ -1,7 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
 @import "tailwindcss";
 
-/* Tailwind v4 preflight resets buttons to cursor: default; restore the pointer globally. */
+/* Tailwind v4 mengembalikan kursor tombol ke default; kembalikan kursor tangan untuk semua tombol. */
 @layer base {
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
@@ -32,26 +31,10 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* CSS FOR LANDING PAGE (Keyframes & Utilities) */
-@keyframes scanline {
-  from { top: -1px; }
-  to   { top: 100%; }
-}
-@keyframes pulse-ring {
-  0%   { transform: scale(1);   opacity: 0.5; }
-  100% { transform: scale(2.4); opacity: 0;   }
-}
+/* Animasi masuk dan kedip yang dipakai di beranda dan peta. */
 @keyframes blink {
   0%, 100% { opacity: 1;    }
   50%       { opacity: 0.15; }
-}
-@keyframes float {
-  0%, 100% { transform: translateY(0px);  }
-  50%       { transform: translateY(-12px); }
-}
-@keyframes float-slow {
-  0%, 100% { transform: translateY(0px);  }
-  50%       { transform: translateY(-9px); }
 }
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(28px); }
@@ -61,16 +44,12 @@ body {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
-@keyframes scrollDot {
-  0%, 100% { transform: translateY(0);    opacity: 1;   }
-  50%       { transform: translateY(10px); opacity: 0.3; }
-}
-/* Map tour: content slide-in when switching steps. */
+/* Panduan peta: isi kartu meluncur masuk saat ganti langkah. */
 @keyframes tourContentIn {
   from { opacity: 0; transform: translateY(8px); }
   to   { opacity: 1; transform: translateY(0);   }
 }
-/* Map tour: interactive gesture demonstration (rotate/tilt step). */
+/* Panduan peta: animasi contoh gerakan pada langkah praktik. */
 @keyframes tourSwing {
   0%   { transform: rotate(-32deg); }
   50%  { transform: rotate(32deg);  }
@@ -93,12 +72,7 @@ body {
   45%      { transform: translateY(5px); }
 }
 
-.animate-scanline     { animation: scanline 5s linear infinite; }
-.animate-pulse-ring   { animation: pulse-ring 2.4s ease-out infinite; }
 .animate-blink        { animation: blink 1.8s ease-in-out infinite; }
-.animate-float        { animation: float 6s ease-in-out infinite; }
-.animate-float-slow   { animation: float-slow 7.5s ease-in-out infinite; animation-delay: 1.5s; }
-.animate-scroll-dot   { animation: scrollDot 1.8s ease-in-out infinite; }
 
 .anim-fade-up   { animation: fadeUp 0.65s ease both; }
 .anim-fade-in   { animation: fadeIn 0.9s ease both; }
@@ -118,25 +92,8 @@ body {
 }
 .nav-underline:hover::after { width: 100%; }
 
-.reveal-underline {
-  position: relative;
-  display: inline-block;
-}
-.reveal-underline::after {
-  content: '';
-  position: absolute;
-  bottom: 2px; left: 0;
-  width: 0; height: 5px;
-  border-radius: 3px;
-  background: linear-gradient(90deg, #0aab8a, #6ee7b7);
-  animation: revealBar 0.9s ease both 0.65s forwards;
-}
-@keyframes revealBar {
-  from { width: 0; }
-  to   { width: 100%; }
-}
 
-/* Custom MapLibre Popup Styling for Dashboard */
+/* Gaya kartu detail wilayah (popup MapLibre). */
 .modern-popup .maplibregl-popup-content {
   border-radius: 16px;
   box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
@@ -155,12 +112,12 @@ body {
   background-color: transparent;
   color: #0f172a;
 }
-/* Hide default Geoman controls */
+/* Sembunyikan tombol bawaan Geoman; alat ukur dikendalikan dari panel sendiri. */
 .maplibregl-ctrl-top-left {
   display: none !important;
 }
 
-/* Attribution links are distinguished by color alone (a11y: link-in-text-block). */
+/* Tautan atribusi diberi garis bawah agar tidak hanya dibedakan lewat warna (aksesibilitas). */
 .maplibregl-ctrl.maplibregl-ctrl-attrib a {
   text-decoration: underline;
 }

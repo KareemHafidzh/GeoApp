@@ -1,7 +1,7 @@
 import { RISK_LEVELS } from '@/features/map/constants';
 import { card, riskCount } from './ui';
 
-/** How the 12 kecamatan split across the three K-Means risk classes. */
+// Pembagian 12 kecamatan ke tiga kelas risiko hasil K-Means.
 export default function RiskDistribution() {
   return (
     <div className={`${card} p-5 anim-fade-up`} style={{ animationDelay: '0.28s' }}>

@@ -5,7 +5,7 @@ const STEPS = [
   { n: '4', title: 'Lihat sekitar', desc: 'Nyalakan lapisan Rumah Sakit, Puskesmas, dan Sekolah di panel kiri. Tombol "Darurat" menampilkan nomor penting dan faskes terdekat.' },
 ];
 
-/** Plain-language "how to use" for first-time visitors. */
+// Langkah singkat cara memakai peta untuk pengunjung baru.
 export default function HowTo() {
   return (
     <section id="cara-pakai" className="relative py-10 px-5 sm:px-8 lg:px-12">

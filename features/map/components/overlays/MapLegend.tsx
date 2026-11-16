@@ -10,11 +10,12 @@ interface MapLegendProps {
   setHidden: (hidden: boolean | ((h: boolean) => boolean)) => void;
 }
 
+// Kartu legenda kanan atas: klik kelas risiko untuk menyaring peta, geser ke kanan untuk menyembunyikan.
 export default React.memo(function MapLegend({ hiddenRisks, toggleRisk, hidden, setHidden }: MapLegendProps) {
 
   return (
     <div data-tour="legend" className={`absolute top-4 right-4 z-10 w-[260px] max-w-[calc(100vw-7.5rem)] bg-white/95 backdrop-blur-md rounded-2xl p-4 sm:p-5 shadow-xl border border-slate-200 flex flex-col gap-3 transition-transform duration-300 ease-in-out ${hidden ? 'translate-x-[calc(100%+1rem)]' : ''}`}>
-      {/* Tab on the card's left edge: rides along with it, so it stays on screen as the handle to slide back. */}
+      {/* Tab di tepi kiri ikut bergeser bersama kartu, jadi tetap terlihat sebagai pegangan untuk membukanya lagi. */}
       <button
         onClick={() => setHidden((h) => !h)}
         aria-label={hidden ? 'Tampilkan legenda' : 'Sembunyikan legenda'}
@@ -23,10 +24,10 @@ export default React.memo(function MapLegend({ hiddenRisks, toggleRisk, hidden, 
           <polyline points="9 18 15 12 9 6" />
         </svg>
       </button>
-      <h3 className="font-extrabold text-slate-900 text-sm tracking-wide uppercase" style={{ fontFamily: 'Syne, sans-serif' }}>
+      <h3 className="font-extrabold text-slate-900 text-sm tracking-wide uppercase">
         Informasi Risiko Bencana
       </h3>
-      {/* ponytail: wording mirrors the offline K-Means inputs (RISK_FACTORS) — update when the model changes. */}
+      {/* ponytail: isi teks mengikuti input K-Means (RISK_FACTORS); perbarui bila modelnya berubah. */}
       <div className="flex flex-col gap-2 text-[12px] text-slate-600 leading-relaxed">
         <p className="text-[13px] font-medium">Warna membandingkan 12 kecamatan di Kota Bekasi.</p>
         <p><strong className="text-red-700">Risiko lebih tinggi</strong> jika daerahnya rawan bencana, penduduknya padat dan cepat bertambah, serta banyak sekolah dan guru.</p>
@@ -45,7 +46,7 @@ export default React.memo(function MapLegend({ hiddenRisks, toggleRisk, hidden, 
               aria-pressed={visible}
               className={`flex items-center gap-3 p-2 rounded-lg border text-left transition-all ${visible ? 'bg-slate-50 border-slate-100 hover:border-slate-300' : 'bg-white border-dashed border-slate-200 opacity-45'}`}>
               <span className="w-3.5 h-3.5 rounded-full shadow-sm shrink-0" style={{ background: level.color }}></span>
-              <span className={`text-xs font-bold text-slate-800 ${visible ? '' : 'line-through'}`} style={{ fontFamily: 'Syne, sans-serif' }}>{level.label}</span>
+              <span className={`text-xs font-bold text-slate-800 ${visible ? '' : 'line-through'}`}>{level.label}</span>
             </button>
           );
         })}

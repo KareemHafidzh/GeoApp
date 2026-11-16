@@ -20,10 +20,7 @@ interface MapEmergencyProps {
   sidebarHidden: boolean;
 }
 
-/**
- * Floating "Darurat" button (bottom-left) with
- * emergency phone numbers and a straight-line nearest-facility finder.
- */
+// Tombol "Darurat" mengambang: nomor telepon darurat dan pencari faskes terdekat (jarak garis lurus).
 export default function MapEmergency({ facilities, nearest, onNearest, sidebarOpen, sidebarHidden }: MapEmergencyProps) {
   const [open, setOpen] = useState(false);
   const [status, setStatus] = useState<string | null>(null);
@@ -35,7 +32,7 @@ export default function MapEmergency({ facilities, nearest, onNearest, sidebarOp
     navigator.geolocation.getCurrentPosition(
       ({ coords }) => {
         const from: [number, number] = [coords.longitude, coords.latitude];
-        // ponytail: straight-line distance, not road routing — add OSRM if routes are needed.
+        // ponytail: jarak garis lurus, bukan rute jalan; tambahkan OSRM bila rute dibutuhkan.
         const hit = nearestPoint(point(from), facilities);
         onNearest({
           from,
@@ -54,11 +51,11 @@ export default function MapEmergency({ facilities, nearest, onNearest, sidebarOp
     <div className={`absolute bottom-[6.5rem] left-4 ${sidebarHidden ? '' : 'lg:left-[352px]'} z-50 flex flex-col items-start gap-2 transition-opacity ${sidebarOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
       {open && (
         <div className="w-[280px] max-w-[calc(100vw-2rem)] bg-white/95 backdrop-blur-md border border-slate-200 rounded-2xl shadow-xl p-4 flex flex-col gap-3">
-          <h3 className="font-extrabold text-slate-900 text-sm tracking-wide uppercase" style={{ fontFamily: 'Syne, sans-serif' }}>Kontak Darurat</h3>
+          <h3 className="font-extrabold text-slate-900 text-sm tracking-wide uppercase">Kontak Darurat</h3>
           <div className="grid grid-cols-2 gap-2">
             {EMERGENCY_CONTACTS.map((c) => (
               <a key={c.number} href={`tel:${c.number}`} className="flex flex-col p-2 rounded-lg bg-red-50 border border-red-100 hover:bg-red-100 transition-colors">
-                <span className="text-lg font-extrabold text-red-600 leading-none" style={{ fontFamily: 'DM Mono, monospace' }}>{c.number}</span>
+                <span className="text-lg font-extrabold text-red-600 leading-none font-mono">{c.number}</span>
                 <span className="text-[11px] font-bold text-slate-600 mt-1">{c.label}</span>
               </a>
             ))}
@@ -67,8 +64,7 @@ export default function MapEmergency({ facilities, nearest, onNearest, sidebarOp
           <div className="pt-3 border-t border-slate-100 flex flex-col gap-2">
             <button
               onClick={findNearest}
-              className="w-full py-2.5 bg-[#0aab8a] text-white font-bold text-[13px] rounded-xl hover:bg-[#088c71] transition-colors"
-              style={{ fontFamily: 'Syne, sans-serif' }}>
+              className="w-full py-2.5 bg-[#0aab8a] text-white font-bold text-[13px] rounded-xl hover:bg-[#088c71] transition-colors">
               Cari Faskes Terdekat
             </button>
             {status && <p className="text-[12px] text-slate-500">{status}</p>}
@@ -90,7 +86,7 @@ export default function MapEmergency({ facilities, nearest, onNearest, sidebarOp
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
         </svg>
-        <span className="text-[13px] font-bold" style={{ fontFamily: 'Syne, sans-serif' }}>Darurat</span>
+        <span className="text-[13px] font-bold">Darurat</span>
       </button>
     </div>
   );

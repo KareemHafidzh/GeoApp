@@ -1,11 +1,11 @@
 import { KECAMATAN } from '@/features/home/data/stats';
 import { card, RISK_HEX } from './ui';
 
-// KECAMATAN is already sorted by affected, descending.
+// KECAMATAN sudah terurut dari kelurahan terdampak terbanyak.
 const TOP = KECAMATAN.slice(0, 6);
 const MAX = TOP[0].affected;
 
-/** Top-6 kecamatan by kelurahan affected, bars colored by risk class. */
+// Enam kecamatan dengan kelurahan terdampak terbanyak, batang diwarnai sesuai kelas risiko.
 export default function AffectedRanking() {
   return (
     <div className={`${card} p-5 anim-fade-up`} style={{ animationDelay: '0.2s' }}>

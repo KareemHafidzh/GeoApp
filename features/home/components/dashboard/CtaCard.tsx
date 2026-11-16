@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-/** Call-to-action into the interactive map (/map). */
+// Kartu ajakan membuka halaman peta interaktif (/map).
 export default function CtaCard() {
   return (
     <div className="anim-fade-up rounded-2xl p-5 bg-gradient-to-br from-slate-900 to-emerald-900 text-white" style={{ animationDelay: '0.12s' }}>
