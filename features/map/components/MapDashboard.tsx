@@ -91,7 +91,6 @@ export default function MapDashboard() {
   }, [popupInfo]);
 
   const hideSidebar = useCallback(() => { setSidebarOpen(false); setSidebarHidden(true); }, []);
-  const showLegend = useCallback(() => setLegendHidden(false), []);
   const toggleLayer = useCallback((key: LayerKey) => setVisible((v) => ({ ...v, [key]: !v[key] })), []);
   const toggleRisk = useCallback((label: string) =>
     setHiddenRisks((prev) => prev.includes(label) ? prev.filter((l) => l !== label) : [...prev, label]), []);
@@ -206,7 +205,7 @@ export default function MapDashboard() {
 
       <MapLegend hiddenRisks={hiddenRisks} toggleRisk={toggleRisk} hidden={legendHidden} setHidden={setLegendHidden} />
 
-      <MapTour setSidebarOpen={setSidebarOpenForTour} mapInstance={mapInstance} sidebarOpen={sidebarOpen} sidebarHidden={sidebarHidden} onShowLegend={showLegend} />
+      <MapTour setSidebarOpen={setSidebarOpenForTour} mapInstance={mapInstance} sidebarOpen={sidebarOpen} sidebarHidden={sidebarHidden} setLegendHidden={setLegendHidden} />
 
       <MapEmergency facilities={facilities} nearest={nearest} onNearest={handleNearest} sidebarOpen={sidebarOpen} sidebarHidden={sidebarHidden} />
 

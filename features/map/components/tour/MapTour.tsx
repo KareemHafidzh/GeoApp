@@ -16,12 +16,12 @@ interface MapTourProps {
   mapInstance: MapLibreMap | null;
   sidebarOpen: boolean;
   sidebarHidden: boolean;
-  /** Menggeser legenda kembali masuk sebelum langkah legenda disorot. */
-  onShowLegend: () => void;
+  /** Menggeser legenda masuk (false) atau keluar (true), supaya tidak menutupi peta saat langkah praktik. */
+  setLegendHidden: (hidden: boolean) => void;
 }
 
 // Panduan penggunaan peta: muncul otomatis saat kunjungan pertama dan bisa diputar ulang lewat tombol "?".
-export default React.memo(function MapTour({ setSidebarOpen, mapInstance, sidebarOpen, sidebarHidden, onShowLegend }: MapTourProps) {
+export default React.memo(function MapTour({ setSidebarOpen, mapInstance, sidebarOpen, sidebarHidden, setLegendHidden }: MapTourProps) {
   // Komponen ini hanya berjalan di browser (ssr:false), jadi localStorage aman dibaca di sini.
   const [active, setActive] = useState(() => {
     try {
@@ -42,12 +42,13 @@ export default React.memo(function MapTour({ setSidebarOpen, mapInstance, sideba
   const isLast = step === STEPS.length - 1;
   const current = STEPS[step];
 
-  // Buka/tutup sidebar dan munculkan legenda sesuai kebutuhan langkah aktif.
+  // Buka/tutup sidebar sesuai langkah; legenda dimunculkan untuk langkahnya sendiri dan disembunyikan saat langkah praktik.
   useEffect(() => {
     if (!active) return;
     setSidebarOpen(current.sidebar);
-    if (current.selector === 'legend') onShowLegend();
-  }, [active, step, current.sidebar, current.selector, setSidebarOpen, onShowLegend]);
+    if (current.selector === 'legend') setLegendHidden(false);
+    else if (current.interactive) setLegendHidden(true);
+  }, [active, step, current.sidebar, current.selector, current.interactive, setSidebarOpen, setLegendHidden]);
 
   // Tiap ganti langkah: gulir elemen ke layar, lalu tampilkan kartu setelah laci dan sorotan selesai bergerak.
   useEffect(() => {
@@ -71,12 +72,13 @@ export default React.memo(function MapTour({ setSidebarOpen, mapInstance, sideba
   const finish = useCallback(() => {
     setActive(false);
     setSidebarOpen(false);
+    setLegendHidden(false);
     try {
       localStorage.setItem(STORAGE_KEY, '1');
     } catch {
       /* abaikan */
     }
-  }, [setSidebarOpen]);
+  }, [setSidebarOpen, setLegendHidden]);
 
   const start = useCallback(() => {
     setStep(0);
