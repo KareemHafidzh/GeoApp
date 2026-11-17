@@ -44,9 +44,9 @@ export default function MapPopup({ popupInfo, onClose }: MapPopupProps) {
               </summary>
               <div className="px-2.5 py-2.5">
                 <p className="mb-1.5">Data Kec. {popupInfo.district} dibanding kecamatan lain:</p>
-                <ul className="grid grid-cols-2 gap-x-3 sm:gap-x-5 gap-y-1 text-[10px] sm:text-[11px]">
+                <ul className="grid grid-cols-2 gap-x-2 sm:gap-x-5 gap-y-1 text-[clamp(8px,2.3vw,11px)]">
                   {popupInfo.factors.map((f) => (
-                    <li key={f.label} className="flex flex-wrap items-baseline justify-between gap-x-1">
+                    <li key={f.label} className="flex items-baseline justify-between gap-x-1 whitespace-nowrap">
                       <span>{f.label}</span>
                       <span className={`font-bold whitespace-nowrap ${f.raises ? 'text-red-600' : 'text-emerald-600'}`}>{f.value} {f.raises ? '▲' : '▼'}</span>
                     </li>
