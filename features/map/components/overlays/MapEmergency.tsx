@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { nearestPoint, point } from '@turf/turf';
 import type { FeatureCollection, Point } from 'geojson';
 import { EMERGENCY_CONTACTS } from '@/features/map/constants';
@@ -24,6 +24,17 @@ interface MapEmergencyProps {
 export default function MapEmergency({ facilities, nearest, onNearest, sidebarOpen, sidebarHidden }: MapEmergencyProps) {
   const [open, setOpen] = useState(false);
   const [status, setStatus] = useState<string | null>(null);
+  const boxRef = useRef<HTMLDivElement>(null);
+
+  // Ketuk di luar kartu (peta, sidebar, dll.) menutup kartu kontak.
+  useEffect(() => {
+    if (!open) return;
+    const close = (e: PointerEvent) => {
+      if (!boxRef.current?.contains(e.target as Node)) setOpen(false);
+    };
+    document.addEventListener('pointerdown', close);
+    return () => document.removeEventListener('pointerdown', close);
+  }, [open]);
 
   const findNearest = () => {
     if (!facilities?.features.length) return setStatus('Data fasilitas belum dimuat.');
@@ -48,7 +59,7 @@ export default function MapEmergency({ facilities, nearest, onNearest, sidebarOp
   };
 
   return (
-    <div className={`absolute bottom-[6.5rem] left-4 ${sidebarHidden ? '' : 'lg:left-[352px]'} z-50 flex flex-col items-start gap-2 transition-opacity ${sidebarOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+    <div ref={boxRef} className={`absolute bottom-[6.5rem] left-4 ${sidebarHidden ? '' : 'lg:left-[352px]'} z-50 flex flex-col items-start gap-2 transition-opacity ${sidebarOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
       {open && (
         <div className="w-[280px] max-w-[calc(100vw-2rem)] bg-white/95 backdrop-blur-md border border-slate-200 rounded-2xl shadow-xl p-4 flex flex-col gap-3">
           <h3 className="font-extrabold text-slate-900 text-sm tracking-wide uppercase">Kontak Darurat</h3>
