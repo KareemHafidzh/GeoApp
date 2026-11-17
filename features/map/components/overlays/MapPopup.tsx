@@ -31,12 +31,18 @@ export default function MapPopup({ popupInfo, onClose }: MapPopupProps) {
 
           {/* "Kenapa warnanya ini?": nilai input model untuk kecamatan ini, memakai <details> bawaan tanpa state. */}
           {popupInfo.factors.length > 0 && (
-            <details className="group rounded-lg border border-slate-200 bg-slate-50 text-[11px] text-slate-600 leading-snug">
-              <summary className="cursor-pointer select-none px-2.5 py-1.5 font-bold text-slate-800 flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
-                Kenapa {popupInfo.riskLabel}?
-                <span className="text-slate-400 transition-transform group-open:rotate-180">▾</span>
+            <details className="group rounded-lg border border-blue-200 bg-blue-50/60 text-[11px] text-slate-600 leading-snug">
+              {/* Biru agar terlihat bisa diklik; saat terbuka berubah penuh biru dengan panah putih untuk menutup. */}
+              <summary className="cursor-pointer select-none px-2.5 py-2 font-bold flex items-center justify-between gap-2 list-none [&::-webkit-details-marker]:hidden rounded-lg text-blue-700 hover:bg-blue-100 transition-colors group-open:bg-blue-600 group-open:text-white group-open:hover:bg-blue-700 group-open:rounded-b-none">
+                <span>Kenapa {popupInfo.riskLabel}?</span>
+                <span className="flex items-center gap-1.5 shrink-0">
+                  <span className="hidden group-open:inline text-[10px] font-semibold">Tutup</span>
+                  <span className="flex items-center justify-center w-5 h-5 rounded-full bg-blue-600 text-white group-open:bg-white group-open:text-blue-600 transition-colors">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-200 group-open:rotate-180"><polyline points="6 9 12 15 18 9" /></svg>
+                  </span>
+                </span>
               </summary>
-              <div className="px-2.5 pb-2.5">
+              <div className="px-2.5 py-2.5">
                 <p className="mb-1.5">Data Kec. {popupInfo.district} dibanding kecamatan lain:</p>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-1">
                   {popupInfo.factors.map((f) => (
