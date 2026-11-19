@@ -94,6 +94,11 @@ body {
 
 
 /* Gaya kartu detail wilayah (popup MapLibre). */
+/* Kartu wilayah di atas legenda (z-10), tetapi di bawah latar laci/petunjuk alat (z-20) dan sidebar (z-30). */
+.modern-popup {
+  z-index: 15;
+}
+
 .modern-popup .maplibregl-popup-content {
   border-radius: 16px;
   box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
