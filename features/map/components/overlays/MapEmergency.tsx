@@ -82,7 +82,7 @@ export default function MapEmergency({ facilities, nearest, onNearest, sidebarOp
             {nearest && !status && (
               <div className="text-[12px] text-slate-600 leading-relaxed">
                 <strong className="text-slate-800">{nearest.name}</strong>
-                <br />± {nearest.km.toFixed(2)} km (jarak lurus)
+                <br />± {nearest.km.toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} km (jarak lurus)
                 <button onClick={() => onNearest(null)} className="block mt-1 text-[11px] font-bold text-slate-400 hover:text-slate-600">Hapus garis</button>
               </div>
             )}

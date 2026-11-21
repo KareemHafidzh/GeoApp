@@ -60,11 +60,11 @@ export default function MapPopup({ popupInfo, onClose }: MapPopupProps) {
           <div className="grid grid-cols-3 sm:grid-cols-2 gap-y-2 sm:gap-y-3 gap-x-3 sm:gap-x-4 pt-2 sm:pt-3 border-t border-slate-100">
             <div>
               <div className="text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-wide sm:tracking-wider mb-0.5 truncate font-mono">Penduduk</div>
-              <div className="text-[13px] sm:text-sm font-bold text-slate-800">{popupInfo.totalPenduduk?.toLocaleString()}</div>
+              <div className="text-[13px] sm:text-sm font-bold text-slate-800">{popupInfo.totalPenduduk.toLocaleString('id-ID')}</div>
             </div>
             <div>
               <div className="text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-wide sm:tracking-wider mb-0.5 truncate font-mono">Pertumbuhan</div>
-              <div className="text-[13px] sm:text-sm font-bold text-slate-800">{popupInfo.lajuPertumbuhan}%</div>
+              <div className="text-[13px] sm:text-sm font-bold text-slate-800">{popupInfo.lajuPertumbuhan.toLocaleString('id-ID')}%</div>
             </div>
             <div>
               <div className="text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-wide sm:tracking-wider mb-0.5 truncate font-mono">Total RS</div>
@@ -76,7 +76,7 @@ export default function MapPopup({ popupInfo, onClose }: MapPopupProps) {
             </div>
             <div className="sm:col-span-2 sm:mt-1">
               <div className="text-[9px] sm:text-[10px] text-slate-400 uppercase tracking-wide sm:tracking-wider mb-0.5 truncate font-mono">Luas Area</div>
-              <div className="text-[13px] sm:text-sm font-bold text-slate-800">{popupInfo.luasWilayahKm} km²</div>
+              <div className="text-[13px] sm:text-sm font-bold text-slate-800">{popupInfo.luasWilayahKm.toLocaleString('id-ID')} km²</div>
             </div>
           </div>
 

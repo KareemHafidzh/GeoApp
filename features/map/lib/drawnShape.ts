@@ -15,6 +15,12 @@ export function drawnShapeAt(shapes: Feature[], lng: number, lat: number): { key
   const [longitude, latitude] = centerOfMass(shape).geometry.coordinates;
   return {
     key: String(shape.id ?? JSON.stringify(shape.geometry)),
-    info: { longitude, latitude, areaKm: (m2 / 1e6).toFixed(3), areaM: m2.toLocaleString(undefined, { maximumFractionDigits: 2 }) },
+    // Format Indonesia (9,615 km² · 9.614.823,51 m²), tidak bergantung pada bahasa browser.
+    info: {
+      longitude,
+      latitude,
+      areaKm: (m2 / 1e6).toLocaleString('id-ID', { minimumFractionDigits: 3, maximumFractionDigits: 3 }),
+      areaM: m2.toLocaleString('id-ID', { maximumFractionDigits: 2 }),
+    },
   };
 }
